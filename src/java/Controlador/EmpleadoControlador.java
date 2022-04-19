@@ -62,6 +62,26 @@ public class EmpleadoControlador extends HttpServlet {
                 }
                 break;
 
+            case 2://Metodo de actualizar registro
+                if (EmpDAO.actualizarRegistro()) {
+                    request.setAttribute("MensajeExito", "El Empleado se actualizo correctamente");
+                    request.getRequestDispatcher("ActualizarEmpleado.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("MensajeError", "El Empleado no se actualizo correctamente");
+                    request.getRequestDispatcher("ConsultarEmpleado.jsp").forward(request, response);
+                }
+                
+                break;
+            case 3: //consultar por numero de documento
+                EmpVO = EmpDAO.consultarEmpleados(NumeroDocumento);
+                if (EmpVO != null) {
+                    request.setAttribute("EmpleadoConsultado", EmpVO);
+                    request.getRequestDispatcher("ActualizarEmpleado.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("mensajeError", "El empleado No existe, verifique el documento");
+                    request.getRequestDispatcher("ConsultarEmpleado.jsp").forward(request, response);
+                }
+                break;
         }
 
     }

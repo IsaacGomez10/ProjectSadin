@@ -55,7 +55,7 @@ public class EmpleadoDAO extends Conexion implements Crud {
 
         }
     }
-
+    
     @Override
     public boolean agregarRegistro() {
         try {
@@ -84,21 +84,22 @@ public class EmpleadoDAO extends Conexion implements Crud {
         return operacion;
     }
     
-
+    
+    
+     
     @Override
     public boolean actualizarRegistro() {
         try {
-            sql = "update Empleado set idEmpleado =?, nombres =?, apellido=?, idTipoDcumento=?, numeroDocumento=?, telefono=?, email=?, idcargo=?, numerodocumento=?";
+            sql = "update Empleado set  Nombres =?, Apellidos=?, IdTipoDocumento=?, NumeroDocumento=?, Telefono=?, Email=?, IdLugarexpedicion=? where NumeroDocumento=?";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, IdEmpleado);
-            puente.setString(2, Nombres);
-            puente.setString(3, Apellidos);
-            puente.setString(4, IdTipoDocumento);
-            puente.setString(5, NumeroDocumento);
-            puente.setString(6, Telefono);
-            puente.setString(7, Email);
-            puente.setString(8, IdLugarExpedicion);
-            puente.setString(9, NumeroDocumento);
+            puente.setString(1, Nombres);
+            puente.setString(2, Apellidos);
+            puente.setString(3, IdTipoDocumento);
+            puente.setString(4, NumeroDocumento);
+            puente.setString(5, Telefono);
+            puente.setString(6, Email);
+            puente.setString(7, IdLugarExpedicion);
+            puente.setString(8, NumeroDocumento);
             puente.executeUpdate();
             operacion = true;
         } catch (Exception e) {
@@ -167,4 +168,35 @@ public class EmpleadoDAO extends Conexion implements Crud {
 
         return empVO;
     }
+    
+    
+     public EmpleadoVO consultarEmpleados(String numDocumento){
+        
+        EmpleadoVO empVO = null;
+        
+        try {
+            conexion = this.obtenerConexion();
+            sql = "select * from empleado where NumeroDocumento=?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, numDocumento);
+            mensajero = puente.executeQuery();
+            
+            while(mensajero.next()){
+                empVO = new EmpleadoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(7), mensajero.getString(8));
+            }
+            
+        } catch (SQLException e) {
+                Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE,null,e);
+        }finally{
+            try {
+                this.cerrarConexion();
+            } catch (SQLException e) {
+                Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE,null,e); 
+            }
+        }
+        
+        return empVO;
+    }
+     
+     
 }
