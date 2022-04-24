@@ -25,19 +25,19 @@
 
             <span>Nombres</span><br>
             <input type="text" name="txtNombres" value="<%=empVO.getNombres()%>" readonly="readonly"><br>                        
-            
+
             <span>Apellidos</span><br>
             <input type="text" name="txtApellidos" value="<%=empVO.getApellidos()%>" readonly="readonly"><br>                        
-            
+
             <span>Tipo de documento</span><br>
             <input type="text" name="txtIdTipoDocumento" value="<%=empVO.getIdTipoDocumento()%>" readonly="readonly"><br>                        
-            
+
             <span>Número de Documento</span><br>
             <input type="text" name="txtNumeroDocumento" value="<%=empVO.getNumeroDocumento()%>" readonly="readonly"><br>                        
-            
+
             <span>Télefono</span><br>
             <input type="text" name="txtTelefono" value="<%=empVO.getTelefono()%>" ><br>     
-            
+
             <span>Email</span><br>
             <input type="text" name="txtEmail" value="<%=empVO.getEmail()%>" ><br>                        
 
