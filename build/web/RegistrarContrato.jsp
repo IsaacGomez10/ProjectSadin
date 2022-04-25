@@ -5,6 +5,8 @@
 --%>
 
 
+<%@page import="ModeloVO.DependenciaVO"%>
+<%@page import="ModeloDAO.DependenciaDAO"%>
 <%@page import="ModeloVO.JornadaVO"%>
 <%@page import="ModeloDAO.JornadaDAO"%>
 <%@page import="ModeloVO.TipoContratoVO"%>
@@ -85,6 +87,17 @@
                     for (JornadaVO jornadaVO : jornadaDAO.Listar()) {
                 %>
                 <option value="<%=jornadaVO.getIdJornada()%>"><%=jornadaVO.getJornada()%></option>
+                <%}%>
+            </select><br>
+            
+            <span>Dependencia</span><br>
+            <select aria-required="true" name="txtIdJornada">
+                <option selected disabled>Seleccione...</option>
+                <%
+                    DependenciaDAO depenDAO = new DependenciaDAO();
+                    for (DependenciaVO depenVO : depenDAO.Listar()) {
+                %>
+                <option value="<%=depenVO.getIdDependencia()%>"><%=depenVO.getDependencia()%></option>
                 <%}%>
             </select><br>
 

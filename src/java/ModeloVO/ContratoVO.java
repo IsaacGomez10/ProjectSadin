@@ -10,13 +10,13 @@ package ModeloVO;
  * @author Sena
  */
 public class ContratoVO {
-    
-    private String IdContrato, FechaContratacion, FechaFinalizacion, Salario, IdHorario, IdCargo, IdTipoContrato, IdEmpleado, IdJornada;
+
+    private String IdContrato, FechaContratacion, FechaFinalizacion, Salario, IdHorario, IdCargo, IdTipoContrato, IdEmpleado, IdJornada, IdDependencia;
 
     public ContratoVO() {
     }
 
-    public ContratoVO(String IdContrato, String FechaContratacion, String FechaFinalizacion, String Salario, String IdHorario, String IdCargo, String IdTipoContrato, String IdEmpleado, String IdJornada) {
+    public ContratoVO(String IdContrato, String FechaContratacion, String FechaFinalizacion, String Salario, String IdHorario, String IdCargo, String IdTipoContrato, String IdEmpleado, String IdJornada, String IdDependencia) {
         this.IdContrato = IdContrato;
         this.FechaContratacion = FechaContratacion;
         this.FechaFinalizacion = FechaFinalizacion;
@@ -26,6 +26,15 @@ public class ContratoVO {
         this.IdTipoContrato = IdTipoContrato;
         this.IdEmpleado = IdEmpleado;
         this.IdJornada = IdJornada;
+        this.IdDependencia = IdDependencia;
+    }
+
+    public String getIdDependencia() {
+        return IdDependencia;
+    }
+
+    public void setIdDependencia(String IdDependencia) {
+        this.IdDependencia = IdDependencia;
     }
 
     public String getIdContrato() {
@@ -100,5 +109,4 @@ public class ContratoVO {
         this.IdJornada = IdJornada;
     }
 
-    
 }

@@ -30,7 +30,7 @@ public class CargoDAO extends Conexion implements Crud{
     private boolean operacion = false;
     private String sql;
 
-    private String IdCargo = "", NombreCargo = "", DescripcionCargo = "", Dependencia ="";
+    private String IdCargo = "", NombreCargo = "", DescripcionCargo = "";
 
     public CargoDAO() {
     }
@@ -47,7 +47,6 @@ public class CargoDAO extends Conexion implements Crud{
             IdCargo = carVO.getIdCargo();
             NombreCargo = carVO.getNombreCargo();
             DescripcionCargo = carVO.getDescripcionCargo();
-            Dependencia = carVO.getDependencia();
 
         } catch (Exception e) {
             Logger.getLogger(CargoDAO.class.getName()).log(Level.SEVERE, null, e);
@@ -58,11 +57,10 @@ public class CargoDAO extends Conexion implements Crud{
     public boolean agregarRegistro() {
         
         try {
-            sql = "insert into cargo(NombreCargo,DescripcionCargo,Dependencia) values(?,?,?)";
+            sql = "insert into cargo(NombreCargo,DescripcionCargo) values(?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, NombreCargo);
             puente.setString(2, DescripcionCargo);
-            puente.setString(3, Dependencia);
             puente.executeUpdate();
             operacion = true;
 
@@ -85,11 +83,10 @@ public class CargoDAO extends Conexion implements Crud{
         
         try {
 
-            sql = "update cargo set NombreCargo,Descripcioncargo,Dependencia where IdCargo=?";
+            sql = "update cargo set NombreCargo,Descripcioncargo where IdCargo=?";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, NombreCargo);
             puente.setString(2, DescripcionCargo);
-            puente.setString(3, Dependencia);
             puente.setString(4, IdCargo);
             puente.executeUpdate();
             operacion = true;

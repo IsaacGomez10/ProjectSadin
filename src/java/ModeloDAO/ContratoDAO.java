@@ -29,7 +29,7 @@ public class ContratoDAO extends Conexion implements Crud {
     private boolean operacion = false;
     private String sql;
 
-    private String IdContrato = "", FechaContratacion = "", FechaFinalizacion = "", Salario = "", IdHorario = "", IdCargo = "", IdTipoContrato = "", IdEmpleado = "", IdJornada = "";
+    private String IdContrato = "", FechaContratacion = "", FechaFinalizacion = "", Salario = "", IdHorario = "", IdCargo = "", IdTipoContrato = "", IdEmpleado = "", IdJornada = "",IdDependencia = "";
 
     public ContratoDAO() {
     }
@@ -52,6 +52,7 @@ public class ContratoDAO extends Conexion implements Crud {
             IdTipoContrato = conVO.getIdTipoContrato();
             IdEmpleado = conVO.getIdEmpleado();
             IdJornada = conVO.getIdJornada();
+            IdDependencia = conVO.getIdDependencia();
 
         } catch (Exception e) {
             Logger.getLogger(ContratoDAO.class.getName()).log(Level.SEVERE, null, e);
@@ -63,7 +64,7 @@ public class ContratoDAO extends Conexion implements Crud {
         
         try {
 
-            sql = "insert into contrato(FechaContratacion, FechaFinalizacion, Salario, IdHorario, IdCargo, IdTipoContrato, IdEmpleado, IdJornada) values(?,?,?,?,?,?,?,?)";
+            sql = "insert into contrato(FechaContratacion, FechaFinalizacion, Salario, IdHorario, IdCargo, IdTipoContrato, IdEmpleado, IdJornada,IdDependencia) values(?,?,?,?,?,?,?,?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, FechaContratacion);
             puente.setString(2, FechaFinalizacion);
@@ -73,6 +74,7 @@ public class ContratoDAO extends Conexion implements Crud {
             puente.setString(6, IdTipoContrato);
             puente.setString(7, IdEmpleado);
             puente.setString(8, IdJornada);
+            puente.setString(9, IdDependencia);
             puente.executeUpdate();
             operacion = true;
 

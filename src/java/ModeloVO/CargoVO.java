@@ -11,7 +11,7 @@ package ModeloVO;
  */
 public class CargoVO {
     
-    private String IdCargo, NombreCargo, DescripcionCargo,Dependencia;
+    private String IdCargo, NombreCargo, DescripcionCargo;
 
     public CargoVO() {
     }
@@ -21,11 +21,10 @@ public class CargoVO {
         this.NombreCargo = NombreCargo;
     }
 
-    public CargoVO(String IdCargo, String NombreCargo, String DescripcionCargo, String Dependencia) {
+    public CargoVO(String IdCargo, String NombreCargo, String DescripcionCargo) {
         this.IdCargo = IdCargo;
         this.NombreCargo = NombreCargo;
         this.DescripcionCargo = DescripcionCargo;
-        this.Dependencia = Dependencia;
     }
 
     public String getIdCargo() {
@@ -51,15 +50,5 @@ public class CargoVO {
     public void setDescripcionCargo(String DescripcionCargo) {
         this.DescripcionCargo = DescripcionCargo;
     }
-
-    public String getDependencia() {
-        return Dependencia;
-    }
-
-    public void setDependencia(String Dependencia) {
-        this.Dependencia = Dependencia;
-    }
-
-    
     
 }

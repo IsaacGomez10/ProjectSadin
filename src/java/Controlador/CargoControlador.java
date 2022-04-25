@@ -38,9 +38,9 @@ public class CargoControlador extends HttpServlet {
         String IdCargo = request.getParameter("txtIdCargo");
         String NombreCargo = request.getParameter("txtNombreCargo");
         String DescripcionCargo = request.getParameter("txtDescripcionCargo");
-        String Dependencia = request.getParameter("txtDependencia");
+
         
-        CargoVO carVO = new CargoVO(IdCargo, NombreCargo, DescripcionCargo, Dependencia);
+        CargoVO carVO = new CargoVO(IdCargo, NombreCargo, DescripcionCargo);
         CargoDAO carDAO = new CargoDAO(carVO);
         
         int opcion = Integer.parseInt(request.getParameter("opcion"));

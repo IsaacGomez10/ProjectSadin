@@ -46,9 +46,10 @@ public class ContratoControlador extends HttpServlet {
         String IdTipoContrato = request.getParameter("txtIdTipoContrato");
         String IdEmpleado = request.getParameter("txtIdEmpleado");
         String IdJornada = request.getParameter("txtIdJornada");
+        String IdDependencia = request.getParameter("txtDependencia");
 
         //2. Quien tiene los datos de forma segura? VO
-        ContratoVO conVO = new ContratoVO(IdContrato, FechaContratacion, FechaFinalizacion, Salario, IdHorario, IdCargo, IdTipoContrato, IdEmpleado, IdJornada);
+        ContratoVO conVO = new ContratoVO(IdContrato, FechaContratacion, FechaFinalizacion, Salario, IdHorario, IdCargo, IdTipoContrato, IdEmpleado, IdJornada, IdDependencia);
         //3. Quien hace las operaciones? DAO
         ContratoDAO conDAO = new ContratoDAO(conVO);
         
