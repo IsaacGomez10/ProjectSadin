@@ -11,6 +11,11 @@ public final class CertificadoSolicitud_jsp extends org.apache.jasper.runtime.Ht
 
   private static java.util.List<String> _jspx_dependants;
 
+  static {
+    _jspx_dependants = new java.util.ArrayList<String>(1);
+    _jspx_dependants.add("/./ErrorDatosJava/ErrorDatosJava.jsp");
+  }
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
@@ -48,30 +53,62 @@ public final class CertificadoSolicitud_jsp extends org.apache.jasper.runtime.Ht
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>JSP Page</title>\n");
+      out.write("        <title>Certificación</title>\n");
+      out.write("        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css\">\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        <form method=\"post\" action=\"Certificacion\">\n");
       out.write("\n");
+      out.write("        <form method=\"post\" action=\"Certificacion\">\n");
+      out.write("            <div id=\"limpiar\">\n");
       out.write("            <span>Número de Documento</span><br>\n");
-      out.write("            <input type=\"text\" name=\"txtNumeroDocumento\" placeholder=\"Ingrese documento\"><br>\n");
+      out.write("            <input type=\"text\" name=\"txtNumeroDocumento\" placeholder=\"Ingrese documento\">\n");
+      out.write("            </div>\n");
       out.write("            <input type=\"hidden\" value=\"1\" name=\"opcion\">\n");
-      out.write("            <button>Consultar</button>\n");
+      out.write("            <br><br>\n");
+      out.write("\n");
+      out.write("            <!--Captcha-->\n");
+      out.write("            <div class=\"captcha-container\">\n");
+      out.write("                <div class=\"header\">Verificar Captcha</div>\n");
+      out.write("                <div class=\"securityCode\">\n");
+      out.write("                    <p id=\"code\"></p>\n");
+      out.write("                    <div class=\"icons\">\n");
+      out.write("                        <span class=\"readText\">\n");
+      out.write("                            <i class=\"fas fa-headphones\"></i>\n");
+      out.write("                        </span>\n");
+      out.write("                        <span class=\"changeText\">\n");
+      out.write("                            <i class=\"fas fa-sync-alt\"></i>\n");
+      out.write("                        </span>\n");
+      out.write("                    </div>\n");
+      out.write("                </div>\n");
+      out.write("                <div class=\"userInput\">\n");
+      out.write("                    <input type=\"text\" placeholder=\"Ingrese captcha\" ><br>\n");
+      out.write("                    <button type=\"submit\" class=\"btn\">Confirmar</button>\n");
+      out.write("                </div>\n");
+      out.write("            </div>\n");
       out.write("\n");
       out.write("        </form><br>\n");
-      out.write("\n");
-      out.write("        <div>\n");
-      out.write("            ");
+      out.write("        \n");
+      out.write("        ");
+      out.write("<div>\n");
+      out.write("    ");
 
-                if (request.getAttribute("mensajeError") != null) {
+    if (request.getAttribute("mensajeError") != null) {
       out.write("\n");
-      out.write("            ");
+      out.write("    <script>\n");
+      out.write("        alert('");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mensajeError}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("');\n");
+      out.write("    </script>\n");
       out.write("\n");
-      out.write("            ");
+      out.write("    ");
  }
       out.write("\n");
-      out.write("        </div><br>\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("        <script src=\"https://code.responsivevoice.org/responsivevoice.js\"></script>\n");
+      out.write("        <script src=\"./JavaScript/ReCaptcha.js\"></script>\n");
+      out.write("\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

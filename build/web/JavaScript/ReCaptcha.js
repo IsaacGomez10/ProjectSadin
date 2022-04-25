@@ -1,48 +1,52 @@
-//Recaptcha Solicitar Certificado, Registro de funcionario y login
-const captcha = document.querySelector(".captcha"),
-reloadBtn = document.querySelector(".reload-btn"),
-inputField = document.querySelector(".input-area input"),
-checkBtn = document.querySelector(".check-btn"),
-statusTxt = document.querySelector(".status-text");
+const changeTextBtn = document.querySelector('.changeText') ;
+const readTextBtn = document.querySelector('.readText') ;
+const code = document.querySelector('#code') ;
+const input = document.querySelector('.userInput input') ;
+const submitBtn = document.querySelector('.btn') ;
 
-//storing all captcha characters in array
-let allCharacters = ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O',
-                     'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd',
-                     'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
-                     't', 'u', 'v', 'w', 'x', 'y', 'z', 0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-function getCaptcha(){
-  for (let i = 0; i < 6; i++) { //getting 6 random characters from the array
-    let randomCharacter = allCharacters[Math.floor(Math.random() * allCharacters.length)];
-    captcha.innerText += ` ${randomCharacter}`; //passing 6 random characters inside captcha innerText
-  }
-}
-getCaptcha(); //calling getCaptcha when the page open
-//calling getCaptcha & removeContent on the reload btn click
-reloadBtn.addEventListener("click", ()=>{
-  removeContent();
-  getCaptcha();
-});
+changeTextBtn.addEventListener('click' , () => {
+    code.textContent = createCaptcha() ;
+}) ;
+window.addEventListener('load' , () => {
+    code.textContent = createCaptcha() ;
+}) ;
 
-checkBtn.addEventListener("click", e =>{
-  e.preventDefault(); //preventing button from it's default behaviour
-  statusTxt.style.display = "block";
-  //adding space after each character of user entered values because I've added spaces while generating captcha
-  let inputVal = inputField.value.split('').join(' ');
-  if(inputVal == captcha.innerText){ //if captcha matched
-    statusTxt.style.color = "#181818";
-    statusTxt.innerText = "No eres un robot.";
-    setTimeout(()=>{ //calling removeContent & getCaptcha after 2 seconds
-      removeContent();
-      getCaptcha();
-    }, 2000);
-  }else{
-    statusTxt.style.color = "#181818";
-    statusTxt.innerText = "Captcha no coincide. Por favor Intente de nuevo";
-  }
-});
+function createCaptcha()  {
+    let letters = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+    'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','u','v','w','x','y','z', '0','1','2','3','4','5','6','7','8','9'];
+    let a = letters[Math.floor(Math.random() * letters.length)] ;
+    let b = letters[Math.floor(Math.random() * letters.length)] ;
+    let c = letters[Math.floor(Math.random() * letters.length)] ;
+    let d = letters[Math.floor(Math.random() * letters.length)] ;
+    let e = letters[Math.floor(Math.random() * letters.length)] ;
+    let f = letters[Math.floor(Math.random() * letters.length)] ;
+    let g = letters[Math.floor(Math.random() * letters.length)] ;
+    let code = a + b + c + d + e + f + g ;
+    return code ;
+} 
+submitBtn.addEventListener('click',() => {
+    let val = input.value ;
+    if(val == '') {
+        alert('Verifique el captcha') ;
+    }
+    else if(val === code.textContent) {
+        
+        alert('Captcha correcto') ;
+    }
+    else {
+        alert('Captcha incorrecto!') ;
+    }
+}) 
+readTextBtn.addEventListener('click', () => {
+    let text = code.textContent ;
+    responsiveVoice.speak(text,{rate:0.8});
+})
 
-function removeContent(){
- inputField.value = "";
- captcha.innerText = "";
- statusTxt.style.display = "none";
-};
+
+//Limpiar formularios
+document.addEventListener('DOMContentLoaded', function(){
+    let formulario = document.getElementById('limpiar');
+    formulario.addEventListener('submit', function() {
+      formulario.reset();
+    });
+  });
