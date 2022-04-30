@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="71b648c6-459d-43ae-bed3-b337eb7a2bed">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<queryString language="SQL">
 		<![CDATA[SELECT
      solicitud.`IdSolicitud` AS solicitud_IdSolicitud,
@@ -71,13 +74,29 @@ FROM
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch"/>
+		<band height="79" splitType="Stretch">
+			<textField>
+				<reportElement x="106" y="40" width="339" height="74" uuid="32cf4ab2-594b-4e33-8d1f-7abedae9599a"/>
+				<textElement textAlignment="Center">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[LA EMPRESA DE ACUEDUCTO Y ALCANTARILLADO DE BOGOTA - E.S.P.]]></textFieldExpression>
+			</textField>
+		</band>
 	</title>
 	<pageHeader>
 		<band height="35" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="61" splitType="Stretch">
+			<textField>
+				<reportElement x="106" y="25" width="339" height="74" uuid="aac930d4-b6d8-48d4-b42b-e5936b0b97e2"/>
+				<textElement textAlignment="Center">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[CERTIFICA QUE: TIEMPO DE SERVICIO FECHA INICIO Y FIN]]></textFieldExpression>
+			</textField>
+		</band>
 	</columnHeader>
 	<detail>
 		<band height="125" splitType="Stretch"/>

@@ -42,7 +42,7 @@
             <span>Horario</span><br>
             <select aria-required="true" name="txtHorario">
                 <option selected disabled>Seleccione...</option>
-                <%  
+                <%
                     HorarioDAO horarioDAO = new HorarioDAO();
                     for (HorarioVO horarioVO : horarioDAO.Listar()) {
                 %>
@@ -58,6 +58,17 @@
                     for (CargoVO cargoVO : cargoDAO.Listar()) {
                 %>
                 <option value="<%=cargoVO.getIdCargo()%>"><%=cargoVO.getNombreCargo()%></option>
+                <%}%>
+            </select><br>
+
+            <span>Dependencia</span><br>
+            <select aria-required="true" name="txtDependencia">
+                <option selected disabled>Seleccione...</option>
+                <%
+                    DependenciaDAO depenDAO = new DependenciaDAO();
+                    for (DependenciaVO depenVO : depenDAO.Listar()) {
+                %>
+                <option value="<%=depenVO.getIdDependencia()%>"><%=depenVO.getDependencia()%></option>
                 <%}%>
             </select><br>
 
@@ -90,33 +101,13 @@
                 <%}%>
             </select><br>
             
-            <span>Dependencia</span><br>
-            <select aria-required="true" name="txtIdJornada">
-                <option selected disabled>Seleccione...</option>
-                <%
-                    DependenciaDAO depenDAO = new DependenciaDAO();
-                    for (DependenciaVO depenVO : depenDAO.Listar()) {
-                %>
-                <option value="<%=depenVO.getIdDependencia()%>"><%=depenVO.getDependencia()%></option>
-                <%}%>
-            </select><br>
-
-
-
             <button>Registrar</button>
             <input type="hidden" value="1" name="opcion">
         </form>
 
-        <div>
-            <%if (request.getAttribute("mensajeError") != null) {%>
-            ${mensajeError}
-            <% } else {%>
-            ${mensajeExito}
-            <%}%>
-        </div>
-
+        <%@include file="./ErrorDatosJava/validacionDatos.jsp" %>
         <script src="JavaScript/Fechas.js"></script>
-        
+
 
     </body>
 </html>

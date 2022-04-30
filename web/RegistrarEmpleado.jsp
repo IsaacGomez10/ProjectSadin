@@ -14,7 +14,6 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registrar Empleado</title>
-        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
     </head>
     <body>
         <h1>Registrar Empleados</h1>
@@ -30,7 +29,7 @@
             <span>Tipo de documento</span><br>
             <select aria-required="true" name="txtIdTipoDocumento">
                 <option selected disabled>Seleccione...</option>
-                <%                    TipoDocumentoDAO tipoDocDAO = new TipoDocumentoDAO();
+                <%  TipoDocumentoDAO tipoDocDAO = new TipoDocumentoDAO();
                     for (TipoDocumentoVO tipoDocVO : tipoDocDAO.Listar()) {
                 %>
                 <option value="<%=tipoDocVO.getIdTipoDocumento()%>"><%=tipoDocVO.getTipoDocumento()%></option>
@@ -54,21 +53,15 @@
                     for (LugarExpedicionVO lugarVO : lugarDAO.Listar()) {
 
                 %>
-                <option value="<%=lugarVO.getId_lugarExpedicion()%>"><%=lugarVO.getCiudad()%></option>
+                <option value="<%=lugarVO.getIdLugarExpedicion()%>"><%=lugarVO.getCiudad()%></option>
                 <%}%>
             </select><br>   
-            
-            <button onclick="return validar();">Continuar</button>
+
+            <button onclick="validar">Continuar</button>
             <input type="hidden" value="1" name="opcion">
         </form>
-        <div>
-            <%
-                if (request.getAttribute("mensajeError") != null) {%>
-            ${mensajeError}
-            <% } else {%>
-            ${mensajeExito}
-            <%}%>
-        </div>
-        <script src="JavaScript/Fechas.js"></script>
+
+        <%@include file="./ErrorDatosJava/validacionDatos.jsp" %>
+        <script src="JavaScript/validar.js"></script>
     </body>
 </html>

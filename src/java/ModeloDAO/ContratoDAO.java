@@ -29,7 +29,7 @@ public class ContratoDAO extends Conexion implements Crud {
     private boolean operacion = false;
     private String sql;
 
-    private String IdContrato = "", FechaContratacion = "", FechaFinalizacion = "", Salario = "", IdHorario = "", IdCargo = "", IdTipoContrato = "", IdEmpleado = "", IdJornada = "",IdDependencia = "";
+    private String IdContrato = "", FechaContratacion = "", FechaFinalizacion = "", Salario = "", IdHorario = "", IdCargo = "", IdDependencia = "", IdTipoContrato = "", IdEmpleado = "", IdJornada = "";
 
     public ContratoDAO() {
     }
@@ -49,10 +49,10 @@ public class ContratoDAO extends Conexion implements Crud {
             Salario = conVO.getSalario();
             IdHorario = conVO.getIdHorario();
             IdCargo = conVO.getIdCargo();
+            IdDependencia = conVO.getIdDependencia();
             IdTipoContrato = conVO.getIdTipoContrato();
             IdEmpleado = conVO.getIdEmpleado();
             IdJornada = conVO.getIdJornada();
-            IdDependencia = conVO.getIdDependencia();
 
         } catch (Exception e) {
             Logger.getLogger(ContratoDAO.class.getName()).log(Level.SEVERE, null, e);
@@ -64,17 +64,17 @@ public class ContratoDAO extends Conexion implements Crud {
         
         try {
 
-            sql = "insert into contrato(FechaContratacion, FechaFinalizacion, Salario, IdHorario, IdCargo, IdTipoContrato, IdEmpleado, IdJornada,IdDependencia) values(?,?,?,?,?,?,?,?,?)";
+            sql = "insert into contrato(FechaContratacion, FechaFinalizacion, Salario, IdHorario, IdCargo,IdDependencia, IdTipoContrato, IdEmpleado, IdJornada) values(?,?,?,?,?,?,?,?,?)";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, FechaContratacion);
             puente.setString(2, FechaFinalizacion);
             puente.setString(3, Salario);
             puente.setString(4, IdHorario);
             puente.setString(5, IdCargo);
-            puente.setString(6, IdTipoContrato);
-            puente.setString(7, IdEmpleado);
-            puente.setString(8, IdJornada);
-            puente.setString(9, IdDependencia);
+            puente.setString(6, IdDependencia);
+            puente.setString(7, IdTipoContrato);
+            puente.setString(8, IdEmpleado);
+            puente.setString(9, IdJornada);
             puente.executeUpdate();
             operacion = true;
 
@@ -101,4 +101,4 @@ public class ContratoDAO extends Conexion implements Crud {
     public boolean eliminarRegistro() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-}
+} 

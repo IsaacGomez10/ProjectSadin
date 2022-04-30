@@ -11,6 +11,13 @@
         </file>
     </editor-bookmarks>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group/>
+        <group>
+            <file>file:/C:/Users/isaac/OneDrive/Documentos/NetBeansProjects/sadinPJ/src/java/Controlador/EmpleadoControlador.java</file>
+            <file>file:/C:/Users/isaac/OneDrive/Documentos/NetBeansProjects/sadinPJ/src/java/ModeloDAO/EmpleadoDAO.java</file>
+            <file>file:/C:/Users/isaac/OneDrive/Documentos/NetBeansProjects/sadinPJ/web/ErrorDatosJava/validacionDatos.jsp</file>
+            <file>file:/C:/Users/isaac/OneDrive/Documentos/NetBeansProjects/sadinPJ/src/java/ModeloDAO/ContratoDAO.java</file>
+            <file>file:/C:/Users/isaac/OneDrive/Documentos/NetBeansProjects/sadinPJ/web/ErrorDatosJava/ErrorDatosJava.jsp</file>
+            <file>file:/C:/Users/isaac/OneDrive/Documentos/NetBeansProjects/sadinPJ/web/RegistrarEmpleado.jsp</file>
+        </group>
     </open-files>
 </project-private>

@@ -76,7 +76,7 @@ FROM
 	<title>
 		<band height="79" splitType="Stretch">
 			<image>
-				<reportElement x="-13" y="-62" width="580" height="230" uuid="3be85476-c06f-444a-86b4-3be6793fc1e2"/>
+				<reportElement x="105" y="-34" width="291" height="205" uuid="3be85476-c06f-444a-86b4-3be6793fc1e2"/>
 				<imageExpression><![CDATA["C:\\Users\\isaac\\OneDrive\\Documentos\\def-SADIN\\Reporte\\Acueducto_Logo.png"]]></imageExpression>
 			</image>
 		</band>

@@ -57,7 +57,7 @@ public class EmpleadoControlador extends HttpServlet {
                     request.setAttribute("MensajeExito", "El empleado se registro correctamente");
                     request.getRequestDispatcher("RegistrarContrato.jsp").forward(request, response);
                 } else {
-                    request.setAttribute("MensajeError", "El empleado no se registro correctamente");
+                    request.setAttribute("MensajeError", "El empleado fue registrado correctamente");
                     request.getRequestDispatcher("RegistrarEmpleado.jsp").forward(request, response);
                 }
                 break;

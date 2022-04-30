@@ -15,6 +15,11 @@ public final class RegistrarEmpleado_jsp extends org.apache.jasper.runtime.HttpJ
 
   private static java.util.List<String> _jspx_dependants;
 
+  static {
+    _jspx_dependants = new java.util.ArrayList<String>(1);
+    _jspx_dependants.add("/./ErrorDatosJava/validacionDatos.jsp");
+  }
+
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
   public java.util.List<String> getDependants() {
@@ -57,7 +62,6 @@ public final class RegistrarEmpleado_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <title>Registrar Empleado</title>\n");
-      out.write("        <script src=\"https://www.google.com/recaptcha/api.js\" async defer></script>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
       out.write("        <h1>Registrar Empleados</h1>\n");
@@ -74,7 +78,7 @@ public final class RegistrarEmpleado_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("            <select aria-required=\"true\" name=\"txtIdTipoDocumento\">\n");
       out.write("                <option selected disabled>Seleccione...</option>\n");
       out.write("                ");
-                    TipoDocumentoDAO tipoDocDAO = new TipoDocumentoDAO();
+  TipoDocumentoDAO tipoDocDAO = new TipoDocumentoDAO();
                     for (TipoDocumentoVO tipoDocVO : tipoDocDAO.Listar()) {
                 
       out.write("\n");
@@ -109,7 +113,7 @@ public final class RegistrarEmpleado_jsp extends org.apache.jasper.runtime.HttpJ
                 
       out.write("\n");
       out.write("                <option value=\"");
-      out.print(lugarVO.getId_lugarExpedicion());
+      out.print(lugarVO.getIdLugarExpedicion());
       out.write('"');
       out.write('>');
       out.print(lugarVO.getCiudad());
@@ -118,29 +122,36 @@ public final class RegistrarEmpleado_jsp extends org.apache.jasper.runtime.HttpJ
 }
       out.write("\n");
       out.write("            </select><br>   \n");
-      out.write("            \n");
-      out.write("            <button onclick=\"return validar();\">Continuar</button>\n");
+      out.write("\n");
+      out.write("            <button onclick=\"validar\">Continuar</button>\n");
       out.write("            <input type=\"hidden\" value=\"1\" name=\"opcion\">\n");
       out.write("        </form>\n");
-      out.write("        <div>\n");
-      out.write("            ");
+      out.write("\n");
+      out.write("        ");
+      out.write("<div>\n");
+      out.write("    ");
 
-                if (request.getAttribute("mensajeError") != null) {
+    if (request.getAttribute("mensajeError") != null) {
       out.write("\n");
-      out.write("            ");
+      out.write("    <script>\n");
+      out.write("        alert('");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mensajeError}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\n");
-      out.write("            ");
+      out.write("');\n");
+      out.write("    </script>\n");
+      out.write("    ");
  } else {
       out.write("\n");
-      out.write("            ");
+      out.write("    <script>\n");
+      out.write("        alert('");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mensajeExito}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("\n");
-      out.write("            ");
+      out.write("');\n");
+      out.write("    </script>\n");
+      out.write("    ");
 }
       out.write("\n");
-      out.write("        </div>\n");
-      out.write("        <script src=\"JavaScript/Fechas.js\"></script>\n");
+      out.write("</div>");
+      out.write("\n");
+      out.write("        <script src=\"JavaScript/validar.js\"></script>\n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

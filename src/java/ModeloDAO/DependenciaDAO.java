@@ -72,7 +72,7 @@ public class DependenciaDAO extends Conexion implements Crud {
         
         try {
             conexion = this.obtenerConexion();
-            sql= "select * from dependencias";
+            sql= "select * from dependenciacargos";
             puente = conexion.prepareStatement(sql);
             mensajero = puente.executeQuery();
             

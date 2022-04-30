@@ -9,14 +9,6 @@ window.onload = function () {
     if (mes < 10)
         mes = '0' + mes; //agrega cero si el menor de 10
     document.getElementById('fechaActual').value = ano + "-" + mes + "-" + dia;
-    document.getElementById('fechaActual2').value = null;
+    document.getElementById('fechaActual2').value = ano + "-" + mes + "-" + dia;
 };
 
-//Limpiar datos de formularios
-function  validar(){
-    let formulario = document.getElementById('formulario');
-    
-    console.log('Empleado guardado correctamente!');
-    formulario.reset();
-    return false;
-}

@@ -11,10 +11,11 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Certificación</title>
+        <link rel="stylesheet" href="./CSS/Styles.css">
     </head>
     <body>
 
-        <h1>No esperes más para solicitar tu certificado!</h1>
+        <h1>Solicitar certificado</h1>
 
         <%
             SolicitudVO solVO = (SolicitudVO) request.getAttribute("ValidarCertificado");
@@ -24,18 +25,13 @@
 
         <form method="post" action="Certificacion">
 
-            <div class="radio">
-                <input type="radio" name="txtCer1" value="2">
-                <label>Certificado 1</label>
-
-                <input type="radio" name="txtCer2" value="3">
-                <label>Certificado 2</label>
-
-                <input type="radio" name="txtCer3" value="4">
-                <label>Certificado 3</label>
-                
-                <input type="radio" name="txtCer4" value="5">
-                <label>Certificado 4</label>
+            <div>
+                <input type="radio" id="html" name="fav_language" value="HTML">
+                <label for="html">HTML</label><br>
+                <input type="radio" id="css" name="fav_language" value="CSS">
+                <label for="css">CSS</label><br>
+                <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+                <label for="javascript">JavaScript</label>
             </div>
 
             <input type="hidden" name="opcion">
@@ -44,10 +40,9 @@
 
 
         <% } else {
-                request.getRequestDispatcher("consultarVehiculo.jsp").forward(request, response);
+                request.getRequestDispatcher("Certificado solicitud.jsp").forward(request, response);
             }
         %>
-        
-        <script src="./CSS/Opciones.css"></script>
+
     </body>
 </html>

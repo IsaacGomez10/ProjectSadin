@@ -11,22 +11,22 @@ package ModeloVO;
  */
 public class LugarExpedicionVO {
     
-    private String Id_lugarExpedicion, Ciudad;
+    private String IdLugarExpedicion, Ciudad;
 
     public LugarExpedicionVO() {
     }
 
-    public LugarExpedicionVO(String Id_lugarExpedicion, String Ciudad) {
-        this.Id_lugarExpedicion = Id_lugarExpedicion;
+    public LugarExpedicionVO(String IdLugarExpedicion, String Ciudad) {
+        this.IdLugarExpedicion = IdLugarExpedicion;
         this.Ciudad = Ciudad;
     }
 
-    public String getId_lugarExpedicion() {
-        return Id_lugarExpedicion;
+    public String getIdLugarExpedicion() {
+        return IdLugarExpedicion;
     }
 
-    public void setId_lugarExpedicion(String Id_lugarExpedicion) {
-        this.Id_lugarExpedicion = Id_lugarExpedicion;
+    public void setIdLugarExpedicion(String IdLugarExpedicion) {
+        this.IdLugarExpedicion = IdLugarExpedicion;
     }
 
     public String getCiudad() {
@@ -36,5 +36,7 @@ public class LugarExpedicionVO {
     public void setCiudad(String Ciudad) {
         this.Ciudad = Ciudad;
     }
+    
+    
     
 }

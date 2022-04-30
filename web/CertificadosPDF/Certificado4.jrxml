@@ -75,17 +75,28 @@ FROM
 	</background>
 	<title>
 		<band height="79" splitType="Stretch">
-			<image>
-				<reportElement x="-13" y="-43" width="580" height="230" uuid="0208c520-762b-4f8b-8237-0b9426b954f5"/>
-				<imageExpression><![CDATA["C:\\Users\\isaac\\OneDrive\\Documentos\\def-SADIN\\Reporte\\Acueducto_Logo.png"]]></imageExpression>
-			</image>
+			<textField>
+				<reportElement x="103" y="40" width="339" height="74" uuid="20cf88cc-05d9-4f5b-95e5-7accc486bd59"/>
+				<textElement textAlignment="Center">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[LA EMPRESA DE ACUEDUCTO Y ALCANTARILLADO DE BOGOTA - E.S.P.]]></textFieldExpression>
+			</textField>
 		</band>
 	</title>
 	<pageHeader>
 		<band height="35" splitType="Stretch"/>
 	</pageHeader>
 	<columnHeader>
-		<band height="61" splitType="Stretch"/>
+		<band height="61" splitType="Stretch">
+			<textField>
+				<reportElement x="103" y="11" width="339" height="74" uuid="3209c177-3f8d-487f-8b39-9d6988b48950"/>
+				<textElement textAlignment="Center">
+					<font size="13" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[CERTIFICA QUE: TIPO DE CONTRATO - cargo, descripcion de cargo, dependencia tipo de contrato]]></textFieldExpression>
+			</textField>
+		</band>
 	</columnHeader>
 	<detail>
 		<band height="125" splitType="Stretch"/>
