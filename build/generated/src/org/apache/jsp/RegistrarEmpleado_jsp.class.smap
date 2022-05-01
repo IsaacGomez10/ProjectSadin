@@ -5,8 +5,8 @@ JSP
 *F
 + 0 RegistrarEmpleado.jsp
 RegistrarEmpleado.jsp
-+ 1 validacionDatos.jsp
-./ErrorDatosJava/validacionDatos.jsp
++ 1 ErrorDatosJava.jsp
+./ErrorDatosJava/ErrorDatosJava.jsp
 *L
 5,28:53
 32,3:81
@@ -21,14 +21,10 @@ RegistrarEmpleado.jsp
 58,7:124
 1#1,2:131
 3:134,2
-4:136
-5:137,3
-6:140
-7:141,3
-8:144
-9:145,3
-10:148
-11:149,3
-12:152
-64#0,5:153
+4,2:136
+6:138,3
+7,2:141
+9:143,3
+10,2:146
+64#0,5:147
 *E

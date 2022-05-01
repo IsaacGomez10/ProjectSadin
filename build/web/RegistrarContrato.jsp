@@ -105,7 +105,7 @@
             <input type="hidden" value="1" name="opcion">
         </form>
 
-        <%@include file="./ErrorDatosJava/validacionDatos.jsp" %>
+        <%@include file="./ErrorDatosJava/ErrorDatosJava.jsp" %>
         <script src="JavaScript/Fechas.js"></script>
 
 

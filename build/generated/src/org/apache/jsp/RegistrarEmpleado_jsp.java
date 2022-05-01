@@ -17,7 +17,7 @@ public final class RegistrarEmpleado_jsp extends org.apache.jasper.runtime.HttpJ
 
   static {
     _jspx_dependants = new java.util.ArrayList<String>(1);
-    _jspx_dependants.add("/./ErrorDatosJava/validacionDatos.jsp");
+    _jspx_dependants.add("/./ErrorDatosJava/ErrorDatosJava.jsp");
   }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
@@ -133,23 +133,17 @@ public final class RegistrarEmpleado_jsp extends org.apache.jasper.runtime.HttpJ
 
     if (request.getAttribute("mensajeError") != null) {
       out.write("\n");
+      out.write("    \n");
       out.write("    <script>\n");
       out.write("        alert('");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mensajeError}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("');\n");
       out.write("    </script>\n");
+      out.write("    \n");
       out.write("    ");
- } else {
+ }
       out.write("\n");
-      out.write("    <script>\n");
-      out.write("        alert('");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mensajeExito}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("');\n");
-      out.write("    </script>\n");
-      out.write("    ");
-}
-      out.write("\n");
-      out.write("</div>");
+      out.write("</div>\n");
       out.write("\n");
       out.write("        <script src=\"JavaScript/validar.js\"></script>\n");
       out.write("    </body>\n");
