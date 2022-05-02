@@ -6,12 +6,14 @@
 package ModeloDAO;
 
 import ModeloVO.ContratoVO;
+import ModeloVO.EmpleadoVO;
 import Util.Conexion;
 import Util.Crud;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -20,7 +22,7 @@ import java.util.logging.Logger;
  * @author Sena
  */
 public class ContratoDAO extends Conexion implements Crud {
-    
+
     //1. Declarar variables y objetos
     private Connection conexion;
     private PreparedStatement puente;
@@ -58,10 +60,9 @@ public class ContratoDAO extends Conexion implements Crud {
             Logger.getLogger(ContratoDAO.class.getName()).log(Level.SEVERE, null, e);
         }
     }
-    
+
     @Override
     public boolean agregarRegistro() {
-        
         try {
 
             sql = "insert into contrato(FechaContratacion, FechaFinalizacion, Salario, IdHorario, IdCargo,IdDependencia, IdTipoContrato, IdEmpleado, IdJornada) values(?,?,?,?,?,?,?,?,?)";
@@ -101,4 +102,4 @@ public class ContratoDAO extends Conexion implements Crud {
     public boolean eliminarRegistro() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-} 
+}

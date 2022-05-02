@@ -28,7 +28,7 @@
 
         <h1>Registrar Contrato</h1>
 
-        <form method="post" action="Contrato">
+        <form method="post" action="Contrato" id="formulario">
 
             <span>Fecha de Contratación</span><br>
             <input required type="date" id="fechaActual" name="txtFechaContratacion"><br>
@@ -83,13 +83,6 @@
                 <%}%>
             </select><br>
 
-
-            <%-- TERMINAR LÓGICA--%>
-            <span>Número de Empleado</span><br>
-            <input required type="text" name="txtIdEmpleado"><br>
-            <%-- TERMINAR LÓGICA--%>
-
-
             <span>Jornada</span><br>
             <select aria-required="true" name="txtIdJornada">
                 <option selected disabled>Seleccione...</option>
@@ -100,12 +93,13 @@
                 <option value="<%=jornadaVO.getIdJornada()%>"><%=jornadaVO.getJornada()%></option>
                 <%}%>
             </select><br>
-            
-            <button>Registrar</button>
+
+            <button onclick="validar">Registrar</button>
             <input type="hidden" value="1" name="opcion">
         </form>
 
         <%@include file="./ErrorDatosJava/ErrorDatosJava.jsp" %>
+        <script src="JavaScript/validar.js"></script>
         <script src="JavaScript/Fechas.js"></script>
 
 
