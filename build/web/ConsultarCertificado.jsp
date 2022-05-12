@@ -16,33 +16,56 @@
     <body>
 
         <h1>Solicitar certificado</h1>
-
-        <%
-            SolicitudVO solVO = (SolicitudVO) request.getAttribute("ValidarCertificado");
-            if (solVO != null) {
-
-        %>
-
-        <form method="post" action="Certificacion">
-
+        
+        <form method="post" action="ReportesCodigos/CargoDesempenadoCodigo.jsp">
             <div>
-                <input type="radio" id="html" name="fav_language" value="HTML">
-                <label for="html">HTML</label><br>
-                <input type="radio" id="css" name="fav_language" value="CSS">
-                <label for="css">CSS</label><br>
-                <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-                <label for="javascript">JavaScript</label>
+                <label>Certificado de cargo desempeñado</label><br>
+            <label>Ingrese número documento nuevamente</label><br>
+            <input type="text" name="numeroDocumento" id="txtidcliente" placeholder="Ingrese número de documento">
             </div>
-
-            <input type="hidden" name="opcion">
-            <button type="submit">Solicitar</button><br>
+            <div>
+            &nbsp;
+            <input type="submit" name="button" id="button" value="Generar Reporte">
+            </div>
         </form>
-
-
-        <% } else {
-                request.getRequestDispatcher("Certificado solicitud.jsp").forward(request, response);
-            }
-        %>
+        
+        
+        <form method="post" action="ReportesCodigos/SueldoBaicoCodigo.jsp">
+            <div>
+                <label>Certificado de sueldo básico</label><br>
+            <label>Ingrese número documento nuevamente</label><br>
+            <input type="text" name="numeroDocumento" id="txtidcliente" placeholder="Ingrese número de documento">
+            </div>
+            <div>
+            &nbsp;
+            <input type="submit" name="button" id="button" value="Generar Reporte">
+            </div>
+        </form>
+        
+        <form method="post" action="ReportesCodigos/TiempoDeServicioCodigo.jsp">
+            <div>
+                <label>Certificado de tiempo de servicio</label><br>
+            <label>Ingrese número documento nuevamente</label><br>
+            <input type="text" name="numeroDocumento" id="txtidcliente" placeholder="Ingrese número de documento">
+            </div>
+            <div>
+            &nbsp;
+            <input type="submit" name="button" id="button" value="Generar Reporte">
+            </div>
+        </form>
+        
+        <form method="post" action="ReportesCodigos/TipoDeContratoCodigo.jsp">
+            <div>
+                <label>Certificado de tipo de contrato</label><br>
+            <label>Ingrese número documento nuevamente</label><br>
+            <input type="text" name="numeroDocumento" id="txtidcliente" placeholder="Ingrese número de documento">
+            </div>
+            <div>
+            &nbsp;
+            <input type="submit" name="button" id="button" value="Generar Reporte">
+            </div>
+        </form>
+        
 
     </body>
 </html>

@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="java" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d809ba75-c6c9-43a0-87c4-3524c1b7a4ee">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="numeroDocumento" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT e.Nombres, e.Apellidos , e.NumeroDocumento, le.LugarExpedicion, cg.NombreCargo, cg.DescripcionCargo, tc.Contrato, c.FechaContratacion, c.FechaFinalizacion
+FROM contrato c
+INNER JOIN empleado e on c.IdEmpleado = e.IdEmpleado
+INNER JOIN cargo cg on c.IdCargo = cg.IdCargo
+INNER JOIN lugarexpedicion le on e.IdLugarExpedicion = le.IdLugarExpedicion
+INNER JOIN tipocontrato tc on c.IdTipoContrato = tc.IdTipoContrato
+
+WHERE e.NumeroDocumento = $P{numeroDocumento}]]>
+	</queryString>
+	<field name="Nombres" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Apellidos" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NumeroDocumento" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="LugarExpedicion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NombreCargo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DescripcionCargo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Contrato" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="FechaContratacion" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="FechaFinalizacion" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="61" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="204" y="16" width="115" height="20" uuid="ab4553cd-1d1f-492b-8f69-66933cef37f5"/>
+				<textFieldExpression><![CDATA[$P{numeroDocumento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="65" y="36" width="100" height="20" uuid="4d8faca5-d9c8-46e7-b3ae-dc1f1c69d5cc"/>
+				<textFieldExpression><![CDATA[$F{Nombres}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="155" y="36" width="100" height="20" uuid="ab91dda2-a702-470f-ad1a-288e827aead2"/>
+				<textFieldExpression><![CDATA[$F{Apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="255" y="36" width="118" height="20" uuid="bbe73090-72e4-4b18-910e-9e26b8492c2a"/>
+				<textFieldExpression><![CDATA[$F{NumeroDocumento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="388" y="36" width="100" height="20" uuid="556efc77-de24-40e5-9bfe-853c3a51f80d"/>
+				<textFieldExpression><![CDATA[$F{LugarExpedicion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="95" y="76" width="100" height="20" uuid="f35d40f2-6470-4d08-a1f5-91cb2f433da5"/>
+				<textFieldExpression><![CDATA[$F{NombreCargo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="204" y="76" width="133" height="20" uuid="052c533d-9221-453b-a164-b19f2741a59e"/>
+				<textFieldExpression><![CDATA[$F{DescripcionCargo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="319" y="76" width="100" height="20" uuid="7105b5a5-bc61-46f4-aa1e-f3cd58531eea"/>
+				<textFieldExpression><![CDATA[$F{Contrato}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="106" y="105" width="119" height="20" uuid="b6d303d2-c240-4b43-8ad7-240bc75726cc"/>
+				<textFieldExpression><![CDATA[$F{FechaContratacion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="255" y="105" width="123" height="20" uuid="6695cdb9-77cf-4d59-b56a-112f9cc5cdf9"/>
+				<textFieldExpression><![CDATA[$F{FechaFinalizacion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

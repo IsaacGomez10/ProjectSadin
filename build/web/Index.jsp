@@ -25,9 +25,9 @@
         </div>
         <br><br>
         <div>
-            <h3>Certificación</h3>
+            <h3>Solicitar Certificación</h3>
             <div>
-                <a href="SolicitarCertificado.jsp">Solicitar Certificado</a>
+                <a href="CertificadoSolicitud.jsp">Solicitar Certificado</a>
             </div>
         </div>
     </body>

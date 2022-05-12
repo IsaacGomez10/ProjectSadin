@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7db50caf-216c-41c3-a7ca-8a99b471e42f">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="numeroDocumento" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT concat(e.Nombres, ' ',e.Apellidos) , le.LugarExpedicion, cg.NombreCargo, cg.DescripcionCargo,td.tipodocumento
+FROM contrato c
+INNER JOIN empleado e on c.IdEmpleado = e.IdEmpleado
+INNER JOIN cargo cg on c.IdCargo = cg.IdCargo
+INNER JOIN lugarexpedicion le on e.IdLugarExpedicion = le.IdLugarExpedicion
+inner join tipodocumento td on e.IdTipoDocumento = td.	IdTipoDocumento
+
+WHERE e.NumeroDocumento = $P{numeroDocumento}]]>
+	</queryString>
+	<field name="concat(e.Nombres, &apos; &apos;,e.Apellidos)" class="java.lang.String"/>
+	<field name="LugarExpedicion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NombreCargo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DescripcionCargo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipodocumento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="36" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="135" splitType="Stretch">
+			<textField>
+				<reportElement x="89" y="14" width="123" height="20" uuid="2fe57d0c-0ddc-4d6e-935e-da60371cd60b"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{LugarExpedicion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="19" y="14" width="75" height="20" uuid="96010607-cd1a-4af9-80ea-861df3efb457"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[expedida en]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="175" y="0" width="92" height="31" uuid="b3ceeb2b-abb2-4093-93a3-7dfac7e49d54"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[identificado con ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="19" y="0" width="193" height="20" uuid="abd3975a-6404-4ced-9629-bdca0b2f745c"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{concat(e.Nombres, ' ',e.Apellidos)}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="263" y="0" width="170" height="20" uuid="796f106c-1ef7-4464-9771-cb99d6d7a89f"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipodocumento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="336" y="14" width="124" height="20" uuid="eb290927-4955-477f-bd25-db56e5678871"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{NombreCargo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="393" y="14" width="100" height="20" uuid="2ac51315-77de-4466-886a-64bc169ae201"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[y cumple con las funciones]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="401" y="0" width="137" height="20" uuid="4622ecd3-022e-480a-91d2-be67064444a9"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{numeroDocumento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="385" y="0" width="15" height="20" uuid="868b5c0a-83d4-4c3b-9c04-d1720354b1bb"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Nº]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="151" y="14" width="193" height="20" uuid="03e83071-6751-4f42-87d9-91ef4e0084cd"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[, actualmente se desempeña como ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="19" y="28" width="486" height="31" uuid="8418000a-edd3-4f9b-b28a-cab72f6188fb"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DescripcionCargo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="19" y="80" width="441" height="44" uuid="89b7dd0c-bab6-4bd7-b73f-881b4187874d"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="false"/>
+				</textElement>
+				<text><![CDATA[La presente se expide a solicitud del trabajador dirigida a:                               , con fecha]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="328" y="80" width="103" height="20" uuid="066adc0a-f906-405f-9cd6-6068ad7348d3"/>
+				<textElement>
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[QUIEN INTERESE]]></text>
+			</staticText>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement x="53" y="93" width="122" height="20" uuid="521805a5-2aa9-4724-bf50-d47784580fb1"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>
