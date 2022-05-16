@@ -4,6 +4,9 @@
     Author     : Damian
 --%>
 
+<%@page import="ModeloVO.EmpleadoVO"%>
+<%@page import="ModeloDAO.EmpleadoDAO"%>
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -24,13 +27,8 @@
             <input type="hidden" value="3" name="opcion">
 
         </form>
-        <div>
-            <%
-                if (request.getAttribute("mensajeError") != null) {%>
-            ${mensajeError}
-            <% } else {%>
-            ${mensajeExito}
-            <%}%>
-        </div>
+        
+            <%@include file="./ErrorDatosJava/ErrorDatosJava.jsp" %>
+        
     </body>
 </html>

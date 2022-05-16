@@ -12,6 +12,7 @@ import java.sql.PreparedStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -55,7 +56,7 @@ public class EmpleadoDAO extends Conexion implements Crud {
 
         }
     }
-    
+
     @Override
     public boolean agregarRegistro() {
         try {
@@ -83,10 +84,7 @@ public class EmpleadoDAO extends Conexion implements Crud {
         }
         return operacion;
     }
-    
-    
-    
-     
+
     @Override
     public boolean actualizarRegistro() {
         try {
@@ -168,35 +166,61 @@ public class EmpleadoDAO extends Conexion implements Crud {
 
         return empVO;
     }
-    
-    
-     public EmpleadoVO consultarEmpleados(String numDocumento){
-        
+
+    public EmpleadoVO consultarEmpleados(String numDocumento) {
+
         EmpleadoVO empVO = null;
-        
+
         try {
             conexion = this.obtenerConexion();
             sql = "select * from empleado where NumeroDocumento=?";
             puente = conexion.prepareStatement(sql);
             puente.setString(1, numDocumento);
             mensajero = puente.executeQuery();
-            
-            while(mensajero.next()){
+
+            while (mensajero.next()) {
                 empVO = new EmpleadoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(7), mensajero.getString(8));
             }
-            
+
         } catch (SQLException e) {
-                Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE,null,e);
-        }finally{
+            Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
             try {
                 this.cerrarConexion();
             } catch (SQLException e) {
-                Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE,null,e); 
+                Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
             }
         }
-        
+
         return empVO;
     }
-     
-     
+    
+    
+    public EmpleadoVO obtenerReporte(String numDocumento) {
+
+        EmpleadoVO empVO = null;
+
+        try {
+            conexion = this.obtenerConexion();
+            sql = "select * from empleado where NumeroDocumento=?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, numDocumento);
+            mensajero = puente.executeQuery();
+
+            while (mensajero.next()) {
+                empVO = new EmpleadoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(7), mensajero.getString(8));
+            }
+
+        } catch (SQLException e) {
+            Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (SQLException e) {
+                Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+
+        return empVO;
+    }
 }

@@ -4,6 +4,8 @@
     Author     : Damian
 --%>
 
+<%@page import="ModeloVO.TipoDocumentoVO"%>
+<%@page import="ModeloDAO.TipoDocumentoDAO"%>
 <%@page import="ModeloVO.LugarExpedicionVO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="ModeloVO.EmpleadoVO"%>
@@ -54,6 +56,6 @@
             }
         %>
     </center>
-
+    
 </body>
 </html>

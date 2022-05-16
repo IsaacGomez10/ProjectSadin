@@ -3,13 +3,21 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
+import ModeloVO.EmpleadoVO;
+import ModeloDAO.EmpleadoDAO;
+import java.util.ArrayList;
 
-public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class ConsultarEmpleado_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
 
   private static java.util.List<String> _jspx_dependants;
+
+  static {
+    _jspx_dependants = new java.util.ArrayList<String>(1);
+    _jspx_dependants.add("/./ErrorDatosJava/ErrorDatosJava.jsp");
+  }
 
   private org.glassfish.jsp.api.ResourceInjector _jspx_resourceInjector;
 
@@ -44,31 +52,48 @@ public final class Index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\n");
       out.write("\n");
       out.write("\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("\n");
       out.write("<!DOCTYPE html>\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
-      out.write("        <title>SADIN</title>\n");
+      out.write("        <title>Buscar Empleado</title>\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
-      out.write("        <h1>Bienvenido</h1>\n");
+      out.write("        <h1>Consultar Empleado</h1>\n");
       out.write("\n");
-      out.write("        <div>\n");
-      out.write("            <h3>Menú Empleado</h3>\n");
       out.write("\n");
-      out.write("            <div>\n");
-      out.write("                <a href=\"RegistrarEmpleado.jsp\">Registrar Empleado</a>\n");
-      out.write("                <a href=\"RegistrarHorario.jsp\">Registrar Horario</a>\n");
-      out.write("                <a href=\"RegistrarCargo.jsp\">Registrar Cargo</a>\n");
-      out.write("            </div>\n");
-      out.write("        </div>\n");
-      out.write("        <br><br>\n");
-      out.write("        <div>\n");
-      out.write("            <h3>Solicitar Certificación</h3>\n");
-      out.write("            <div>\n");
-      out.write("                <a href=\"CertificadoSolicitud.jsp\">Solicitar Certificado</a>\n");
-      out.write("            </div>\n");
-      out.write("        </div>\n");
+      out.write("        <form method=\"post\" action=\"Empleado\">\n");
+      out.write("\n");
+      out.write("            <span>Ingrese el número de documento del empleado</span><br>\n");
+      out.write("            <input type=\"text\" name=\"txtNumeroDocumento\" placeholder=\"Ingrese Documento\"><br>\n");
+      out.write("            \n");
+      out.write("            <button>Consultar</button>\n");
+      out.write("            <input type=\"hidden\" value=\"3\" name=\"opcion\">\n");
+      out.write("\n");
+      out.write("        </form>\n");
+      out.write("        \n");
+      out.write("            ");
+      out.write("<div>\n");
+      out.write("    ");
+
+    if (request.getAttribute("mensajeError") != null) {
+      out.write("\n");
+      out.write("    \n");
+      out.write("    <script>\n");
+      out.write("        alert('");
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mensajeError}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write("');\n");
+      out.write("    </script>\n");
+      out.write("    \n");
+      out.write("    ");
+ }
+      out.write("\n");
+      out.write("</div>\n");
+      out.write("\n");
+      out.write("        \n");
       out.write("    </body>\n");
       out.write("</html>\n");
     } catch (Throwable t) {

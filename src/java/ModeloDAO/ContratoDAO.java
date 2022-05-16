@@ -30,6 +30,7 @@ public class ContratoDAO extends Conexion implements Crud {
 
     private boolean operacion = false;
     private String sql;
+    private String sqlIdEmpleado;
 
     private String IdContrato = "", FechaContratacion = "", FechaFinalizacion = "", Salario = "", IdHorario = "", IdCargo = "", IdDependencia = "", IdTipoContrato = "", IdEmpleado = "", IdJornada = "";
 
@@ -63,6 +64,7 @@ public class ContratoDAO extends Conexion implements Crud {
 
     @Override
     public boolean agregarRegistro() {
+        
         try {
 
             sql = "insert into contrato(FechaContratacion, FechaFinalizacion, Salario, IdHorario, IdCargo,IdDependencia, IdTipoContrato, IdEmpleado, IdJornada) values(?,?,?,?,?,?,?,?,?)";

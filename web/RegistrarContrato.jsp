@@ -25,7 +25,7 @@
         <title>Registrar Contrato</title>
     </head>
     <body>
-
+        
         <h1>Registrar Contrato</h1>
 
         <form method="post" action="Contrato" id="formulario">
