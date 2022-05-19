@@ -11,15 +11,20 @@ package ModeloVO;
  */
 public class FuncionarioVO {
     
-    private String idFuncionario, usuario, password, idEmpleado;
+    private String idFuncionario, Usuario, Password, idEmpleado;
     
     public FuncionarioVO() {
     }
 
-    public FuncionarioVO(String idFuncionario, String usuario, String password, String idEmpleado) {
+    public FuncionarioVO(String Usuario, String Password) {
+        this.Usuario = Usuario;
+        this.Password = Password;
+    }
+
+    public FuncionarioVO(String idFuncionario, String Usuario, String Password, String idEmpleado) {
         this.idFuncionario = idFuncionario;
-        this.usuario = usuario;
-        this.password = password;
+        this.Usuario = Usuario;
+        this.Password = Password;
         this.idEmpleado = idEmpleado;
     }
 
@@ -32,19 +37,19 @@ public class FuncionarioVO {
     }
 
     public String getUsuario() {
-        return usuario;
+        return Usuario;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setUsuario(String Usuario) {
+        this.Usuario = Usuario;
     }
 
     public String getPassword() {
-        return password;
+        return Password;
     }
 
-    public void setPassword(String password) {
-        this.password = password;
+    public void setPassword(String Password) {
+        this.Password = Password;
     }
 
     public String getIdEmpleado() {
@@ -53,5 +58,7 @@ public class FuncionarioVO {
 
     public void setIdEmpleado(String idEmpleado) {
         this.idEmpleado = idEmpleado;
-    }    
+    }
+
+   
 }

@@ -18,6 +18,11 @@ public class EmpleadoVO {
     public EmpleadoVO() {
     }
 
+    public EmpleadoVO(String IdEmpleado, String NumeroDocumento) {
+        this.IdEmpleado = IdEmpleado;
+        this.NumeroDocumento = NumeroDocumento;
+    }
+    
     public EmpleadoVO(String IdEmpleado, String Nombres, String Apellidos, String IdTipoDocumento, String NumeroDocumento, String Telefono, String Email, String IdLugarExpedicion) {
         this.IdEmpleado = IdEmpleado;
         this.Nombres = Nombres;

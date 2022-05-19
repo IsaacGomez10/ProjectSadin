@@ -1,7 +1,7 @@
 <%-- 
     Document   : index
-    Created on : Apr 11, 2022, 5:25:06 PM
-    Author     : isaac
+    Created on : 28/03/2022, 11:30:51 AM
+    Author     : Sena
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
@@ -9,26 +9,32 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>SADIN</title>
+        <title>Iniciar Sesion</title>
     </head>
     <body>
-        <h1>Bienvenido</h1>
-
-        <div>
-            <h3>Menú Empleado</h3>
-
-            <div>
-                <a href="RegistrarEmpleado.jsp">Registrar Empleado</a>
-                <a href="RegistrarHorario.jsp">Registrar Horario</a>
-                <a href="RegistrarCargo.jsp">Registrar Cargo</a>
-            </div>
-        </div>
-        <br><br>
-        <div>
-            <h3>Solicitar Certificación</h3>
-            <div>
-                <a href="CertificadoSolicitud.jsp">Solicitar Certificado</a>
-            </div>
+        <h1>Iniciar Sesion</h1>
+        <form method="post" action="Funcionario">
+            <table>
+                <tr>
+                    Usuario<br>
+                    <input type="text" name="txtUsuario"><br>
+                    Contraseña<br>
+                    <input type="password" name="txtPassword"><br>
+                </tr>
+                </table><br>
+                <button>Iniciar Sesión</button>
+                <input type="hidden" value="3" name="opcion">
+        </form>
+        <br>
+        <a href="registrarFuncionario.jsp">¿No tienes una cuenta aún?</a>
+        
+        <div style="color:red;">
+            <%
+                if (request.getAttribute("mensajeError") != null) {%>
+            ${mensajeError}
+            <% } else {%>
+            ${mensajeExito}
+            <%}%>
         </div>
     </body>
 </html>
