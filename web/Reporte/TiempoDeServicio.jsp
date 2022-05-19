@@ -20,7 +20,7 @@
 con la siguiente linea de codigo*/
     Conexion conexion = new Conexion();
     /*Establecemos la ruta del reporte*/
-    File reportFile = new File(application.getRealPath("Reportes/Tiempo_de_Servicio.jasper"));
+    File reportFile = new File(application.getRealPath("Reportes/Tiempo_Servicio.jasper"));
     /*Enviamos parámetros porque nuestro reporte los necesita asi que escriba 
 y seguiremos el formato del método runReportToPdf*/
  /*Con Map y el HaspMap nos servira para crear los paramentros*/
@@ -34,9 +34,12 @@ reporte solo nos pide un parametro*/
     parameters.put("numeroDocumento", numeroDocumento);
     /*Enviamos la ruta del reporte, los parámetros y la conexión(objeto Connection)*/
     byte[] bytes = JasperRunManager.runReportToPdf(reportFile.getPath(), parameters, conexion.obtenerConexion());
-    /*Indicamos que la respuesta va a ser en formato PDF*/ response.setContentType("application/pdf");
+    /*Indicamos que la respuesta va a ser en formato PDF*/ 
+    response.setContentType("application/pdf");
+    
     response.setContentLength(bytes.length);
     ServletOutputStream ouputStream = response.getOutputStream();
     ouputStream.write(bytes, 0, bytes.length);
-    /*Limpiamos y cerramos flujos de salida*/ ouputStream.flush();
+    /*Limpiamos y cerramos flujos de salida*/ 
+    ouputStream.flush();
     ouputStream.close(); %>

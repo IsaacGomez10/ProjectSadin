@@ -70,7 +70,7 @@ public class EmpleadoControlador extends HttpServlet {
                     request.setAttribute("MensajeError", "El Empleado no se actualizo correctamente");
                     request.getRequestDispatcher("ConsultarEmpleado.jsp").forward(request, response);
                 }
-                
+
                 break;
             case 3: //consultar por numero de documento
                 EmpVO = EmpDAO.consultarEmpleados(NumeroDocumento);
@@ -82,6 +82,19 @@ public class EmpleadoControlador extends HttpServlet {
                     request.getRequestDispatcher("ConsultarEmpleado.jsp").forward(request, response);
                 }
                 break;
+
+            case 4:
+                EmpVO = EmpDAO.obtenerReporte(NumeroDocumento);
+                
+                if (EmpVO != null) {
+                    request.setAttribute("ValidarCertificado", EmpVO);
+                    request.getRequestDispatcher("ConsultarCertificado.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("mensajeError", "El empleado No existe, verifique el número de documento");
+                    request.getRequestDispatcher("CertificadoSolicitud.jsp").forward(request, response);
+                }
+                break;
+                
         }
 
     }

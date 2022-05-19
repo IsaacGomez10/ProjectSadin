@@ -45,6 +45,7 @@ public final class ConsultarCertificado_jsp extends org.apache.jasper.runtime.Ht
       out.write("\n");
       out.write("\n");
       out.write("<!DOCTYPE html>\n");
+      out.write("\n");
       out.write("<html>\n");
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
@@ -87,7 +88,7 @@ public final class ConsultarCertificado_jsp extends org.apache.jasper.runtime.Ht
       out.write("                <div>\n");
       out.write("                    <label>Certificado de tiempo de servicio</label><br>\n");
       out.write("                    <label>Ingrese número documento nuevamente</label><br>\n");
-      out.write("                    <input type=\"text\" name=\"numeroDocumento3\" id=\"txtidcliente\" placeholder=\"Ingrese número de documento\">\n");
+      out.write("                    <input type=\"text\" name=\"numeroDocumento\" id=\"txtidcliente\" placeholder=\"Ingrese número de documento\">\n");
       out.write("                </div>\n");
       out.write("                <div>\n");
       out.write("                    &nbsp;\n");
@@ -101,7 +102,7 @@ public final class ConsultarCertificado_jsp extends org.apache.jasper.runtime.Ht
       out.write("                <div>\n");
       out.write("                    <label>Certificado de tipo de contrato</label><br>\n");
       out.write("                    <label>Ingrese número documento nuevamente</label><br>\n");
-      out.write("                    <input type=\"text\" name=\"numeroDocumento4\" id=\"txtidcliente\" placeholder=\"Ingrese número de documento\">\n");
+      out.write("                    <input type=\"text\" name=\"numeroDocumento\" id=\"txtidcliente\" placeholder=\"Ingrese número de documento\">\n");
       out.write("                </div>\n");
       out.write("                <div>\n");
       out.write("                    &nbsp;\n");

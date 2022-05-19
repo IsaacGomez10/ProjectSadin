@@ -30,7 +30,7 @@ public class ContratoDAO extends Conexion implements Crud {
 
     private boolean operacion = false;
     private String sql;
-    private String sqlIdEmpleado;
+    private String sqlId;
 
     private String IdContrato = "", FechaContratacion = "", FechaFinalizacion = "", Salario = "", IdHorario = "", IdCargo = "", IdDependencia = "", IdTipoContrato = "", IdEmpleado = "", IdJornada = "";
 
@@ -64,20 +64,21 @@ public class ContratoDAO extends Conexion implements Crud {
 
     @Override
     public boolean agregarRegistro() {
-        
         try {
 
-            sql = "insert into contrato(FechaContratacion, FechaFinalizacion, Salario, IdHorario, IdCargo,IdDependencia, IdTipoContrato, IdEmpleado, IdJornada) values(?,?,?,?,?,?,?,?,?)";
+            sql = "insert into contrato(IdEmpleado, FechaContratacion, FechaFinalizacion, Salario, IdCargo,IdDependencia, "
+                    + "IdTipoContrato, IdJornada, IdHorario) values(?,?,?,?,?,?,?,?,?)";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, FechaContratacion);
-            puente.setString(2, FechaFinalizacion);
-            puente.setString(3, Salario);
-            puente.setString(4, IdHorario);
+            
+            puente.setString(1, IdEmpleado);
+            puente.setString(2, FechaContratacion);
+            puente.setString(3, FechaFinalizacion);
+            puente.setString(4, Salario);
             puente.setString(5, IdCargo);
             puente.setString(6, IdDependencia);
             puente.setString(7, IdTipoContrato);
-            puente.setString(8, IdEmpleado);
-            puente.setString(9, IdJornada);
+            puente.setString(8, IdJornada);
+            puente.setString(9, IdHorario);
             puente.executeUpdate();
             operacion = true;
 

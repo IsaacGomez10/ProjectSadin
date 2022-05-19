@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="19321934-33eb-41f4-a191-da9bc80423b7">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="java" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0f56134f-3fd4-427b-a28a-91ef3edb6d88">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="numeroDocumento" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[select e.Nombres, e.Apellidos, le.LugarExpedicion, cg.NombreCargo, tc.Contrato,j.Jornada,h.HorarioLaboral
+		<![CDATA[
+select e.Nombres, e.Apellidos, le.LugarExpedicion, cg.NombreCargo, tc.Contrato,j.Jornada,h.HorarioLaboral,e.numerodocumento
 from contrato c 
 inner join empleado e on c.IdEmpleado = e.IdEmpleado
 inner join lugarexpedicion le on e.IdLugarExpedicion = le.IdLugarExpedicion
@@ -36,6 +37,9 @@ where e.NumeroDocumento = $P{numeroDocumento}]]>
 	<field name="HorarioLaboral" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="numerodocumento" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -51,36 +55,36 @@ where e.NumeroDocumento = $P{numeroDocumento}]]>
 	<detail>
 		<band height="125" splitType="Stretch">
 			<textField>
-				<reportElement x="206" y="0" width="121" height="20" uuid="5e247922-0150-49f1-883f-600b9fa4d28f"/>
-				<textFieldExpression><![CDATA[$P{numeroDocumento}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="150" y="52" width="100" height="20" uuid="8d436f60-6591-4b20-805c-863a9a276c34"/>
-				<textFieldExpression><![CDATA[$F{Apellidos}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="66" y="52" width="100" height="20" uuid="53c5aa9e-b4c2-48c8-a1a6-2150dc60a1e3"/>
+				<reportElement x="58" y="15" width="100" height="20" uuid="23487677-ae28-4e35-a5a6-d62286d2f977"/>
 				<textFieldExpression><![CDATA[$F{Nombres}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="227" y="52" width="100" height="20" uuid="500ca10f-9d55-44ea-849a-bf0e9b6682d8"/>
+				<reportElement x="160" y="16" width="100" height="20" uuid="e61b7d44-1aa0-46dd-9d7b-5653e2da3ffc"/>
+				<textFieldExpression><![CDATA[$F{Apellidos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="260" y="16" width="100" height="20" uuid="ecd39618-46f8-4251-892b-4c45b8608b5e"/>
 				<textFieldExpression><![CDATA[$F{LugarExpedicion}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="381" y="60" width="100" height="20" uuid="33d7e1eb-aa14-4ba8-8b79-80776153ed19"/>
+				<reportElement x="402" y="15" width="100" height="20" uuid="fd584645-cb1b-42d2-9e14-7ec795ef6eb3"/>
 				<textFieldExpression><![CDATA[$F{NombreCargo}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="87" y="96" width="100" height="20" uuid="26f96fb1-6f53-44d7-a39c-50fdedaf9b09"/>
+				<reportElement x="60" y="51" width="100" height="20" uuid="3a8b4b2b-0f54-41b0-9fc8-a77fb327074d"/>
 				<textFieldExpression><![CDATA[$F{Contrato}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="187" y="96" width="100" height="20" uuid="b4a7a029-3df2-42fa-841e-139be93a06d5"/>
+				<reportElement x="158" y="51" width="100" height="20" uuid="251aba0b-0525-48e7-98b3-557b747f7ad9"/>
 				<textFieldExpression><![CDATA[$F{Jornada}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="305" y="96" width="100" height="20" uuid="c141ddcb-e689-4d2c-9c31-cc39dc8c1c0f"/>
+				<reportElement x="260" y="51" width="100" height="20" uuid="a6983365-c551-4194-9d05-361a3550ca5f"/>
 				<textFieldExpression><![CDATA[$F{HorarioLaboral}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="402" y="51" width="115" height="20" uuid="ad7a4f0c-6b6b-4557-b457-d3bbf8d358df"/>
+				<textFieldExpression><![CDATA[$F{numerodocumento}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

@@ -4,6 +4,7 @@
     Author     : isaac
 --%>
 
+<%@page import="ModeloVO.EmpleadoVO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -15,11 +16,12 @@
     <body>
 
         <h1>Solicitar certificado</h1>
+            
         
         <section>
             <form method="post" action="Reporte/CargoDesempenado.jsp" target="_black">
                 <div>
-                    <label>Certificado de cargo desempeñado</label><br>
+                    <label><b>Certificado de cargo desempeñado</b></label><br>
                     <label>Ingrese número documento nuevamente</label><br>
                     <input type="text" name="numeroDocumento" id="txtidcliente" placeholder="Ingrese número de documento">
                 </div>
@@ -29,11 +31,11 @@
                 </div>
             </form>
         </section>
-        
+        <br>
         <section>
             <form method="post" action="Reporte/SueldoBasico.jsp" target="_black">
                 <div>
-                    <label>Certificado de sueldo básico</label><br>
+                    <label><b>Certificado de sueldo básico</b></label><br>
                     <label>Ingrese número documento nuevamente</label><br>
                     <input type="text" name="numeroDocumento" id="txtidcliente" placeholder="Ingrese número de documento">
                 </div>
@@ -43,13 +45,13 @@
                 </div>
             </form>
         </section>
-        
+        <br>
         <section>
             <form method="post" action="Reporte/TiempoDeServicio.jsp" target="_black">
                 <div>
-                    <label>Certificado de tiempo de servicio</label><br>
+                    <label><b>Certificado de tiempo de servicio</b></label><br>
                     <label>Ingrese número documento nuevamente</label><br>
-                    <input type="text" name="numeroDocumento3" id="txtidcliente" placeholder="Ingrese número de documento">
+                    <input type="text" name="numeroDocumento" id="txtidcliente" placeholder="Ingrese número de documento">
                 </div>
                 <div>
                     &nbsp;
@@ -57,13 +59,13 @@
                 </div>
             </form>
         </section>
-        
+        <br>
         <section>
             <form method="post" action="Reporte/TipoDeContrato.jsp" target="_black">
                 <div>
-                    <label>Certificado de tipo de contrato</label><br>
+                    <label><b>Certificado de tipo de contrato</b></label><br>
                     <label>Ingrese número documento nuevamente</label><br>
-                    <input type="text" name="numeroDocumento4" id="txtidcliente" placeholder="Ingrese número de documento">
+                    <input type="text" name="numeroDocumento" id="txtidcliente" placeholder="Ingrese número de documento">
                 </div>
                 <div>
                     &nbsp;

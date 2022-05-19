@@ -3,7 +3,7 @@
     Created on : Apr 25, 2022, 11:07:14 AM
     Author     : isaac
 --%>
-
+<%@page import="ModeloSolicitudVO.SolicitudVO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 
 <%@include file="./EliminarCache/EliminarCache.jsp" %>
