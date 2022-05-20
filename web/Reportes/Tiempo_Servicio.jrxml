@@ -5,7 +5,7 @@
 	<property name="ireport.y" value="0"/>
 	<parameter name="numeroDocumento" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[SELECT e.Nombres, e.Apellidos , e.NumeroDocumento, le.LugarExpedicion, cg.NombreCargo, cg.DescripcionCargo, tc.Contrato, c.FechaContratacion, c.FechaFinalizacion
+		<![CDATA[SELECT concat(e.Nombres, ' ',e.Apellidos)  , e.NumeroDocumento, le.LugarExpedicion, cg.NombreCargo, cg.DescripcionCargo, tc.Contrato, c.FechaContratacion, c.FechaFinalizacion
 FROM contrato c
 INNER JOIN empleado e on c.IdEmpleado = e.IdEmpleado
 INNER JOIN cargo cg on c.IdCargo = cg.IdCargo
@@ -14,10 +14,11 @@ INNER JOIN tipocontrato tc on c.IdTipoContrato = tc.IdTipoContrato
 
 WHERE e.NumeroDocumento = $P{numeroDocumento}]]>
 	</queryString>
-	<field name="LugarExpedicion" class="java.lang.String">
+	<field name="concat(e.Nombres, &apos; &apos;,e.Apellidos)" class="java.lang.String"/>
+	<field name="NumeroDocumento" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="Nombres" class="java.lang.String">
+	<field name="LugarExpedicion" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="NombreCargo" class="java.lang.String">
@@ -32,13 +33,7 @@ WHERE e.NumeroDocumento = $P{numeroDocumento}]]>
 	<field name="FechaContratacion" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="NumeroDocumento" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
 	<field name="FechaFinalizacion" class="java.sql.Date">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="Apellidos" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<background>
@@ -58,10 +53,6 @@ WHERE e.NumeroDocumento = $P{numeroDocumento}]]>
 			<textField>
 				<reportElement x="251" y="16" width="100" height="20" uuid="6be0a76d-6bc7-4f88-b205-c0f254f10a26"/>
 				<textFieldExpression><![CDATA[$F{LugarExpedicion}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="51" y="16" width="100" height="20" uuid="a6c2aed0-f7d4-4b62-af85-67044ee7db62"/>
-				<textFieldExpression><![CDATA[$F{Nombres}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="403" y="16" width="100" height="20" uuid="3855b735-cb64-4c54-ae0e-a74280b3adbd"/>
@@ -84,12 +75,12 @@ WHERE e.NumeroDocumento = $P{numeroDocumento}]]>
 				<textFieldExpression><![CDATA[$F{FechaFinalizacion}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="151" y="16" width="100" height="20" uuid="48699e12-6234-40b6-90bd-5d4941b99968"/>
-				<textFieldExpression><![CDATA[$F{Apellidos}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="191" y="49" width="133" height="20" uuid="32eabc13-ac73-4076-9ed5-41491eb34464"/>
 				<textFieldExpression><![CDATA[$F{NumeroDocumento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="20" y="9" width="190" height="20" uuid="dbb877b2-9a02-4ef6-be9b-8f67d083177d"/>
+				<textFieldExpression><![CDATA[$F{concat(e.Nombres, ' ',e.Apellidos)}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

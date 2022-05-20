@@ -18,6 +18,9 @@
     <body>
     <center>
         <h1>Cambiar Contraseña</h1>
+        
+        <%@include file="navFuncionario.jsp" %>
+        
         <form method="post" action="Funcionario">
 
             <table>

@@ -19,12 +19,13 @@
         <div>
             <h3>Menú Empleado</h3>
 
-            <div>
-                <a href="cambiarContraseña.jsp">Cambiar contraseña</a><br><br>
-                <a href="RegistrarEmpleado.jsp">Registrar Empleado</a>
-                <a href="RegistrarHorario.jsp">Registrar Horario</a>
-                <a href="RegistrarCargo.jsp">Registrar Cargo</a>
-            </div>
+            <ul>
+                <li><a href="cambiarContraseña.jsp">Cambiar contraseña</a></li>
+                <li><a href="RegistrarEmpleado.jsp">Registrar empleado</a></li>
+                <li><a href="RegistrarCargo.jsp">Registrar cargo</a></li>
+                <li><a href="RegistrarHorario.jsp">Registrar horario</a></li>
+                <li><a href="ConsultarEmpleado.jsp">Consultar empleado</a></li>
+            </ul>
         </div>
         <br><br>
     </body>

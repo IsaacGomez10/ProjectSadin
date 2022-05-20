@@ -12,6 +12,8 @@
         <title>Registrar Funcionario</title>
     </head>
     <body>
+        <%@include file="nav.jsp" %>
+
     <center>
         <h1>Registrar Funcionario</h1>
         <form method="post" action="Funcionario">

@@ -5,7 +5,7 @@
 	<property name="ireport.y" value="0"/>
 	<parameter name="numeroDocumento" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[select e.Nombres, e.Apellidos, le.LugarExpedicion, cg.NombreCargo, tc.Contrato, c.Salario
+		<![CDATA[select concat(e.Nombres, ' ',e.Apellidos) , le.LugarExpedicion, cg.NombreCargo, tc.Contrato, c.Salario
 from contrato c 
 inner join empleado e on c.IdEmpleado = e.IdEmpleado
 inner join lugarexpedicion le on e.IdLugarExpedicion = le.IdLugarExpedicion
@@ -13,12 +13,7 @@ inner join cargo cg on c.IdCargo = cg.IdCargo
 inner join tipocontrato tc on tc.IdTipoContrato = c.IdTipoContrato
 where e.NumeroDocumento = $P{numeroDocumento}]]>
 	</queryString>
-	<field name="Nombres" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="Apellidos" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
+	<field name="concat(e.Nombres, &apos; &apos;,e.Apellidos)" class="java.lang.String"/>
 	<field name="LugarExpedicion" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -50,14 +45,6 @@ where e.NumeroDocumento = $P{numeroDocumento}]]>
 				<textFieldExpression><![CDATA[$P{numeroDocumento}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="64" y="13" width="100" height="20" uuid="d4d88e3f-7225-47cb-af34-3ec81626db5f"/>
-				<textFieldExpression><![CDATA[$F{Nombres}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="164" y="13" width="100" height="20" uuid="9c7c26b5-5c47-4bfc-bb27-1f01b5f2a1bb"/>
-				<textFieldExpression><![CDATA[$F{Apellidos}]]></textFieldExpression>
-			</textField>
-			<textField>
 				<reportElement x="379" y="13" width="100" height="20" uuid="fb2f4afa-044b-4c70-8c6c-7701b26bddae"/>
 				<textFieldExpression><![CDATA[$F{LugarExpedicion}]]></textFieldExpression>
 			</textField>
@@ -72,6 +59,10 @@ where e.NumeroDocumento = $P{numeroDocumento}]]>
 			<textField>
 				<reportElement x="379" y="67" width="100" height="20" uuid="85142811-028c-48ad-817d-7fa3e43347fb"/>
 				<textFieldExpression><![CDATA[$F{Salario}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="23" y="13" width="219" height="20" uuid="b7f492b8-22df-4be4-8a4f-1d941cdf52ef"/>
+				<textFieldExpression><![CDATA[$F{concat(e.Nombres, ' ',e.Apellidos)}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

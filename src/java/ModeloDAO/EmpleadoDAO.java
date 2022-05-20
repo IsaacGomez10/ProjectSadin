@@ -138,6 +138,29 @@ public class EmpleadoDAO extends Conexion implements Crud {
         return operacion;
     }
 
+//    public boolean VerificarRegistros(int numeroDocumento, int telefono, String email) {
+//
+//        try {
+//            sql = "select NumeroDocumento, Telefono, Email from empleado \n"
+//                    + "where NumeroDocumento = ? and Telefono = ? and Email = ?";
+//            puente = conexion.prepareStatement(sql);
+//            puente.setInt(1, numeroDocumento);
+//            puente.setInt(2, telefono);
+//            puente.setString(3, email);
+//            mensajero = puente.executeQuery();
+//
+//            if (mensajero.next()) {
+//                cerrarConexion();
+//                return true;
+//            }
+//            cerrarConexion();
+//        } catch (Exception e) {
+//            Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
+//
+//        }
+//        return false;
+//    }
+
     public EmpleadoVO registrarContrato(String idEmpleado) {
 
         EmpleadoVO empVO = null;
@@ -195,33 +218,5 @@ public class EmpleadoDAO extends Conexion implements Crud {
 
         return empVO;
     }
-    
-    
-    public EmpleadoVO obtenerReporte(String numDocumento) {
 
-        EmpleadoVO empVO = null;
-
-        try {
-            conexion = this.obtenerConexion();
-            sql = "select * from empleado where NumeroDocumento=?";
-            puente = conexion.prepareStatement(sql);
-            puente.setString(1, numDocumento);
-            mensajero = puente.executeQuery();
-
-            while (mensajero.next()) {
-                empVO = new EmpleadoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(7), mensajero.getString(8));
-            }
-
-        } catch (SQLException e) {
-            Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
-        } finally {
-            try {
-                this.cerrarConexion();
-            } catch (SQLException e) {
-                Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
-            }
-        }
-
-        return empVO;
-    }
 }

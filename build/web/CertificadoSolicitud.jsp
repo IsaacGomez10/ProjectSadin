@@ -19,7 +19,9 @@
         <meta http-equiv="Pragma" content="no-cache">
     </head>
     <body>
-
+        <%@include file="nav.jsp" %>
+        
+        
         <form method="post" action="Certificacion">
             <div id="limpiar">
                 <span>Número de Documento</span><br>
@@ -44,7 +46,8 @@
                 </div>
                 <div class="userInput">
                     <input type="text" placeholder="Ingrese captcha" ><br>
-                    <button type="submit" class="btn">Confirmar</button>
+                    <button>Confirmar</button>
+                    <input type="hidden" value="1" class="btn">
                 </div>
             </div>
             <div>
@@ -53,9 +56,6 @@
             </div>
 
         </form><br>
-        <div>
-            <a href="Index.jsp">Volver al inicio</a>
-        </div>
         <%@include file="./ErrorDatosJava/ErrorDatosJava.jsp" %>
 
         <script src="https://code.responsivevoice.org/responsivevoice.js"></script>

@@ -17,6 +17,7 @@
         <title>Buscar Empleado</title>
     </head>
     <body>
+        <%@include file="navFuncionario.jsp" %>
         <h1>Consultar Empleado</h1>
 
 

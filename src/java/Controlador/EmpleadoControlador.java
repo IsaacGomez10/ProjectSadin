@@ -9,6 +9,7 @@ import ModeloDAO.EmpleadoDAO;
 import ModeloVO.EmpleadoVO;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -47,6 +48,8 @@ public class EmpleadoControlador extends HttpServlet {
         EmpleadoVO EmpVO = new EmpleadoVO(IdEmpleado, Nombres, Apellidos, IdTipoDocumento, NumeroDocumento, Telefono, Email, IdLugarExpedicion);
         EmpleadoDAO EmpDAO = new EmpleadoDAO(EmpVO);
 
+        boolean res = false;
+
         //Recibir datos del formulario a traves de una variable 
         int opcion = Integer.parseInt(request.getParameter("opcion"));
 
@@ -54,6 +57,7 @@ public class EmpleadoControlador extends HttpServlet {
         switch (opcion) {
             case 1: //Agregar registro
                 if (EmpDAO.agregarRegistro()) {
+
                     request.setAttribute("MensajeExito", "El empleado se registro correctamente");
                     request.getRequestDispatcher("RegistrarContrato.jsp").forward(request, response);
                 } else {
@@ -83,18 +87,6 @@ public class EmpleadoControlador extends HttpServlet {
                 }
                 break;
 
-            case 4:
-                EmpVO = EmpDAO.obtenerReporte(NumeroDocumento);
-                
-                if (EmpVO != null) {
-                    request.setAttribute("ValidarCertificado", EmpVO);
-                    request.getRequestDispatcher("ConsultarCertificado.jsp").forward(request, response);
-                } else {
-                    request.setAttribute("mensajeError", "El empleado No existe, verifique el número de documento");
-                    request.getRequestDispatcher("CertificadoSolicitud.jsp").forward(request, response);
-                }
-                break;
-                
         }
 
     }

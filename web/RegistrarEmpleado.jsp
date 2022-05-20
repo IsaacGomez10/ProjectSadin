@@ -16,12 +16,13 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registrar Empleado</title>
-    <link rel="stylesheet" href="CSS/estilosForms.css">
+        <link rel="stylesheet" href="CSS/estilosForms.css">
     </head>
     <body>
+        <%@include file="navFuncionario.jsp" %>
         <h1>Registrar Empleados</h1>
 
-       <form method="post" action="Empleado" id="formulario">
+        <form method="post" action="Empleado" id="formulario">
 
 
             <div class="formulario__grupo" id="grupo__nombre">

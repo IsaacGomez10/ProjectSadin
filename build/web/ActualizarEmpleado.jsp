@@ -18,6 +18,7 @@
         <title>Actualizar empleado</title>
     </head>
     <body>
+        <%@include file="navFuncionario.jsp" %>
     <center>
         <h1>Actualizar empleado</h1>
         <%

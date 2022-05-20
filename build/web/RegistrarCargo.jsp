@@ -15,6 +15,7 @@
         <title>Registar Cargo</title>
     </head>
     <body>
+        <%@include file="navFuncionario.jsp" %>
         <h1>Registrar Cargo</h1>
         <form id="formulario" method="post" action="Cargo">
             <span>Nombre del Cargo</span><br>

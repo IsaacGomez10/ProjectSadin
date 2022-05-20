@@ -14,6 +14,8 @@
         <title>Registrar Horario</title>
     </head>
     <body>
+        <%@include file="navFuncionario.jsp" %>
+        
     <center>
         <h1>Registrar Horario</h1>
         <form method="post" action="Horario">
