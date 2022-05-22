@@ -13,11 +13,8 @@ inner join cargo cg on c.IdCargo = cg.IdCargo
 inner join tipocontrato tc on tc.IdTipoContrato = c.IdTipoContrato
 inner join jornada j on c.IdJornada = j.IdJornada
 inner join horario h on c.IdHorario = h.IdHorario
-where e.NumeroDocumento = $P{numeroDocumento}]]>
+where e.idempleado = $P{numeroDocumento}]]>
 	</queryString>
-	<field name="numerodocumento" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
 	<field name="concat(e.Nombres, &apos; &apos;,e.Apellidos)" class="java.lang.String"/>
 	<field name="LugarExpedicion" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -32,6 +29,9 @@ where e.NumeroDocumento = $P{numeroDocumento}]]>
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="HorarioLaboral" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numerodocumento" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<background>

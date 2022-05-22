@@ -81,15 +81,12 @@ public final class CertificadoSolicitud_jsp extends org.apache.jasper.runtime.Ht
       out.write("    </ul>\n");
       out.write("</nav>");
       out.write("\n");
-      out.write("        \n");
-      out.write("        \n");
-      out.write("        <form method=\"post\" action=\"Certificacion\">\n");
-      out.write("            <div id=\"limpiar\">\n");
-      out.write("                <span>Número de Documento</span><br>\n");
-      out.write("                <input type=\"text\" name=\"txtNumeroDocumento\" placeholder=\"Ingrese documento\">\n");
-      out.write("            </div>\n");
-      out.write("            <input type=\"hidden\" value=\"1\" name=\"opcion\">\n");
-      out.write("            <br><br>\n");
+      out.write("\n");
+      out.write("\n");
+      out.write("        <form method=\"post\" action=\"Certificacion\" target=\"_black\">\n");
+      out.write("\n");
+      out.write("            <span>Número de Documento</span><br>\n");
+      out.write("            <input type=\"text\" name=\"txtNumeroDocumento\" placeholder=\"Ingrese documento\">\n");
       out.write("\n");
       out.write("            <!--Captcha-->\n");
       out.write("            <div class=\"captcha-container\">\n");
@@ -107,8 +104,8 @@ public final class CertificadoSolicitud_jsp extends org.apache.jasper.runtime.Ht
       out.write("                </div>\n");
       out.write("                <div class=\"userInput\">\n");
       out.write("                    <input type=\"text\" placeholder=\"Ingrese captcha\" ><br>\n");
-      out.write("                    <button>Confirmar</button>\n");
-      out.write("                    <input type=\"hidden\" value=\"1\" class=\"btn\">\n");
+      out.write("                    <button id=\"limpiar\">Confirmar</button>\n");
+      out.write("                    <input type=\"hidden\" value=\"1\" class=\"btn\" name=\"opcion\">\n");
       out.write("                </div>\n");
       out.write("            </div>\n");
       out.write("            <div>\n");
@@ -121,12 +118,12 @@ public final class CertificadoSolicitud_jsp extends org.apache.jasper.runtime.Ht
       out.write("<div>\n");
       out.write("    ");
 
-    if (request.getAttribute("mensajeError") != null) {
+    if (request.getAttribute("MensajeError") != null) {
       out.write("\n");
       out.write("    \n");
       out.write("    <script>\n");
       out.write("        alert('");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mensajeError}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${MensajeError}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("');\n");
       out.write("    </script>\n");
       out.write("    \n");

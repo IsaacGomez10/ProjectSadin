@@ -20,15 +20,12 @@
     </head>
     <body>
         <%@include file="nav.jsp" %>
-        
-        
-        <form method="post" action="Certificacion">
-            <div id="limpiar">
-                <span>Número de Documento</span><br>
-                <input type="text" name="txtNumeroDocumento" placeholder="Ingrese documento">
-            </div>
-            <input type="hidden" value="1" name="opcion">
-            <br><br>
+
+
+        <form method="post" action="Certificacion" target="_black">
+
+            <span>Número de Documento</span><br>
+            <input type="text" name="txtNumeroDocumento" placeholder="Ingrese documento">
 
             <!--Captcha-->
             <div class="captcha-container">
@@ -46,8 +43,8 @@
                 </div>
                 <div class="userInput">
                     <input type="text" placeholder="Ingrese captcha" ><br>
-                    <button>Confirmar</button>
-                    <input type="hidden" value="1" class="btn">
+                    <button id="limpiar">Confirmar</button>
+                    <input type="hidden" value="1" class="btn" name="opcion">
                 </div>
             </div>
             <div>

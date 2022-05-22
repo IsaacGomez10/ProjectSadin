@@ -12,7 +12,7 @@ INNER JOIN cargo cg on c.IdCargo = cg.IdCargo
 INNER JOIN lugarexpedicion le on e.IdLugarExpedicion = le.IdLugarExpedicion
 INNER JOIN tipocontrato tc on c.IdTipoContrato = tc.IdTipoContrato
 
-WHERE e.NumeroDocumento = $P{numeroDocumento}]]>
+WHERE e.idempleado = $P{numeroDocumento}]]>
 	</queryString>
 	<field name="concat(e.Nombres, &apos; &apos;,e.Apellidos)" class="java.lang.String"/>
 	<field name="NumeroDocumento" class="java.lang.Integer">

@@ -11,7 +11,7 @@ inner join empleado e on c.IdEmpleado = e.IdEmpleado
 inner join lugarexpedicion le on e.IdLugarExpedicion = le.IdLugarExpedicion
 inner join cargo cg on c.IdCargo = cg.IdCargo
 inner join tipocontrato tc on tc.IdTipoContrato = c.IdTipoContrato
-where e.NumeroDocumento = $P{numeroDocumento}]]>
+where e.idempleado = $P{numeroDocumento}]]>
 	</queryString>
 	<field name="concat(e.Nombres, &apos; &apos;,e.Apellidos)" class="java.lang.String"/>
 	<field name="LugarExpedicion" class="java.lang.String">

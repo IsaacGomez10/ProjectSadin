@@ -48,7 +48,8 @@ public class SolicitudDAO extends Conexion {
 
         }
     }
-
+    
+    
     public SolicitudVO SolicitarCertificado(String numeroDocumento) {
 
         SolicitudVO solVO = null;
