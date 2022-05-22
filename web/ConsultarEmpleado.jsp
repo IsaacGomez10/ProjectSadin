@@ -24,7 +24,7 @@
         <form method="post" action="Empleado">
 
             <span>Ingrese el número de documento del empleado</span><br>
-            <input type="text" name="txtNumeroDocumento" placeholder="Ingrese Documento"><br>
+            <input onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" type="text" name="txtNumeroDocumento" placeholder="Ingrese Documento"><br>
             
             <button>Consultar</button>
             <input type="hidden" value="3" name="opcion">

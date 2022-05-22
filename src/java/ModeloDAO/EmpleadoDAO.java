@@ -138,59 +138,6 @@ public class EmpleadoDAO extends Conexion implements Crud {
         return operacion;
     }
 
-//    public boolean VerificarRegistros(int numeroDocumento, int telefono, String email) {
-//
-//        try {
-//            sql = "select NumeroDocumento, Telefono, Email from empleado \n"
-//                    + "where NumeroDocumento = ? and Telefono = ? and Email = ?";
-//            puente = conexion.prepareStatement(sql);
-//            puente.setInt(1, numeroDocumento);
-//            puente.setInt(2, telefono);
-//            puente.setString(3, email);
-//            mensajero = puente.executeQuery();
-//
-//            if (mensajero.next()) {
-//                cerrarConexion();
-//                return true;
-//            }
-//            cerrarConexion();
-//        } catch (Exception e) {
-//            Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
-//
-//        }
-//        return false;
-//    }
-
-    public EmpleadoVO registrarContrato(String idEmpleado) {
-
-        EmpleadoVO empVO = null;
-
-        try {
-
-            conexion = this.obtenerConexion();
-            sql = "select IdEmpleado from empleado where IdEmpleado=?";
-            puente = conexion.prepareStatement(sql);
-            puente.setString(1, idEmpleado);
-            mensajero = puente.executeQuery();
-
-            while (mensajero.next()) {
-                empVO = new EmpleadoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5),
-                        mensajero.getString(6), mensajero.getString(7), mensajero.getString(8));
-            }
-
-        } catch (Exception e) {
-            Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
-        } finally {
-            try {
-                this.cerrarConexion();
-            } catch (SQLException e) {
-                Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
-            }
-        }
-
-        return empVO;
-    }
-
     public EmpleadoVO consultarEmpleados(String numDocumento) {
 
         EmpleadoVO empVO = null;
@@ -217,6 +164,77 @@ public class EmpleadoDAO extends Conexion implements Crud {
         }
 
         return empVO;
+    }
+
+    //Validaciones de dato ya existentes en la base de dato
+    public int documentoExistente(String documento) {
+
+        try {
+            //La sentencia sql permite bucar si el dato que se ingreso ya lo tiene un id
+            sql = "select count(idempleado) from empleado where NumeroDocumento = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, documento);
+            mensajero = puente.executeQuery();
+
+            if (mensajero.next()) {
+                //Si ese dato fue encontrado y pertenece a un id, el dato no podra ser registrado
+                return mensajero.getInt(1);
+            }
+
+            //Finalmente se retorna que el dato se encuentra en un id
+            return 1;
+
+        } catch (Exception e) {
+            Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
+            return 1;
+
+        }
+    }
+
+    public int telefonoExistente(String telefono) {
+
+        try {
+            //La sentencia sql permite bucar si el dato que se ingreso ya lo tiene un id
+            sql = "select count(idempleado) from empleado where Telefono = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, telefono);
+            mensajero = puente.executeQuery();
+
+            if (mensajero.next()) {
+                //Si ese dato fue encontrado y pertenece a un id, el dato no podra ser registrado
+                return mensajero.getInt(1);
+            }
+            //Finalmente se retorna que el dato se encuentra en un id
+            return 1;
+
+        } catch (Exception e) {
+            Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
+            return 1;
+
+        }
+    }
+
+    public int emailExistente(String email) {
+
+        try {
+            //La sentencia sql permite bucar si el dato que se ingreso ya lo tiene un id
+            sql = "select count(idempleado) from empleado where Email = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, email);
+            mensajero = puente.executeQuery();
+
+            if (mensajero.next()) {
+                //Si ese dato fue encontrado y pertenece a un id, el dato no podra ser registrado
+                return mensajero.getInt(1);
+            }
+            //Finalmente se retorna que el dato se encuentra en un id
+            return 1;
+
+        } catch (Exception e) {
+            Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
+            return 1;
+
+        }
     }
 
 }

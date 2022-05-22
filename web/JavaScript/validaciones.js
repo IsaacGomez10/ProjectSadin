@@ -6,11 +6,11 @@ const expresiones = {
 
     nombre: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
     apellido: /^[a-zA-ZÀ-ÿ\s]{1,40}$/, // Letras y espacios, pueden llevar acentos.
-    email: /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/,
+    email: /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/, //expreciones de correo electrónico
     tipoDocumento: /^[a-zA-ZÀ-ÿ\s]/,
     lugarExpedicion: /^[a-zA-ZÀ-ÿ\s]/,
-    telefono: /^\d{7,14}$/, // 7 a 14 numeros.
-    numeroDocumento: /^\d{7,10}$/ // 7 a 14 numeros.
+    telefono: /^[\s\S]{0,10}$/, // 7 a 10 numeros.
+    numeroDocumento: /^[\s\S]{0,20}$/ // 7 a 20 numeros.
 }
 
 const campos = {
@@ -91,23 +91,24 @@ inputs.forEach((input) => {
     input.addEventListener('blur', validarFormulario);
 });
 
+
 //formulario.addEventListener('submit', (e) => {
-   // e.preventDefault();
+// e.preventDefault();
 
-    //const terminos = document.getElementById('terminos');
-    //if (campos.nombre && campos.apellido && campos.tipoDocumento && campos.numeroDocumento && campos.telefono && campos.email && campos.lugarExpedicion) {
-       // formulario.reset();
+//const terminos = document.getElementById('terminos');
+//if (campos.nombre && campos.apellido && campos.tipoDocumento && campos.numeroDocumento && campos.telefono && campos.email && campos.lugarExpedicion) {
+// formulario.reset();
 
-        //document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
-        //setTimeout(() => {
-            //document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
-       // }, 5000);
+//document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
+//setTimeout(() => {
+//document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
+// }, 5000);
 
-        //document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
-            //icono.classList.remove('formulario__grupo-correcto');
-       // });
-   // } else {
-   //     document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
+//document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
+//icono.classList.remove('formulario__grupo-correcto');
+// });
+// } else {
+//     document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
 //    }
 //});
 

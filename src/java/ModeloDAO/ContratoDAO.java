@@ -47,15 +47,15 @@ public class ContratoDAO extends Conexion implements Crud {
             conexion = this.obtenerConexion();
             //4. Traer al DAO los datos del VO para hacer las operaciones
             IdContrato = conVO.getIdContrato();
+            IdEmpleado = conVO.getIdEmpleado();
             FechaContratacion = conVO.getFechaContratacion();
             FechaFinalizacion = conVO.getFechaFinalizacion();
             Salario = conVO.getSalario();
-            IdHorario = conVO.getIdHorario();
             IdCargo = conVO.getIdCargo();
             IdDependencia = conVO.getIdDependencia();
             IdTipoContrato = conVO.getIdTipoContrato();
-            IdEmpleado = conVO.getIdEmpleado();
             IdJornada = conVO.getIdJornada();
+            IdHorario = conVO.getIdHorario();
 
         } catch (Exception e) {
             Logger.getLogger(ContratoDAO.class.getName()).log(Level.SEVERE, null, e);
@@ -64,12 +64,13 @@ public class ContratoDAO extends Conexion implements Crud {
 
     @Override
     public boolean agregarRegistro() {
+
         try {
 
             sql = "insert into contrato(IdEmpleado, FechaContratacion, FechaFinalizacion, Salario, IdCargo,IdDependencia, "
                     + "IdTipoContrato, IdJornada, IdHorario) values(?,?,?,?,?,?,?,?,?)";
             puente = conexion.prepareStatement(sql);
-            
+
             puente.setString(1, IdEmpleado);
             puente.setString(2, FechaContratacion);
             puente.setString(3, FechaFinalizacion);
@@ -94,6 +95,27 @@ public class ContratoDAO extends Conexion implements Crud {
         }
 
         return operacion;
+    }
+
+    public EmpleadoVO obtenerId(String id) {
+        
+        EmpleadoVO empVO = null;
+        try {
+            conexion = this.obtenerConexion();
+            sql = "select idempleado from empleado where numerodocumento = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, id);
+            mensajero = puente.executeQuery();
+
+            while (mensajero.next()) {
+                empVO = new EmpleadoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(7), mensajero.getString(8));
+            }
+
+        } catch (Exception e) {
+            Logger.getLogger(ContratoDAO.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        return empVO;
     }
 
     @Override

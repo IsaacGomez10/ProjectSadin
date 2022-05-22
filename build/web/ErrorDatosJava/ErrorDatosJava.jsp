@@ -1,9 +1,9 @@
 <div>
     <%
-    if (request.getAttribute("mensajeError") != null) {%>
+    if (request.getAttribute("MensajeError") != null) {%>
     
     <script>
-        alert('${mensajeError}');
+        alert('${MensajeError}');
     </script>
     
     <% }%>

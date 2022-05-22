@@ -5,7 +5,6 @@
  */
 package Controlador;
 
-
 import ModeloDAO.ContratoDAO;
 import ModeloVO.ContratoVO;
 import java.io.IOException;
@@ -35,26 +34,25 @@ public class ContratoControlador extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
         //1. Recibir datos de la vista
         String IdContrato = request.getParameter("txtIdContrato");
+        String IdEmpleado = request.getParameter("txtIdEmpleado");
         String FechaContratacion = request.getParameter("txtFechaContratacion");
         String FechaFinalizacion = request.getParameter("txtFechaFinalizacion");
         String Salario = request.getParameter("txtSalario");
-        String IdHorario = request.getParameter("txtHorario");
         String IdCargo = request.getParameter("txtIdCargo");
-        String IdTipoContrato = request.getParameter("txtIdTipoContrato");
-        String IdEmpleado = request.getParameter("txtIdEmpleado");
-        String IdJornada = request.getParameter("txtIdJornada");
         String IdDependencia = request.getParameter("txtDependencia");
+        String IdTipoContrato = request.getParameter("txtIdTipoContrato");
+        String IdJornada = request.getParameter("txtIdJornada");
+        String IdHorario = request.getParameter("txtHorario");
 
         //2. Quien tiene los datos de forma segura? VO
-        ContratoVO conVO = new ContratoVO(IdContrato, FechaContratacion, FechaFinalizacion, Salario, IdHorario, IdCargo, IdTipoContrato, IdEmpleado, IdJornada, IdDependencia);
+        ContratoVO conVO = new ContratoVO(IdContrato, IdEmpleado, FechaContratacion, FechaFinalizacion, Salario, IdCargo, IdDependencia, IdTipoContrato, IdJornada, IdHorario);
         //3. Quien hace las operaciones? DAO
         ContratoDAO conDAO = new ContratoDAO(conVO);
-        
-        int opcion = Integer.parseInt(request.getParameter("opcion"));
 
+        int opcion = Integer.parseInt(request.getParameter("opcion"));
 
         //4. Administrar operaciones del modulo
         switch (opcion) {
@@ -66,7 +64,7 @@ public class ContratoControlador extends HttpServlet {
                     request.setAttribute("mensajeError", "El contrato No se registro correctamente");
                     request.getRequestDispatcher("RegistrarContrato.jsp").forward(request, response);
                 }
-                
+
                 break;
         }
     }

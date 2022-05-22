@@ -55,15 +55,34 @@ public class EmpleadoControlador extends HttpServlet {
 
         //Administrar las variables
         switch (opcion) {
-            case 1: //Agregar registro
-                if (EmpDAO.agregarRegistro()) {
+            case 1: //Agregar registro y verifica datos en la bae de dato antes de guardar
+                //Verificar número de documento en la base de datos
+                if (EmpDAO.documentoExistente(NumeroDocumento) == 0) {
+                    //Verificar número de teléfono en la base de datos
+                    if (EmpDAO.telefonoExistente(Telefono) == 0) {
+                        //Verificar correo electronico en la base de datos
+                        if (EmpDAO.emailExistente(Email) == 0) {
+                            if (EmpDAO.agregarRegistro()) {
+                                request.setAttribute("MensajeExito", "El empleado se registro correctamente");
+                                request.getRequestDispatcher("RegistrarContrato.jsp").forward(request, response);
+                            } else {
+                                request.setAttribute("MensajeError", "El empleado pudo ser registrado, verifique datos");
+                                request.getRequestDispatcher("RegistrarEmpleado.jsp").forward(request, response);
+                            }
+                        } else {
+                            request.setAttribute("MensajeError", "El correo electrónico ya existe, verifique el dato");
+                            request.getRequestDispatcher("RegistrarEmpleado.jsp").forward(request, response);
 
-                    request.setAttribute("MensajeExito", "El empleado se registro correctamente");
-                    request.getRequestDispatcher("RegistrarContrato.jsp").forward(request, response);
+                        }
+                    } else {
+                        request.setAttribute("MensajeError", "El número de teléfono ya existe, verifique el dato");
+                        request.getRequestDispatcher("RegistrarEmpleado.jsp").forward(request, response);
+                    }
                 } else {
-                    request.setAttribute("MensajeError", "El empleado fue registrado correctamente");
+                    request.setAttribute("MensajeError", "El número de documento ya existe, verifique el dato");
                     request.getRequestDispatcher("RegistrarEmpleado.jsp").forward(request, response);
                 }
+
                 break;
 
             case 2://Metodo de actualizar registro

@@ -17,7 +17,9 @@
     <title>Certificación</title>
 </head>
 
-<%  /*Importamos la clase "Conexion_Postgresql" y la instanciamos por el nombre conexion
+<%
+
+    /*Importamos la clase "Conexion_Postgresql" y la instanciamos por el nombre conexion
 con la siguiente linea de codigo*/
     Conexion conexion = new Conexion();
     /*Establecemos la ruta del reporte*/
@@ -29,6 +31,7 @@ y seguiremos el formato del método runReportToPdf*/
     /*Capturamos el valor de nuestra formulario que es el codigo del cliente que es un
 varchar(5), lo almacenamos en una String*/
     String numeroDocumento = request.getParameter("numeroDocumento");
+
     /*Digitamos la siguiente linea de codigo entre parentesis ira el parametro que agregamos en nuestro reporte
 llamado $P{CODIGO}, pero solo se escribira "CODIGO", el String que capturamos lo colocamos, en este caso el 
 reporte solo nos pide un parametro*/

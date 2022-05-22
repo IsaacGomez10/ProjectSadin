@@ -36,10 +36,10 @@
             <input required type="date" id="fechaActual" name="txtFechaContratacion"><br>
 
             <span>Fecha de Finalización</span><br>
-            <input required type="date" id="fechaActual2" name="txtFechaFinalizacion"><br>
+            <input required type="date" name="txtFechaFinalizacion"><br>
 
             <span>Salario</span><br>
-            <input required type="text" name="txtSalario" placeholder="Ingrese Salario"><br>
+            <input onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" required type="text" name="txtSalario" placeholder="Ingrese Salario"><br>
 
             <span>Horario</span><br>
             <select aria-required="true" name="txtHorario">

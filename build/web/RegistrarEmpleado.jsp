@@ -26,77 +26,77 @@
 
 
             <div class="formulario__grupo" id="grupo__nombre">
-                <label for="nombre" class="formulario__label">Nombre</label>
+                <label for="nombre" class="formulario__label">Nombres</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input" name="txtNombres" id="nombre" placeholder="Ingrese Nombres">
+                    <input required="" type="text" class="formulario__input" name="txtNombres" id="nombre" placeholder="Ingrese Nombres">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
-                <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+                <p class="formulario__input-error">Los Nombres no pueden tener caracteres epeciales.</p>
             </div>
 
 
             <div class="formulario__grupo" id="grupo__apellido">
                 <label for="apellido" class="formulario__label">Apellidos</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input" name="txtApellidos" id="apellido" placeholder="Ingrese Apellidos">
+                    <input required="" type="text" class="formulario__input" name="txtApellidos" id="apellido" placeholder="Ingrese Apellidos">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
-                <p class="formulario__input-error">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>
+                <p class="formulario__input-error">Los Apellidos no pueden tener caracteres epeciales.</p>
             </div>
 
 
 
             <span>Tipo de documento</span><br>
-            <select aria-required="true" name="txtIdTipoDocumento">
-                <option selected disabled>Seleccione...</option>
+            <select required="" name="txtIdTipoDocumento">
+                <option selected disabled>Seleccione tipo de documento</option>
                 <%  TipoDocumentoDAO tipoDocDAO = new TipoDocumentoDAO();
                     for (TipoDocumentoVO tipoDocVO : tipoDocDAO.Listar()) {
                 %>
-                <option value="<%=tipoDocVO.getIdTipoDocumento()%>"><%=tipoDocVO.getTipoDocumento()%></option>
+                <option required="" value="<%=tipoDocVO.getIdTipoDocumento()%>"><%=tipoDocVO.getTipoDocumento()%></option>
                 <%}%>
             </select><br>
 
 
             <div class="formulario__grupo" id="grupo__numeroDocumento">
-                <label for="numeroDocumento" class="formulario__label">Numero Documento</label>
+                <label for="numeroDocumento" class="formulario__label">Número de Documento</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input" name="txtNumeroDocumento" id="numeroDocumento" placeholder="Ingrese Documento">
+                    <input required="" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" type="text" class="formulario__input" name="txtNumeroDocumento" id="numeroDocumento" placeholder="Ingrese Documento">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
-                <p class="formulario__input-error">El documento solo puede contener numeros y el maximo son 14 dígitos.</p>
+                <p class="formulario__input-error">Ingrese un número de documento valido.</p>
             </div>
 
 
             <div class="formulario__grupo" id="grupo__telefono">
-                <label for="telefono " class="formulario__label">Telefono</label>
+                <label for="telefono " class="formulario__label">Teléfono</label>
                 <div class="formulario__grupo-input">
-                    <input type="text" class="formulario__input" name="txtTelefono" id="telefono" placeholder="Ingrese Documento">
+                    <input required="" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="10" type="text" class="formulario__input" name="txtTelefono" id="telefono" placeholder="(+57)(300)-(0920325)">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
-                <p class="formulario__input-error">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>
+                <p class="formulario__input-error">Ingrese un número de telefono valido, maximo 10 dígitos.</p>
             </div>
 
 
             <div class="formulario__grupo" id="grupo__email">
                 <label for="email" class="formulario__label">Correo Electrónico</label>
                 <div class="formulario__grupo-input">
-                    <input type="email" class="formulario__input" name="txtEmail" id="email" placeholder="correo@correo.com">
+                    <input required=""  type="email" class="formulario__input" name="txtEmail" id="email" placeholder="correo@correo.com">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
-                <p class="formulario__input-error">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>
+                <p class="formulario__input-error">Ingrese un correo electrónico valido.</p>
             </div>
 
 
 
             <span>Lugar Expedición</span><br>
-            <select aria-required="true" name="txtIdLugarExpedicion">
-                <option selected disabled>Seleccione...</option>
+            <select required="" name="txtIdLugarExpedicion">
+                <option selected disabled>Seleccione ciudad</option>
                 <%
                     LugarExpedicionDAO lugarDAO = new LugarExpedicionDAO();
                     for (LugarExpedicionVO lugarVO : lugarDAO.Listar()) {
 
                 %>
-                <option value="<%=lugarVO.getIdLugarExpedicion()%>"><%=lugarVO.getCiudad()%></option>
+                <option required="" value="<%=lugarVO.getIdLugarExpedicion()%>"><%=lugarVO.getCiudad()%></option>
                 <%}%>
             </select><br>   
 

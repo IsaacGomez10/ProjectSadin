@@ -18,8 +18,9 @@ public final class RegistrarEmpleado_jsp extends org.apache.jasper.runtime.HttpJ
   private static java.util.List<String> _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.ArrayList<String>(2);
+    _jspx_dependants = new java.util.ArrayList<String>(3);
     _jspx_dependants.add("/sesiones.jsp");
+    _jspx_dependants.add("/navFuncionario.jsp");
     _jspx_dependants.add("/./ErrorDatosJava/ErrorDatosJava.jsp");
   }
 
@@ -119,44 +120,55 @@ public final class RegistrarEmpleado_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("    <head>\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\n");
       out.write("        <title>Registrar Empleado</title>\n");
-      out.write("    <link rel=\"stylesheet\" href=\"CSS/estilosForms.css\">\n");
+      out.write("        <link rel=\"stylesheet\" href=\"CSS/estilosForms.css\">\n");
       out.write("    </head>\n");
       out.write("    <body>\n");
+      out.write("        ");
+      out.write("<nav>\n");
+      out.write("    <ul>\n");
+      out.write("        <li><a href=\"cambiarContraseña.jsp\">Cambiar contraseña</a></li>\n");
+      out.write("        <li><a href=\"RegistrarEmpleado.jsp\">Registrar empleado</a></li>\n");
+      out.write("        <li><a href=\"RegistrarCargo.jsp\">Registrar cargo</a></li>\n");
+      out.write("        <li><a href=\"RegistrarHorario.jsp\">Registrar horario</a></li>\n");
+      out.write("        <li><a href=\"ConsultarEmpleado.jsp\">Consultar empleado</a></li>\n");
+      out.write("    </ul>\n");
+      out.write("</nav>\n");
+      out.write("\n");
       out.write("        <h1>Registrar Empleados</h1>\n");
       out.write("\n");
-      out.write("       <form method=\"post\" action=\"Empleado\" id=\"formulario\">\n");
+      out.write("        <form method=\"post\" action=\"Empleado\" id=\"formulario\">\n");
       out.write("\n");
       out.write("\n");
       out.write("            <div class=\"formulario__grupo\" id=\"grupo__nombre\">\n");
-      out.write("                <label for=\"nombre\" class=\"formulario__label\">Nombre</label>\n");
+      out.write("                <label for=\"nombre\" class=\"formulario__label\">Nombres</label>\n");
       out.write("                <div class=\"formulario__grupo-input\">\n");
-      out.write("                    <input type=\"text\" class=\"formulario__input\" name=\"txtNombres\" id=\"nombre\" placeholder=\"Ingrese Nombres\">\n");
+      out.write("                    <input required=\"\" type=\"text\" class=\"formulario__input\" name=\"txtNombres\" id=\"nombre\" placeholder=\"Ingrese Nombres\">\n");
       out.write("                    <i class=\"formulario__validacion-estado fas fa-times-circle\"></i>\n");
       out.write("                </div>\n");
-      out.write("                <p class=\"formulario__input-error\">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>\n");
+      out.write("                <p class=\"formulario__input-error\">Los Nombres no pueden tener caracteres epeciales.</p>\n");
       out.write("            </div>\n");
       out.write("\n");
       out.write("\n");
       out.write("            <div class=\"formulario__grupo\" id=\"grupo__apellido\">\n");
       out.write("                <label for=\"apellido\" class=\"formulario__label\">Apellidos</label>\n");
       out.write("                <div class=\"formulario__grupo-input\">\n");
-      out.write("                    <input type=\"text\" class=\"formulario__input\" name=\"txtApellidos\" id=\"apellido\" placeholder=\"Ingrese Apellidos\">\n");
+      out.write("                    <input required=\"\" type=\"text\" class=\"formulario__input\" name=\"txtApellidos\" id=\"apellido\" placeholder=\"Ingrese Apellidos\">\n");
       out.write("                    <i class=\"formulario__validacion-estado fas fa-times-circle\"></i>\n");
       out.write("                </div>\n");
-      out.write("                <p class=\"formulario__input-error\">El usuario tiene que ser de 4 a 16 dígitos y solo puede contener numeros, letras y guion bajo.</p>\n");
+      out.write("                <p class=\"formulario__input-error\">Los Apellidos no pueden tener caracteres epeciales.</p>\n");
       out.write("            </div>\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("            <span>Tipo de documento</span><br>\n");
-      out.write("            <select aria-required=\"true\" name=\"txtIdTipoDocumento\">\n");
-      out.write("                <option selected disabled>Seleccione...</option>\n");
+      out.write("            <select required=\"\" name=\"txtIdTipoDocumento\">\n");
+      out.write("                <option selected disabled>Seleccione tipo de documento</option>\n");
       out.write("                ");
   TipoDocumentoDAO tipoDocDAO = new TipoDocumentoDAO();
                     for (TipoDocumentoVO tipoDocVO : tipoDocDAO.Listar()) {
                 
       out.write("\n");
-      out.write("                <option value=\"");
+      out.write("                <option required=\"\" value=\"");
       out.print(tipoDocVO.getIdTipoDocumento());
       out.write('"');
       out.write('>');
@@ -169,39 +181,39 @@ public final class RegistrarEmpleado_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("\n");
       out.write("\n");
       out.write("            <div class=\"formulario__grupo\" id=\"grupo__numeroDocumento\">\n");
-      out.write("                <label for=\"numeroDocumento\" class=\"formulario__label\">Numero Documento</label>\n");
+      out.write("                <label for=\"numeroDocumento\" class=\"formulario__label\">Número de Documento</label>\n");
       out.write("                <div class=\"formulario__grupo-input\">\n");
-      out.write("                    <input type=\"text\" class=\"formulario__input\" name=\"txtNumeroDocumento\" id=\"numeroDocumento\" placeholder=\"Ingrese Documento\">\n");
+      out.write("                    <input required=\"\" onKeypress=\"if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;\" type=\"text\" class=\"formulario__input\" name=\"txtNumeroDocumento\" id=\"numeroDocumento\" placeholder=\"Ingrese Documento\">\n");
       out.write("                    <i class=\"formulario__validacion-estado fas fa-times-circle\"></i>\n");
       out.write("                </div>\n");
-      out.write("                <p class=\"formulario__input-error\">El documento solo puede contener numeros y el maximo son 14 dígitos.</p>\n");
+      out.write("                <p class=\"formulario__input-error\">Ingrese un número de documento valido.</p>\n");
       out.write("            </div>\n");
       out.write("\n");
       out.write("\n");
       out.write("            <div class=\"formulario__grupo\" id=\"grupo__telefono\">\n");
-      out.write("                <label for=\"telefono \" class=\"formulario__label\">Telefono</label>\n");
+      out.write("                <label for=\"telefono \" class=\"formulario__label\">Teléfono</label>\n");
       out.write("                <div class=\"formulario__grupo-input\">\n");
-      out.write("                    <input type=\"text\" class=\"formulario__input\" name=\"txtTelefono\" id=\"telefono\" placeholder=\"Ingrese Documento\">\n");
+      out.write("                    <input required=\"\" onKeypress=\"if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;\" maxlength=\"10\" type=\"text\" class=\"formulario__input\" name=\"txtTelefono\" id=\"telefono\" placeholder=\"(+57)(300)-(0920325)\">\n");
       out.write("                    <i class=\"formulario__validacion-estado fas fa-times-circle\"></i>\n");
       out.write("                </div>\n");
-      out.write("                <p class=\"formulario__input-error\">El telefono solo puede contener numeros y el maximo son 14 dígitos.</p>\n");
+      out.write("                <p class=\"formulario__input-error\">Ingrese un número de telefono valido, maximo 10 dígitos.</p>\n");
       out.write("            </div>\n");
       out.write("\n");
       out.write("\n");
       out.write("            <div class=\"formulario__grupo\" id=\"grupo__email\">\n");
       out.write("                <label for=\"email\" class=\"formulario__label\">Correo Electrónico</label>\n");
       out.write("                <div class=\"formulario__grupo-input\">\n");
-      out.write("                    <input type=\"email\" class=\"formulario__input\" name=\"txtEmail\" id=\"email\" placeholder=\"correo@correo.com\">\n");
+      out.write("                    <input required=\"\"  type=\"email\" class=\"formulario__input\" name=\"txtEmail\" id=\"email\" placeholder=\"correo@correo.com\">\n");
       out.write("                    <i class=\"formulario__validacion-estado fas fa-times-circle\"></i>\n");
       out.write("                </div>\n");
-      out.write("                <p class=\"formulario__input-error\">El correo solo puede contener letras, numeros, puntos, guiones y guion bajo.</p>\n");
+      out.write("                <p class=\"formulario__input-error\">Ingrese un correo electrónico valido.</p>\n");
       out.write("            </div>\n");
       out.write("\n");
       out.write("\n");
       out.write("\n");
       out.write("            <span>Lugar Expedición</span><br>\n");
-      out.write("            <select aria-required=\"true\" name=\"txtIdLugarExpedicion\">\n");
-      out.write("                <option selected disabled>Seleccione...</option>\n");
+      out.write("            <select required=\"\" name=\"txtIdLugarExpedicion\">\n");
+      out.write("                <option selected disabled>Seleccione ciudad</option>\n");
       out.write("                ");
 
                     LugarExpedicionDAO lugarDAO = new LugarExpedicionDAO();
@@ -209,7 +221,7 @@ public final class RegistrarEmpleado_jsp extends org.apache.jasper.runtime.HttpJ
 
                 
       out.write("\n");
-      out.write("                <option value=\"");
+      out.write("                <option required=\"\" value=\"");
       out.print(lugarVO.getIdLugarExpedicion());
       out.write('"');
       out.write('>');
@@ -228,12 +240,12 @@ public final class RegistrarEmpleado_jsp extends org.apache.jasper.runtime.HttpJ
       out.write("<div>\n");
       out.write("    ");
 
-    if (request.getAttribute("mensajeError") != null) {
+    if (request.getAttribute("MensajeError") != null) {
       out.write("\n");
       out.write("    \n");
       out.write("    <script>\n");
       out.write("        alert('");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${mensajeError}", java.lang.String.class, (PageContext)_jspx_page_context, null));
+      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${MensajeError}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("');\n");
       out.write("    </script>\n");
       out.write("    \n");

@@ -9,6 +9,5 @@ window.onload = function () {
     if (mes < 10)
         mes = '0' + mes; //agrega cero si el menor de 10
     document.getElementById('fechaActual').value = ano + "-" + mes + "-" + dia;
-    document.getElementById('fechaActual2').value = ano + "-" + mes + "-" + dia;
 };
 
