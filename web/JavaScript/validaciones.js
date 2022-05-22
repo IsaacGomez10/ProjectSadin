@@ -9,8 +9,7 @@ const expresiones = {
     email: /^(([^<>()\[\]\\.,;:\s@”]+(\.[^<>()\[\]\\.,;:\s@”]+)*)|(“.+”))@((\[[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}\.[0–9]{1,3}])|(([a-zA-Z\-0–9]+\.)+[a-zA-Z]{2,}))$/, //expreciones de correo electrónico
     tipoDocumento: /^[a-zA-ZÀ-ÿ\s]/,
     lugarExpedicion: /^[a-zA-ZÀ-ÿ\s]/,
-    telefono: /^[\s\S]{0,10}$/, // 7 a 10 numeros.
-    numeroDocumento: /^[\s\S]{0,20}$/ // 7 a 20 numeros.
+    telefono: /^([0-9]){0,10}$/ // 7 a 10 numeros.
 }
 
 const campos = {
@@ -18,7 +17,6 @@ const campos = {
     apellido: false,
     tipoDocumento: false,
     lugarExpedicion: false,
-    numeroDocumento: false,
     telefono: false,
     email: false
 }
@@ -37,11 +35,6 @@ const validarFormulario = (e) => {
             validarCampo(expresiones.tipoDocumento, e.target, 'tipoDocumento');
             break;
 
-
-        case "txtNumeroDocumento":
-            validarCampo(expresiones.numeroDocumento, e.target, 'numeroDocumento');
-
-            break;
         case "txtTelefono":
             validarCampo(expresiones.telefono, e.target, 'telefono');
 

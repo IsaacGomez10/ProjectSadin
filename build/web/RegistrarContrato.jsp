@@ -5,6 +5,7 @@
 --%>
 
 
+<%@page import="ModeloVO.ContratoVO"%>
 <%@page import="ModeloVO.DependenciaVO"%>
 <%@page import="ModeloDAO.DependenciaDAO"%>
 <%@page import="ModeloVO.JornadaVO"%>
@@ -27,10 +28,14 @@
         <title>Registrar Contrato</title>
     </head>
     <body>
-        
+
         <h1>Registrar Contrato</h1>
 
         <form method="post" action="Contrato" id="formulario">
+
+            <span>id Empleado</span><br>
+            <input type="text" name="txtIdEmpleado"> 
+
 
             <span>Fecha de Contratación</span><br>
             <input required type="date" id="fechaActual" name="txtFechaContratacion"><br>
@@ -39,13 +44,13 @@
             <input required type="date" name="txtFechaFinalizacion"><br>
 
             <span>Salario</span><br>
-            <input onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" required type="text" name="txtSalario" placeholder="Ingrese Salario"><br>
+            <input onKeypress="if (event.keyCode < 45 || event.keyCode > 57)
+                        event.returnValue = false;" required type="text" name="txtSalario" placeholder="Ingrese Salario"><br>
 
             <span>Horario</span><br>
             <select aria-required="true" name="txtHorario">
                 <option selected disabled>Seleccione...</option>
-                <%
-                    HorarioDAO horarioDAO = new HorarioDAO();
+                <%                    HorarioDAO horarioDAO = new HorarioDAO();
                     for (HorarioVO horarioVO : horarioDAO.Listar()) {
                 %>
                 <option value="<%=horarioVO.getIdHorario()%>"><%=horarioVO.getHorarioLaboral()%></option>

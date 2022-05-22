@@ -30,7 +30,7 @@ public class ContratoDAO extends Conexion implements Crud {
 
     private boolean operacion = false;
     private String sql;
-    private String sqlId;
+    private String lastIdEmpleado;
 
     private String IdContrato = "", FechaContratacion = "", FechaFinalizacion = "", Salario = "", IdHorario = "", IdCargo = "", IdDependencia = "", IdTipoContrato = "", IdEmpleado = "", IdJornada = "";
 
@@ -70,7 +70,7 @@ public class ContratoDAO extends Conexion implements Crud {
             sql = "insert into contrato(IdEmpleado, FechaContratacion, FechaFinalizacion, Salario, IdCargo,IdDependencia, "
                     + "IdTipoContrato, IdJornada, IdHorario) values(?,?,?,?,?,?,?,?,?)";
             puente = conexion.prepareStatement(sql);
-
+            
             puente.setString(1, IdEmpleado);
             puente.setString(2, FechaContratacion);
             puente.setString(3, FechaFinalizacion);
@@ -95,27 +95,6 @@ public class ContratoDAO extends Conexion implements Crud {
         }
 
         return operacion;
-    }
-
-    public EmpleadoVO obtenerId(String id) {
-        
-        EmpleadoVO empVO = null;
-        try {
-            conexion = this.obtenerConexion();
-            sql = "select idempleado from empleado where numerodocumento = ?";
-            puente = conexion.prepareStatement(sql);
-            puente.setString(1, id);
-            mensajero = puente.executeQuery();
-
-            while (mensajero.next()) {
-                empVO = new EmpleadoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(7), mensajero.getString(8));
-            }
-
-        } catch (Exception e) {
-            Logger.getLogger(ContratoDAO.class.getName()).log(Level.SEVERE, null, e);
-        }
-
-        return empVO;
     }
 
     @Override

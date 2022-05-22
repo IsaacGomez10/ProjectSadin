@@ -23,8 +23,7 @@
         <h1>Registrar Empleados</h1>
 
         <form method="post" action="Empleado" id="formulario">
-
-
+            
             <div class="formulario__grupo" id="grupo__nombre">
                 <label for="nombre" class="formulario__label">Nombres</label>
                 <div class="formulario__grupo-input">
@@ -70,7 +69,7 @@
             <div class="formulario__grupo" id="grupo__telefono">
                 <label for="telefono " class="formulario__label">Teléfono</label>
                 <div class="formulario__grupo-input">
-                    <input required="" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="10" type="text" class="formulario__input" name="txtTelefono" id="telefono" placeholder="(+57)(300)-(0920325)">
+                    <input required="" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="10" type="text" class="formulario__input" name="txtTelefono" id="telefono" placeholder="3XXXXXXXXX">
                     <i class="formulario__validacion-estado fas fa-times-circle"></i>
                 </div>
                 <p class="formulario__input-error">Ingrese un número de telefono valido, maximo 10 dígitos.</p>

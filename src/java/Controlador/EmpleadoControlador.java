@@ -48,8 +48,6 @@ public class EmpleadoControlador extends HttpServlet {
         EmpleadoVO EmpVO = new EmpleadoVO(IdEmpleado, Nombres, Apellidos, IdTipoDocumento, NumeroDocumento, Telefono, Email, IdLugarExpedicion);
         EmpleadoDAO EmpDAO = new EmpleadoDAO(EmpVO);
 
-        boolean res = false;
-
         //Recibir datos del formulario a traves de una variable 
         int opcion = Integer.parseInt(request.getParameter("opcion"));
 
@@ -66,13 +64,12 @@ public class EmpleadoControlador extends HttpServlet {
                                 request.setAttribute("MensajeExito", "El empleado se registro correctamente");
                                 request.getRequestDispatcher("RegistrarContrato.jsp").forward(request, response);
                             } else {
-                                request.setAttribute("MensajeError", "El empleado pudo ser registrado, verifique datos");
+                                request.setAttribute("MensajeError", "El empleado no pudo ser registrado, verifique datos");
                                 request.getRequestDispatcher("RegistrarEmpleado.jsp").forward(request, response);
                             }
                         } else {
                             request.setAttribute("MensajeError", "El correo electrónico ya existe, verifique el dato");
                             request.getRequestDispatcher("RegistrarEmpleado.jsp").forward(request, response);
-
                         }
                     } else {
                         request.setAttribute("MensajeError", "El número de teléfono ya existe, verifique el dato");

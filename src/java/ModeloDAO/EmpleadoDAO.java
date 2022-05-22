@@ -166,6 +166,7 @@ public class EmpleadoDAO extends Conexion implements Crud {
         return empVO;
     }
 
+
     //Validaciones de dato ya existentes en la base de dato
     public int documentoExistente(String documento) {
 

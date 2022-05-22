@@ -6,7 +6,9 @@
 package Controlador;
 
 import ModeloDAO.ContratoDAO;
+import ModeloDAO.EmpleadoDAO;
 import ModeloVO.ContratoVO;
+import ModeloVO.EmpleadoVO;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -66,6 +68,7 @@ public class ContratoControlador extends HttpServlet {
                 }
 
                 break;
+
         }
     }
 
