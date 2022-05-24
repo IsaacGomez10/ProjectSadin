@@ -30,6 +30,7 @@ public class ContratoDAO extends Conexion implements Crud {
 
     private boolean operacion = false;
     private String sql;
+    private String lastIdEmpleado;
 
     private String IdContrato = "", FechaContratacion = "", FechaFinalizacion = "", Salario = "", IdHorario = "", IdCargo = "", IdDependencia = "", IdTipoContrato = "", IdEmpleado = "", IdJornada = "";
 
@@ -46,15 +47,15 @@ public class ContratoDAO extends Conexion implements Crud {
             conexion = this.obtenerConexion();
             //4. Traer al DAO los datos del VO para hacer las operaciones
             IdContrato = conVO.getIdContrato();
+            IdEmpleado = conVO.getIdEmpleado();
             FechaContratacion = conVO.getFechaContratacion();
             FechaFinalizacion = conVO.getFechaFinalizacion();
             Salario = conVO.getSalario();
-            IdHorario = conVO.getIdHorario();
             IdCargo = conVO.getIdCargo();
             IdDependencia = conVO.getIdDependencia();
             IdTipoContrato = conVO.getIdTipoContrato();
-            IdEmpleado = conVO.getIdEmpleado();
             IdJornada = conVO.getIdJornada();
+            IdHorario = conVO.getIdHorario();
 
         } catch (Exception e) {
             Logger.getLogger(ContratoDAO.class.getName()).log(Level.SEVERE, null, e);
@@ -63,19 +64,22 @@ public class ContratoDAO extends Conexion implements Crud {
 
     @Override
     public boolean agregarRegistro() {
+
         try {
 
-            sql = "insert into contrato(FechaContratacion, FechaFinalizacion, Salario, IdHorario, IdCargo,IdDependencia, IdTipoContrato, IdEmpleado, IdJornada) values(?,?,?,?,?,?,?,?,?)";
+            sql = "insert into contrato(IdEmpleado, FechaContratacion, FechaFinalizacion, Salario, IdCargo,IdDependencia, "
+                    + "IdTipoContrato, IdJornada, IdHorario) values(?,?,?,?,?,?,?,?,?)";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, FechaContratacion);
-            puente.setString(2, FechaFinalizacion);
-            puente.setString(3, Salario);
-            puente.setString(4, IdHorario);
+            
+            puente.setString(1, IdEmpleado);
+            puente.setString(2, FechaContratacion);
+            puente.setString(3, FechaFinalizacion);
+            puente.setString(4, Salario);
             puente.setString(5, IdCargo);
             puente.setString(6, IdDependencia);
             puente.setString(7, IdTipoContrato);
-            puente.setString(8, IdEmpleado);
-            puente.setString(9, IdJornada);
+            puente.setString(8, IdJornada);
+            puente.setString(9, IdHorario);
             puente.executeUpdate();
             operacion = true;
 

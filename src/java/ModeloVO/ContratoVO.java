@@ -11,23 +11,25 @@ package ModeloVO;
  */
 public class ContratoVO {
 
-    private String IdContrato, FechaContratacion, FechaFinalizacion, Salario, IdHorario, IdCargo, IdTipoContrato, IdEmpleado, IdJornada, IdDependencia;
+    private String IdContrato,IdEmpleado,FechaContratacion,FechaFinalizacion,Salario,IdCargo,IdDependencia,IdTipoContrato,IdJornada,IdHorario;
 
     public ContratoVO() {
     }
 
-    public ContratoVO(String IdContrato, String FechaContratacion, String FechaFinalizacion, String Salario, String IdHorario, String IdCargo, String IdTipoContrato, String IdEmpleado, String IdJornada, String IdDependencia) {
+    public ContratoVO(String IdContrato, String IdEmpleado, String FechaContratacion, String FechaFinalizacion, String Salario, String IdCargo, String IdDependencia, String IdTipoContrato, String IdJornada, String IdHorario) {
         this.IdContrato = IdContrato;
+        this.IdEmpleado = IdEmpleado;
         this.FechaContratacion = FechaContratacion;
         this.FechaFinalizacion = FechaFinalizacion;
         this.Salario = Salario;
-        this.IdHorario = IdHorario;
         this.IdCargo = IdCargo;
-        this.IdTipoContrato = IdTipoContrato;
-        this.IdEmpleado = IdEmpleado;
-        this.IdJornada = IdJornada;
         this.IdDependencia = IdDependencia;
+        this.IdTipoContrato = IdTipoContrato;
+        this.IdJornada = IdJornada;
+        this.IdHorario = IdHorario;
     }
+
+    
 
     public String getIdDependencia() {
         return IdDependencia;

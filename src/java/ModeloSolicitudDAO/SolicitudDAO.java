@@ -6,7 +6,6 @@
 package ModeloSolicitudDAO;
 
 import ModeloSolicitudVO.SolicitudVO;
-import Util.CertificadoCrud;
 import Util.Conexion;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -19,7 +18,7 @@ import java.util.logging.Logger;
  *
  * @author isaac
  */
-public class SolicitudDAO extends Conexion implements CertificadoCrud {
+public class SolicitudDAO extends Conexion {
 
     //1. Declarar variables y objetos
     private Connection conexion;
@@ -49,7 +48,8 @@ public class SolicitudDAO extends Conexion implements CertificadoCrud {
 
         }
     }
-
+    
+    
     public SolicitudVO SolicitarCertificado(String numeroDocumento) {
 
         SolicitudVO solVO = null;
@@ -77,26 +77,6 @@ public class SolicitudDAO extends Conexion implements CertificadoCrud {
             }
         }
         return solVO;
-    }
-
-    @Override
-    public boolean Certificado1() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean Certificado2() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean Certificado3() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
-
-    @Override
-    public boolean Certificado4() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
 }

@@ -54,4 +54,6 @@ public class TipoDocumentoDAO extends Conexion{
         
         return listaTipoDocumento;
     }
+    
+   
 }
