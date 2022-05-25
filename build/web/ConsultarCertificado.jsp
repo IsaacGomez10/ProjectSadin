@@ -7,11 +7,11 @@
 <%@page import="ModeloSolicitudVO.SolicitudVO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Certificación</title>
-        <link rel="stylesheet" href="./CSS/Styles.css">
     </head>
     <body>
 
@@ -20,29 +20,72 @@
         <%
             SolicitudVO solVO = (SolicitudVO) request.getAttribute("ValidarCertificado");
             if (solVO != null) {
-
         %>
 
-        <form method="post" action="Certificacion">
+        <section>
 
-            <div>
-                <input type="radio" id="html" name="fav_language" value="HTML">
-                <label for="html">HTML</label><br>
-                <input type="radio" id="css" name="fav_language" value="CSS">
-                <label for="css">CSS</label><br>
-                <input type="radio" id="javascript" name="fav_language" value="JavaScript">
-                <label for="javascript">JavaScript</label>
-            </div>
+            <form method="post" action="Reporte/CargoDesempenado.jsp" target="_black">
 
-            <input type="hidden" name="opcion">
-            <button type="submit">Solicitar</button><br>
-        </form>
+                <div>
+                    <label><b>Certificado de cargo desempeñado</b></label><br>
+                    <label>Ingrese número documento nuevamente</label><br>
+                    <input type="hidden" name="numeroDocumento" id="txtidcliente" value="<%=solVO.getNumeroDocumento()%>" placeholder="Ingrese número de documento">
+                </div>
+                <div>
+                    &nbsp;
+                    <input type="submit" name="button" id="button" value="Generar Reporte">
+                </div>
 
+            </form>
+        </section>
 
+        <br>
+        <section>
+            <form method="post" action="Reporte/SueldoBasico.jsp" target="_black">
+
+                <div>
+                    <label><b>Certificado de sueldo básico</b></label><br>
+                    <label>Ingrese número documento nuevamente</label><br>
+                    <input type="hidden" name="numeroDocumento" id="txtidcliente"  value="<%=solVO.getNumeroDocumento()%>" placeholder="Ingrese número de documento">
+                </div>
+                <div>
+                    &nbsp;
+                    <input type="submit" name="button" id="button" value="Generar Reporte">
+                </div>
+            </form>
+        </section>
+        <br>
+        <section>
+            <form method="post" action="Reporte/TiempoDeServicio.jsp" target="_black">
+                <div>
+                    <label><b>Certificado de tiempo de servicio</b></label><br>
+                    <label>Ingrese número documento nuevamente</label><br>
+                    <input type="hidden" name="numeroDocumento" id="txtidcliente"  value="<%=solVO.getNumeroDocumento()%>" placeholder="Ingrese número de documento">
+                </div>
+                <div>
+                    &nbsp;
+                    <input type="submit" name="button" id="button" value="Generar Reporte">
+                </div>
+            </form>
+        </section>
+        <br>
+        <section>
+            <form method="post" action="Reporte/TipoDeContrato.jsp" target="_black">
+                <div>
+                    <label><b>Certificado de tipo de contrato</b></label><br>
+                    <label>Ingrese número documento nuevamente</label><br>
+                    <input type="hidden" name="numeroDocumento" id="txtidcliente"  value="<%=solVO.getNumeroDocumento()%>" placeholder="Ingrese número de documento">
+                </div>
+                <div>
+                    &nbsp;
+                    <input type="submit" name="button" id="button" value="Generar Reporte">
+                </div>
+            </form>
+        </section>
+        
         <% } else {
-                request.getRequestDispatcher("Certificado solicitud.jsp").forward(request, response);
+                request.getRequestDispatcher("ConsultarEmpleado.jsp").forward(request, response);
             }
         %>
-
     </body>
 </html>

@@ -5,6 +5,7 @@
 --%>
 
 
+<%@page import="ModeloVO.ContratoVO"%>
 <%@page import="ModeloVO.DependenciaVO"%>
 <%@page import="ModeloDAO.DependenciaDAO"%>
 <%@page import="ModeloVO.JornadaVO"%>
@@ -19,6 +20,8 @@
 <%@page import="ModeloDAO.CargoDAO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@include file="sesiones.jsp"%>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -29,21 +32,24 @@
         <h1>Registrar Contrato</h1>
 
         <form method="post" action="Contrato" id="formulario">
+            
+            <input type="hidden" value="<%=IdEmpleado%>" name="txtIdEmpleado"> 
+
 
             <span>Fecha de Contratación</span><br>
             <input required type="date" id="fechaActual" name="txtFechaContratacion"><br>
 
             <span>Fecha de Finalización</span><br>
-            <input required type="date" id="fechaActual2" name="txtFechaFinalizacion"><br>
+            <input required type="date" name="txtFechaFinalizacion"><br>
 
             <span>Salario</span><br>
-            <input required type="text" name="txtSalario" placeholder="Ingrese Salario"><br>
+            <input onKeypress="if (event.keyCode < 45 || event.keyCode > 57)
+                        event.returnValue = false;" required type="text" name="txtSalario" placeholder="Ingrese Salario"><br>
 
             <span>Horario</span><br>
             <select aria-required="true" name="txtHorario">
                 <option selected disabled>Seleccione...</option>
-                <%
-                    HorarioDAO horarioDAO = new HorarioDAO();
+                <%                    HorarioDAO horarioDAO = new HorarioDAO();
                     for (HorarioVO horarioVO : horarioDAO.Listar()) {
                 %>
                 <option value="<%=horarioVO.getIdHorario()%>"><%=horarioVO.getHorarioLaboral()%></option>

@@ -6,12 +6,16 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
+<%@include file="sesiones.jsp"%>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registrar Horario</title>
     </head>
     <body>
+        <%@include file="navFuncionario.jsp" %>
+        
     <center>
         <h1>Registrar Horario</h1>
         <form method="post" action="Horario">

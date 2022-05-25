@@ -7,12 +7,15 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%--<%@include file="sesiones.jsp"%>--%>
 <!DOCTYPE html>
+<%@include file="sesiones.jsp"%>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registar Cargo</title>
     </head>
     <body>
+        <%@include file="navFuncionario.jsp" %>
         <h1>Registrar Cargo</h1>
         <form id="formulario" method="post" action="Cargo">
             <span>Nombre del Cargo</span><br>

@@ -1,6 +1,6 @@
 <%-- 
-    Document   : index
-    Created on : 28/03/2022, 11:30:51 AM
+    Document   : registrarFuncionario
+    Created on : 28/03/2022, 11:19:39 AM
     Author     : Sena
 --%>
 
@@ -9,26 +9,25 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Iniciar Sesion</title>
+        <title>Registrar Funcionario</title>
     </head>
     <body>
         <%@include file="nav.jsp" %>
 
-        <h1>Iniciar Sesión</h1>
+    <center>
+        <h1>Registrar Funcionario</h1>
         <form method="post" action="Funcionario">
             <table>
                 <tr>
-                    Usuario<br>
-                <input type="text" name="txtUsuario"><br>
-                Contraseña<br>
-                <input type="password" name="txtPassword"><br>
+                    <th>
+                        Numero de Documento<br>
+                        <input type="text" name="txtUsuario"><br><br>
+                    </th>
                 </tr>
             </table><br>
-            <button>Iniciar Sesión</button>
-            <input type="hidden" value="3" name="opcion">
+            <button>Registrarse</button>
+            <input type="hidden" value="1" name="opcion">
         </form>
-        <br>
-        <a href="registrarFuncionario.jsp">¿No tienes una cuenta aún?</a>
 
         <div style="color:red;">
             <%
@@ -38,5 +37,6 @@
             ${mensajeExito}
             <%}%>
         </div>
-    </body>
+    </center>
+</body>
 </html>

@@ -4,16 +4,21 @@
     Author     : Damian
 --%>
 
+<%@page import="ModeloVO.TipoDocumentoVO"%>
+<%@page import="ModeloDAO.TipoDocumentoDAO"%>
 <%@page import="ModeloVO.LugarExpedicionVO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import="ModeloVO.EmpleadoVO"%>
 <!DOCTYPE html>
+<%@include file="sesiones.jsp"%>
+
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Actualizar empleado</title>
     </head>
     <body>
+        <%@include file="navFuncionario.jsp" %>
     <center>
         <h1>Actualizar empleado</h1>
         <%
@@ -54,6 +59,6 @@
             }
         %>
     </center>
-
+    
 </body>
 </html>

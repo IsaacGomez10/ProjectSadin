@@ -123,7 +123,7 @@ public class FuncionarioControlador extends HttpServlet {
                     funVO = new FuncionarioVO(Id, Usuario, Password, Empleado);
 
                     miSesion.setAttribute("datosEmpleado", empVO);
-                    //miSesion.setAttribute("datosEmpleadoRegistrado", empVO);
+                    miSesion.setAttribute("datosEmpleadoRegistrado", empVO);
                     miSesion.setAttribute("datosFuncionario", funVO);
                     request.getRequestDispatcher("menu.jsp").forward(request, response);
                 } else {
