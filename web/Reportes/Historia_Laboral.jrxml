@@ -1,20 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cdc9b8d5-854d-47c2-b10f-0aff7dad5311">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="2d1009af-a85d-4cac-ae98-a44cc0f705e1">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="numeroDocumento" class="java.lang.String"/>
+	<parameter name="numeroDocumento" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
 	<queryString>
-		<![CDATA[SELECT concat(e.Nombres, ' ',e.Apellidos)  , e.NumeroDocumento, le.LugarExpedicion, cg.NombreCargo, cg.DescripcionCargo, tc.Contrato, c.FechaContratacion, c.FechaFinalizacion,td.tipodocumento
+		<![CDATA[SELECT concat(e.Nombres, ' ' ,e.Apellidos) , td.TipoDocumento, e.NumeroDocumento, le.LugarExpedicion, cg.NombreCargo, cg.DescripcionCargo, tc.Contrato, dp.Dependencia, c.FechaContratacion, c.FechaFinalizacion
+
 FROM contrato c
+
 INNER JOIN empleado e on c.IdEmpleado = e.IdEmpleado
 INNER JOIN cargo cg on c.IdCargo = cg.IdCargo
 INNER JOIN lugarexpedicion le on e.IdLugarExpedicion = le.IdLugarExpedicion
 INNER JOIN tipocontrato tc on c.IdTipoContrato = tc.IdTipoContrato
-inner join tipodocumento td on e.IdTipoDocumento = td.	IdTipoDocumento
+INNER JOIN dependenciacargos dp on c.IdDependencia = dp.IdDependencia
+INNER JOIN tipodocumento td on e.IdLugarExpedicion = td.IdTipoDocumento
+
 WHERE e.idempleado = $P{numeroDocumento}]]>
 	</queryString>
-	<field name="concat(e.Nombres, &apos; &apos;,e.Apellidos)" class="java.lang.String"/>
+	<field name="concat(e.Nombres, &apos; &apos; ,e.Apellidos)" class="java.lang.String"/>
+	<field name="TipoDocumento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="NumeroDocumento" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -30,29 +39,29 @@ WHERE e.idempleado = $P{numeroDocumento}]]>
 	<field name="Contrato" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="Dependencia" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="FechaContratacion" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="FechaFinalizacion" class="java.sql.Date">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="tipodocumento" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="204" splitType="Stretch">
+		<band height="217" splitType="Stretch">
 			<staticText>
-				<reportElement x="234" y="167" width="90" height="20" uuid="adb96348-73b3-49ef-92d3-dd04e44a17aa"/>
+				<reportElement x="237" y="179" width="90" height="20" uuid="a06753c4-a6d1-4d02-ae93-f479d694f153"/>
 				<textElement>
 					<font fontName="Arial" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[CERTIFICA QUE:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="117" y="110" width="320" height="31" uuid="4a38bd83-c631-416c-ba9a-e98e4a4cfea5"/>
+				<reportElement x="120" y="122" width="320" height="31" uuid="15c1e967-26cb-406b-8bf4-d4e6d980ebbe"/>
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="11" isBold="true"/>
 				</textElement>
@@ -61,45 +70,45 @@ WHERE e.idempleado = $P{numeroDocumento}]]>
 		</band>
 	</title>
 	<detail>
-		<band height="251" splitType="Stretch">
+		<band height="253" splitType="Stretch">
 			<textField>
-				<reportElement x="17" y="0" width="536" height="125" uuid="dbb877b2-9a02-4ef6-be9b-8f67d083177d"/>
+				<reportElement x="20" y="0" width="536" height="111" uuid="1c6350fe-3fcb-457c-88e9-bfcf68da18b3"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="Arial" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Una vez revisados los documentos que reposan en la historia laboral de <b>" + $F{concat(e.Nombres, ' ',e.Apellidos)} + "</b>, identificado con " + $F{tipodocumento} + " número " + $F{NumeroDocumento} + " expedida en " + $F{LugarExpedicion} + ", trabajó en esta empresa desde " + $F{FechaContratacion} + " hasta el " + $F{FechaFinalizacion} + ", desempeñado en el cargo de " + $F{NombreCargo} + ", cumpliendolas funciones " + $F{DescripcionCargo}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Una vez revisados los documentos que reposan en la historia laboral de "+ $F{concat(e.Nombres, ' ' ,e.Apellidos)}+", identificado con " + $F{TipoDocumento}+ " número " + $F{NumeroDocumento} +" expedida en "+ $F{LugarExpedicion} +", se verificó que estuvo vinculado a la empresa mediante contratos de trabajo contratos que tiene o tuvo el empleado en diferentes periodos así: "]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="17" y="87" width="536" height="38" uuid="25eb4a92-edf1-49e5-ab46-fc7bc314732f"/>
+				<reportElement x="20" y="89" width="536" height="36" uuid="d6bfde60-bfdf-4cff-b703-c917bcf901c8"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<text><![CDATA[La presente constancia se expide en Bogotá fecha, por solicitud del depende si está ativo o no, con destino a: <b>QUIEN INTERESE</b>]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="17" y="125" width="100" height="20" uuid="b63a957f-f5ba-4990-8d8a-0451c3826975"/>
+				<reportElement x="20" y="125" width="100" height="20" uuid="94005b6f-f782-4ede-bbae-706968231be6"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<text><![CDATA[Cordialmente,]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="342" y="231" width="211" height="20" uuid="949b5424-eaef-43b9-b0f6-507ae9dfe806"/>
+				<reportElement x="345" y="233" width="211" height="20" uuid="677927a6-cd26-45ef-a7a8-ba3703615fae"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<text><![CDATA[Director Mejoramiento Calida de Vida]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="342" y="218" width="196" height="20" uuid="bced3692-e91c-4417-ac76-e81fac122248"/>
+				<reportElement x="345" y="223" width="196" height="20" uuid="2512a78c-0c87-46e0-9960-78107645f405"/>
 				<textElement>
-					<font fontName="Arial" size="11" isBold="true"/>
+					<font fontName="Arial" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Cristiano Ronaldo Dos Santos Aveiro]]></text>
 			</staticText>
 		</band>
 	</detail>
 	<pageFooter>
-		<band height="189" splitType="Stretch"/>
+		<band height="205" splitType="Stretch"/>
 	</pageFooter>
 </jasperReport>

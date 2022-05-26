@@ -28,8 +28,7 @@
 
                 <div>
                     <label><b>Certificado de cargo desempeñado</b></label><br>
-                    <label>Ingrese número documento nuevamente</label><br>
-                    <input type="hidden" name="numeroDocumento" id="txtidcliente" value="<%=solVO.getNumeroDocumento()%>" placeholder="Ingrese número de documento">
+                    <input type="hidden" name="numeroDocumento" value="<%=solVO.getNumeroDocumento()%>" placeholder="Ingrese número de documento">
                 </div>
                 <div>
                     &nbsp;
@@ -45,8 +44,7 @@
 
                 <div>
                     <label><b>Certificado de sueldo básico</b></label><br>
-                    <label>Ingrese número documento nuevamente</label><br>
-                    <input type="hidden" name="numeroDocumento" id="txtidcliente"  value="<%=solVO.getNumeroDocumento()%>" placeholder="Ingrese número de documento">
+                    <input type="hidden" name="numeroDocumento" value="<%=solVO.getNumeroDocumento()%>" placeholder="Ingrese número de documento">
                 </div>
                 <div>
                     &nbsp;
@@ -59,8 +57,7 @@
             <form method="post" action="Reporte/TiempoDeServicio.jsp" target="_black">
                 <div>
                     <label><b>Certificado de tiempo de servicio</b></label><br>
-                    <label>Ingrese número documento nuevamente</label><br>
-                    <input type="hidden" name="numeroDocumento" id="txtidcliente"  value="<%=solVO.getNumeroDocumento()%>" placeholder="Ingrese número de documento">
+                    <input type="hidden" name="numeroDocumento"   value="<%=solVO.getNumeroDocumento()%>" placeholder="Ingrese número de documento">
                 </div>
                 <div>
                     &nbsp;
@@ -73,8 +70,7 @@
             <form method="post" action="Reporte/TipoDeContrato.jsp" target="_black">
                 <div>
                     <label><b>Certificado de tipo de contrato</b></label><br>
-                    <label>Ingrese número documento nuevamente</label><br>
-                    <input type="hidden" name="numeroDocumento" id="txtidcliente"  value="<%=solVO.getNumeroDocumento()%>" placeholder="Ingrese número de documento">
+                    <input type="hidden" name="numeroDocumento" value="<%=solVO.getNumeroDocumento()%>" placeholder="Ingrese número de documento">
                 </div>
                 <div>
                     &nbsp;
@@ -82,7 +78,20 @@
                 </div>
             </form>
         </section>
-        
+        <br>
+        <section>
+            <form method="post" action="Reporte/HistoriaLaboral.jsp" target="_black">
+                <div>
+                    <label><b>Certificado de historial laboral</b></label><br>
+                    <input type="hidden" name="numeroDocumento"  value="<%=solVO.getNumeroDocumento()%>">
+                </div>
+                <div>
+                    &nbsp;
+                    <input type="submit" name="button" id="button" value="Generar Reporte">
+                </div>
+            </form>
+        </section>
+
         <% } else {
                 request.getRequestDispatcher("ConsultarEmpleado.jsp").forward(request, response);
             }
