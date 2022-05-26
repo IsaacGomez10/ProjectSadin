@@ -10,13 +10,12 @@
 		<![CDATA[SELECT concat(e.Nombres, ' ' ,e.Apellidos) , td.TipoDocumento, e.NumeroDocumento, le.LugarExpedicion, cg.NombreCargo, cg.DescripcionCargo, tc.Contrato, dp.Dependencia, c.FechaContratacion, c.FechaFinalizacion
 
 FROM contrato c
-
 INNER JOIN empleado e on c.IdEmpleado = e.IdEmpleado
 INNER JOIN cargo cg on c.IdCargo = cg.IdCargo
 INNER JOIN lugarexpedicion le on e.IdLugarExpedicion = le.IdLugarExpedicion
-INNER JOIN tipocontrato tc on c.IdTipoContrato = tc.IdTipoContrato
-INNER JOIN dependenciacargos dp on c.IdDependencia = dp.IdDependencia
-INNER JOIN tipodocumento td on e.IdLugarExpedicion = td.IdTipoDocumento
+inner join tipodocumento td on e.IdTipoDocumento = td.	IdTipoDocumento
+join tipocontrato tc on c.IdTipoContrato = tc.IdTipoContrato
+join dependenciacargos dp on c.IdDependencia = dp.IdDependencia
 
 WHERE e.idempleado = $P{numeroDocumento}]]>
 	</queryString>
@@ -24,7 +23,7 @@ WHERE e.idempleado = $P{numeroDocumento}]]>
 	<field name="TipoDocumento" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="NumeroDocumento" class="java.lang.Integer">
+	<field name="NumeroDocumento" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="LugarExpedicion" class="java.lang.String">
