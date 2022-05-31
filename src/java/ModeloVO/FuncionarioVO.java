@@ -11,7 +11,7 @@ package ModeloVO;
  */
 public class FuncionarioVO {
     
-    private String idFuncionario, Usuario, Password, idEmpleado;
+    private String idFuncionario, Usuario, Password, idEmpleado, Destino, Asunto, Mensaje;
     
     public FuncionarioVO() {
     }
@@ -19,6 +19,12 @@ public class FuncionarioVO {
     public FuncionarioVO(String Usuario, String Password) {
         this.Usuario = Usuario;
         this.Password = Password;
+    }
+
+    public FuncionarioVO(String Destino, String Asunto, String Mensaje) {
+        this.Destino = Destino;
+        this.Asunto = Asunto;
+        this.Mensaje = Mensaje;
     }
 
     public FuncionarioVO(String idFuncionario, String Usuario, String Password, String idEmpleado) {
@@ -60,5 +66,27 @@ public class FuncionarioVO {
         this.idEmpleado = idEmpleado;
     }
 
-   
+    public String getDestino() {
+        return Destino;
+    }
+
+    public void setDestino(String Destino) {
+        this.Destino = Destino;
+    }
+
+    public String getAsunto() {
+        return Asunto;
+    }
+
+    public void setAsunto(String Asunto) {
+        this.Asunto = Asunto;
+    }
+
+    public String getMensaje() {
+        return Mensaje;
+    }
+
+    public void setMensaje(String Mensaje) {
+        this.Mensaje = Mensaje;
+    }
 }

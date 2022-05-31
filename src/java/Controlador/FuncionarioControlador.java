@@ -5,10 +5,8 @@
  */
 package Controlador;
 
-import ModeloDAO.CorreoDAO;
 import ModeloDAO.EmpleadoDAO;
 import ModeloDAO.FuncionarioDAO;
-import ModeloVO.CorreoVO;
 import ModeloVO.EmpleadoVO;
 import ModeloVO.FuncionarioVO;
 import Util.Main;
@@ -58,46 +56,50 @@ public class FuncionarioControlador extends HttpServlet {
         EmpleadoVO empVO = new EmpleadoVO(IdEmpleado, Usuario);
         EmpleadoDAO empDAO = new EmpleadoDAO(empVO);
 
-        CorreoVO corVO = new CorreoVO(Destino, Asunto, Mensaje);
-        CorreoDAO corDAO = new CorreoDAO(corVO);
+        FuncionarioVO funCorreoVO = new FuncionarioVO(Destino, Asunto, Mensaje);
+        FuncionarioDAO funCorreoDAO = new FuncionarioDAO(funCorreoVO);
 
         switch (opcion) {
             case 1: //Enviar contraseña provisional
                 empVO = empDAO.consultarEmpleados(Usuario);
-
                 if (empVO != null) {
-
                     String PasswordEmp = funDAO.GenerarContraseña();
                     Destino = empVO.getEmail();
                     Asunto = "Contraseña Provisional";
-                    Mensaje = "Esta es la contraseña provisional para tu inicio de sesion en Sadin: \n\n" + PasswordEmp + "\n\n" + " Recuerda que debes cambiarla apenas entres";
+                    Mensaje = "Esta es la contraseña provisional para tu inicio de sesion en Sadin: \n\n" + PasswordEmp + "\n\n" + " Recuerde que debes cambiarla apenas entres";
 
-                    corVO = new CorreoVO(Destino, Asunto, Mensaje);
-                    corDAO = new CorreoDAO(corVO);
-                    corDAO.EnviarCorreo();
+                    funCorreoVO = new FuncionarioVO(Destino, Asunto, Mensaje);
+                    funCorreoDAO = new FuncionarioDAO(funCorreoVO);
 
-                    Usuario = empVO.getNumeroDocumento();
-                    Password = PasswordEmp;
-                    IdEmpleado = empVO.getIdEmpleado();
-                    
-                    if (funDAO.estadoEmpleado(Usuario) == 1) {
-                        
-                        funVO = new FuncionarioVO(IdFuncionario, Usuario, Password, IdEmpleado);
-                        funDAO = new FuncionarioDAO(funVO);
-                        funDAO.agregarRegistro();
+                    if (funCorreoDAO.EnviarCorreo()) {
 
-                        request.setAttribute("mensajeExito", "Se ha enviado una contraseña provisional a su correo");
-                        request.getRequestDispatcher("index.jsp").forward(request, response);
+                        Usuario = empVO.getNumeroDocumento();
+                        Password = PasswordEmp;
+                        IdEmpleado = empVO.getIdEmpleado();
+
+                        if (funDAO.estadoEmpleado(Usuario) == 1) {
+
+                            funVO = new FuncionarioVO(IdFuncionario, Usuario, Password, IdEmpleado);
+                            funDAO = new FuncionarioDAO(funVO);
+                            funDAO.agregarRegistro();
+
+                            request.setAttribute("mensajeExito", "Se ha enviado una contraseña provisional a su correo");
+                            request.getRequestDispatcher("index.jsp").forward(request, response);
+                        } else {
+                            request.setAttribute("mensajeError", "Este empleado no se encuentra activo");
+                            request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
+                        }
                     } else {
-                        request.setAttribute("mensajeError", "Este empleado no se encuentra activo");
+                        request.setAttribute("mensajeError", "Se ha presentado un error. Intentelo mas tarde!");
                         request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
                     }
+
                 } else {
                     request.setAttribute("mensajeError", "El empleado No existe");
                     request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
                 }
                 break;
-            case 2: //Actualizar registro
+            case 2: //Actualizar contraseña
                 funVO = funDAO.iniciarSesion(Usuario, Password);
 
                 if (funVO != null) {
@@ -119,7 +121,7 @@ public class FuncionarioControlador extends HttpServlet {
                 break;
 
             case 3: //Iniciar sesión
-                funVO = funDAO.iniciarSesion(Usuario, Password);
+                funVO = funDAO.iniciarSesion(Usuario, (Password));
 
                 if (funVO != null) {
 
@@ -139,6 +141,37 @@ public class FuncionarioControlador extends HttpServlet {
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 }
 
+                break;
+            case 4://Olvidaste la contraseña
+                empVO = empDAO.consultarEmpleados(Usuario);
+                if (empVO != null) {
+                    String PasswordEmp = funDAO.GenerarContraseña();
+                    Destino = empVO.getEmail();
+                    Asunto = "Recuperacion de Contraseña";
+                    Mensaje = "Esta es la nueva contraseña para el inicio de sesion en Sadin: \n\n" + PasswordEmp + "\n\n" + " Recuerda que debes cambiarla apenas entres";
+
+                    funCorreoVO = new FuncionarioVO(Destino, Asunto, Mensaje);
+                    funCorreoDAO = new FuncionarioDAO(funCorreoVO);
+                    if (funCorreoDAO.EnviarCorreo()) {
+
+                        Usuario = empVO.getNumeroDocumento();
+                        Password = PasswordEmp;
+
+                        funVO = new FuncionarioVO(Usuario, Password);
+                        funDAO = new FuncionarioDAO(funVO);
+                        funDAO.actualizarRegistro();
+
+                        request.setAttribute("mensajeExito", "Se ha enviado una contraseña provisional a su correo");
+                        request.getRequestDispatcher("index.jsp").forward(request, response);
+                    } else {
+                        request.setAttribute("mensajeError", "Se ha presentado un error. Intentelo mas tarde!");
+                        request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
+                    }
+
+                } else {
+                    request.setAttribute("mensajeError", "El empleado No existe");
+                    request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
+                }
                 break;
         }
     }
