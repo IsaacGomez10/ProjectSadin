@@ -45,8 +45,9 @@ public class EmpleadoControlador extends HttpServlet {
         String Telefono = request.getParameter("txtTelefono");
         String Email = request.getParameter("txtEmail");
         String IdLugarExpedicion = request.getParameter("txtIdLugarExpedicion");
+        String Estado = request.getParameter("txtEstado");
 
-        EmpleadoVO empVO = new EmpleadoVO(IdEmpleado, Nombres, Apellidos, IdTipoDocumento, NumeroDocumento, Telefono, Email, IdLugarExpedicion);
+        EmpleadoVO empVO = new EmpleadoVO(IdEmpleado, Nombres, Apellidos, IdTipoDocumento, NumeroDocumento, Telefono, Email, IdLugarExpedicion,Estado);
         EmpleadoDAO empDAO = new EmpleadoDAO(empVO);
 
         //Recibir datos del formulario a traves de una variable 

@@ -64,7 +64,9 @@ public class FuncionarioControlador extends HttpServlet {
         switch (opcion) {
             case 1: //Enviar contraseña provisional
                 empVO = empDAO.consultarEmpleados(Usuario);
+
                 if (empVO != null) {
+
                     String PasswordEmp = funDAO.GenerarContraseña();
                     Destino = empVO.getEmail();
                     Asunto = "Contraseña Provisional";
@@ -77,13 +79,19 @@ public class FuncionarioControlador extends HttpServlet {
                     Usuario = empVO.getNumeroDocumento();
                     Password = PasswordEmp;
                     IdEmpleado = empVO.getIdEmpleado();
+                    
+                    if (funDAO.estadoEmpleado(Usuario) == 1) {
+                        
+                        funVO = new FuncionarioVO(IdFuncionario, Usuario, Password, IdEmpleado);
+                        funDAO = new FuncionarioDAO(funVO);
+                        funDAO.agregarRegistro();
 
-                    funVO = new FuncionarioVO(IdFuncionario, Usuario, Password, IdEmpleado);
-                    funDAO = new FuncionarioDAO(funVO);
-                    funDAO.agregarRegistro();
-
-                    request.setAttribute("mensajeExito", "Se ha enviado una contraseña provisional a su correo");
-                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                        request.setAttribute("mensajeExito", "Se ha enviado una contraseña provisional a su correo");
+                        request.getRequestDispatcher("index.jsp").forward(request, response);
+                    } else {
+                        request.setAttribute("mensajeError", "Este empleado no se encuentra activo");
+                        request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
+                    }
                 } else {
                     request.setAttribute("mensajeError", "El empleado No existe");
                     request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);

@@ -10,93 +10,99 @@ package ModeloVO;
  * @author Damian
  */
 public class EmpleadoVO {
-    
+
     //Definimos las variables
-    
-    private String IdEmpleado, Nombres, Apellidos, IdTipoDocumento, NumeroDocumento,Telefono, Email, IdLugarExpedicion;
+    private String idEmpleado, nombres, apellidos, idTipoDocumento, numeroDocumento, telefono, email, idLugarExpedicion, estado;
 
     public EmpleadoVO() {
     }
-  
-    public EmpleadoVO(String IdEmpleado, String NumeroDocumento) {
-        this.IdEmpleado = IdEmpleado;
-        this.NumeroDocumento = NumeroDocumento;
+
+    public EmpleadoVO(String idEmpleado, String numeroDocumento) {
+        this.idEmpleado = idEmpleado;
+        this.numeroDocumento = numeroDocumento;
     }
-    
-    public EmpleadoVO(String IdEmpleado, String Nombres, String Apellidos, String IdTipoDocumento, String NumeroDocumento, String Telefono, String Email, String IdLugarExpedicion) {
-        this.IdEmpleado = IdEmpleado;
-        this.Nombres = Nombres;
-        this.Apellidos = Apellidos;
-        this.IdTipoDocumento = IdTipoDocumento;
-        this.NumeroDocumento = NumeroDocumento;
-        this.Telefono = Telefono;
-        this.Email = Email;
-        this.IdLugarExpedicion = IdLugarExpedicion;
+
+    public EmpleadoVO(String idEmpleado, String nombres, String apellidos, String idTipoDocumento, String numeroDocumento, String telefono, String email, String idLugarExpedicion, String estado) {
+        this.idEmpleado = idEmpleado;
+        this.nombres = nombres;
+        this.apellidos = apellidos;
+        this.idTipoDocumento = idTipoDocumento;
+        this.numeroDocumento = numeroDocumento;
+        this.telefono = telefono;
+        this.email = email;
+        this.idLugarExpedicion = idLugarExpedicion;
+        this.estado = estado;
     }
 
     public String getIdEmpleado() {
-        return IdEmpleado;
+        return idEmpleado;
     }
 
-    public void setIdEmpleado(String IdEmpleado) {
-        this.IdEmpleado = IdEmpleado;
+    public void setIdEmpleado(String idEmpleado) {
+        this.idEmpleado = idEmpleado;
     }
 
     public String getNombres() {
-        return Nombres;
+        return nombres;
     }
 
-    public void setNombres(String Nombres) {
-        this.Nombres = Nombres;
+    public void setNombres(String nombres) {
+        this.nombres = nombres;
     }
 
     public String getApellidos() {
-        return Apellidos;
+        return apellidos;
     }
 
-    public void setApellidos(String Apellidos) {
-        this.Apellidos = Apellidos;
+    public void setApellidos(String apellidos) {
+        this.apellidos = apellidos;
     }
 
     public String getIdTipoDocumento() {
-        return IdTipoDocumento;
+        return idTipoDocumento;
     }
 
-    public void setIdTipoDocumento(String IdTipoDocumento) {
-        this.IdTipoDocumento = IdTipoDocumento;
+    public void setIdTipoDocumento(String idTipoDocumento) {
+        this.idTipoDocumento = idTipoDocumento;
     }
 
     public String getNumeroDocumento() {
-        return NumeroDocumento;
+        return numeroDocumento;
     }
 
-    public void setNumeroDocumento(String NumeroDocumento) {
-        this.NumeroDocumento = NumeroDocumento;
+    public void setNumeroDocumento(String numeroDocumento) {
+        this.numeroDocumento = numeroDocumento;
     }
 
     public String getTelefono() {
-        return Telefono;
+        return telefono;
     }
 
-    public void setTelefono(String Telefono) {
-        this.Telefono = Telefono;
+    public void setTelefono(String telefono) {
+        this.telefono = telefono;
     }
 
     public String getEmail() {
-        return Email;
+        return email;
     }
 
-    public void setEmail(String Email) {
-        this.Email = Email;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getIdLugarExpedicion() {
-        return IdLugarExpedicion;
+        return idLugarExpedicion;
     }
 
-    public void setIdLugarExpedicion(String IdLugarExpedicion) {
-        this.IdLugarExpedicion = IdLugarExpedicion;
+    public void setIdLugarExpedicion(String idLugarExpedicion) {
+        this.idLugarExpedicion = idLugarExpedicion;
+    }   
+
+    public String getEstado() {
+        return estado;
     }
 
-    
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
 }

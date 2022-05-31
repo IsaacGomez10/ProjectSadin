@@ -30,8 +30,8 @@ public class EmpleadoDAO extends Conexion implements Crud {
     private boolean operacion = false;
     private String sql;
 
-    private String IdEmpleado = "", Nombres = "", Apellidos = "", IdTipoDocumento = "", NumeroDocumento = "", Telefono = "", Email = "", IdLugarExpedicion = "";
-
+    private String idEmpleado="", nombres="", apellidos="", idTipoDocumento="", numeroDocumento="",telefono="", email="", idLugarExpedicion="", estado="";
+    
     public EmpleadoDAO() {
     }
 
@@ -42,14 +42,15 @@ public class EmpleadoDAO extends Conexion implements Crud {
         try {
             conexion = this.obtenerConexion();
 
-            IdEmpleado = EmpVO.getIdEmpleado();
-            Nombres = EmpVO.getNombres();
-            Apellidos = EmpVO.getApellidos();
-            IdTipoDocumento = EmpVO.getIdTipoDocumento();
-            NumeroDocumento = EmpVO.getNumeroDocumento();
-            Telefono = EmpVO.getTelefono();
-            Email = EmpVO.getEmail();
-            IdLugarExpedicion = EmpVO.getIdLugarExpedicion();
+            idEmpleado = EmpVO.getIdEmpleado();
+            nombres = EmpVO.getNombres();
+            apellidos = EmpVO.getApellidos();
+            idTipoDocumento = EmpVO.getIdTipoDocumento();
+            numeroDocumento = EmpVO.getNumeroDocumento();
+            telefono = EmpVO.getTelefono();
+            email = EmpVO.getEmail();
+            idLugarExpedicion = EmpVO.getIdLugarExpedicion();
+            estado = EmpVO.getEstado();
 
         } catch (Exception e) {
             Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
@@ -61,15 +62,16 @@ public class EmpleadoDAO extends Conexion implements Crud {
     public boolean agregarRegistro() {
         try {
             sql = "insert into empleado (Nombres, Apellidos, IdTipoDocumento, NumeroDocumento, "
-                    + "Telefono, Email, IdLugarExpedicion) values (?,?,?,?,?,?,?)";
+                    + "Telefono, Email, IdLugarExpedicion, estado) values (?,?,?,?,?,?,?,?)";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, Nombres);
-            puente.setString(2, Apellidos);
-            puente.setString(3, IdTipoDocumento);
-            puente.setString(4, NumeroDocumento);
-            puente.setString(5, Telefono);
-            puente.setString(6, Email);
-            puente.setString(7, IdLugarExpedicion);
+            puente.setString(1, nombres);
+            puente.setString(2, apellidos);
+            puente.setString(3, idTipoDocumento);
+            puente.setString(4, numeroDocumento);
+            puente.setString(5, telefono);
+            puente.setString(6, email);
+            puente.setString(7, idLugarExpedicion);
+            puente.setString(8, estado);
             puente.executeUpdate();
             operacion = true;
         } catch (Exception e) {
@@ -83,16 +85,17 @@ public class EmpleadoDAO extends Conexion implements Crud {
     @Override
     public boolean actualizarRegistro() {
         try {
-            sql = "update Empleado set  Nombres =?, Apellidos=?, IdTipoDocumento=?, NumeroDocumento=?, Telefono=?, Email=?, IdLugarexpedicion=? where NumeroDocumento=?";
+            sql = "update Empleado set  Nombres =?, Apellidos=?, IdTipoDocumento=?, NumeroDocumento=?, Telefono=?, Email=?, IdLugarexpedicion=?, estado=? where NumeroDocumento=?";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, Nombres);
-            puente.setString(2, Apellidos);
-            puente.setString(3, IdTipoDocumento);
-            puente.setString(4, NumeroDocumento);
-            puente.setString(5, Telefono);
-            puente.setString(6, Email);
-            puente.setString(7, IdLugarExpedicion);
-            puente.setString(8, NumeroDocumento);
+            puente.setString(1, nombres);
+            puente.setString(2, apellidos);
+            puente.setString(3, idTipoDocumento);
+            puente.setString(4, numeroDocumento);
+            puente.setString(5, telefono);
+            puente.setString(6, email);
+            puente.setString(7, idLugarExpedicion);
+            puente.setString(8, estado);
+            puente.setString(9, numeroDocumento);
             puente.executeUpdate();
             operacion = true;
         } catch (Exception e) {
@@ -109,13 +112,13 @@ public class EmpleadoDAO extends Conexion implements Crud {
         return operacion;
     }
 
-    @Override
+     @Override
     public boolean eliminarRegistro() {
 
         try {
             sql = "delete from empleado where empleado.idempleado = ?";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, IdEmpleado);
+            puente.setString(1, idEmpleado);
             puente.executeUpdate();
             operacion = true;
         } catch (Exception e) {
@@ -144,7 +147,7 @@ public class EmpleadoDAO extends Conexion implements Crud {
             mensajero = puente.executeQuery();
 
             while (mensajero.next()) {
-                empVO = new EmpleadoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(7), mensajero.getString(8));
+                empVO = new EmpleadoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(7), mensajero.getString(8),mensajero.getString(9));
             }
 
         } catch (SQLException e) {
@@ -231,5 +234,7 @@ public class EmpleadoDAO extends Conexion implements Crud {
 
         }
     }
+    
+   
 
 }

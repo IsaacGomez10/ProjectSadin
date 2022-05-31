@@ -168,4 +168,28 @@ public class FuncionarioDAO extends Conexion implements Crud {
         
         return Password.toString();
     }
+     
+     //validación para verificar si el empleado esta activo
+     public int estadoEmpleado(String Usuario) {
+
+        try {
+            //La sentencia sql permite bucar si el dato que se ingreso ya lo tiene un id
+            sql = "select estado from empleado where numerodocumento = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, Usuario);
+            mensajero = puente.executeQuery();
+
+            if (mensajero.next()) {
+                //Si ese dato fue encontrado y pertenece a un id, el dato no podra ser registrado
+                return mensajero.getInt(1);
+            }
+            //Finalmente se retorna que el dato se encuentra en un id
+            return 1;
+
+        } catch (Exception e) {
+            Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
+            return 1;
+
+        }
+    }
 }

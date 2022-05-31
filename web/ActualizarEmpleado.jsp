@@ -48,6 +48,13 @@
 
             <span>Lugar de Expedición</span><br>
             <input type="text" name="txtIdLugarExpedicion" value="<%=empVO.getIdLugarExpedicion()%>" readonly="readonly"><br>
+            
+            <span>Estado</span>
+            <select aria-required="true" name="txtEstado">
+                <option selected disabled>Seleccione...</option>
+                <option value="0">Inactivo</option>
+                <option value="1">Activo</option>  
+            </select>
 
             <button>Actualizar</button>
             <input type="hidden" value="2" name="opcion">

@@ -98,6 +98,8 @@
                 <option required="" value="<%=lugarVO.getIdLugarExpedicion()%>"><%=lugarVO.getCiudad()%></option>
                 <%}%>
             </select><br>   
+            
+            <input type="hidden" value="1" name="txtEstado" >
 
             <button type="submit">Continuar</button>
             <input type="hidden" value="1" name="opcion">

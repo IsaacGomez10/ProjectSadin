@@ -78,19 +78,6 @@
                 </div>
             </form>
         </section>
-        <br>
-        <section>
-            <form method="post" action="Reporte/HistoriaLaboral.jsp" target="_black">
-                <div>
-                    <label><b>Certificado de historial laboral</b></label><br>
-                    <input type="hidden" name="numeroDocumento"  value="<%=solVO.getNumeroDocumento()%>">
-                </div>
-                <div>
-                    &nbsp;
-                    <input type="submit" name="button" id="button" value="Generar Reporte">
-                </div>
-            </form>
-        </section>
 
         <% } else {
                 request.getRequestDispatcher("ConsultarEmpleado.jsp").forward(request, response);
