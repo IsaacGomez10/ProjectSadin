@@ -43,16 +43,16 @@ WHERE e.idempleado = $P{numeroDocumento}]]>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="204" splitType="Stretch">
+		<band height="222" splitType="Stretch">
 			<staticText>
-				<reportElement x="234" y="167" width="90" height="20" uuid="adb96348-73b3-49ef-92d3-dd04e44a17aa"/>
+				<reportElement x="234" y="201" width="90" height="20" uuid="adb96348-73b3-49ef-92d3-dd04e44a17aa"/>
 				<textElement>
 					<font fontName="Arial" size="11" isBold="true"/>
 				</textElement>
 				<text><![CDATA[CERTIFICA QUE:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="117" y="110" width="320" height="31" uuid="4a38bd83-c631-416c-ba9a-e98e4a4cfea5"/>
+				<reportElement x="117" y="144" width="320" height="31" uuid="4a38bd83-c631-416c-ba9a-e98e4a4cfea5"/>
 				<textElement textAlignment="Center">
 					<font fontName="Arial" size="11" isBold="true"/>
 				</textElement>
@@ -61,7 +61,7 @@ WHERE e.idempleado = $P{numeroDocumento}]]>
 		</band>
 	</title>
 	<detail>
-		<band height="251" splitType="Stretch">
+		<band height="336" splitType="Stretch">
 			<textField>
 				<reportElement x="17" y="0" width="536" height="125" uuid="dbb877b2-9a02-4ef6-be9b-8f67d083177d"/>
 				<textElement textAlignment="Justified" markup="html">
@@ -84,14 +84,14 @@ WHERE e.idempleado = $P{numeroDocumento}]]>
 				<text><![CDATA[Cordialmente,]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="342" y="231" width="211" height="20" uuid="949b5424-eaef-43b9-b0f6-507ae9dfe806"/>
+				<reportElement x="342" y="315" width="211" height="20" uuid="949b5424-eaef-43b9-b0f6-507ae9dfe806"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<text><![CDATA[Director Mejoramiento Calida de Vida]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="342" y="218" width="196" height="20" uuid="bced3692-e91c-4417-ac76-e81fac122248"/>
+				<reportElement x="342" y="302" width="196" height="20" uuid="bced3692-e91c-4417-ac76-e81fac122248"/>
 				<textElement>
 					<font fontName="Arial" size="11" isBold="true"/>
 				</textElement>

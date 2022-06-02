@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="0f56134f-3fd4-427b-a28a-91ef3edb6d88">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="32"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="numeroDocumento" class="java.lang.String">
 		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
 	</parameter>
@@ -64,13 +64,13 @@ where e.idempleado = $P{numeroDocumento}]]>
 		</band>
 	</title>
 	<detail>
-		<band height="264" splitType="Stretch">
+		<band height="322" splitType="Stretch">
 			<textField>
 				<reportElement x="19" y="0" width="537" height="110" uuid="8bdee6f6-6024-4129-9e47-81eb3fdcfee7"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="Arial" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Certifica que <b>" + $F{concat(e.Nombres, ' ',e.Apellidos)} + "</b>, identificado con" + $F{tipodocumento} + " número" + $F{numerodocumento} + " expedida en" + $F{LugarExpedicion} + ", se encuentra vinculado a esta empresa por medio de un contrato" +  $F{Contrato} + ", como" + $F{NombreCargo} + " en la jornada" + $F{Jornada} + ",con horario de" + $F{HorarioLaboral}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Certifica que <b>" + $F{concat(e.Nombres, ' ',e.Apellidos)} + "</b>, identificado con" + $F{tipodocumento} + " número " + $F{numerodocumento} + " expedida en " + $F{LugarExpedicion} + ", se encuentra vinculado a esta empresa por medio de un contrato " +  $F{Contrato} + ", como " + $F{NombreCargo} + " en la jornada " + $F{Jornada} + ",con horario de " + $F{HorarioLaboral}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="19" y="94" width="540" height="36" uuid="8c93773f-83f1-46cc-9204-71f1277b87e2"/>
@@ -87,14 +87,14 @@ where e.idempleado = $P{numeroDocumento}]]>
 				<text><![CDATA[Cordialmente,]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="339" y="243" width="211" height="20" uuid="e716383a-8319-43e7-a04d-6d0b982bd4bd"/>
+				<reportElement x="341" y="301" width="211" height="20" uuid="e716383a-8319-43e7-a04d-6d0b982bd4bd"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<text><![CDATA[Director Mejoramiento Calida de Vida]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="339" y="230" width="196" height="20" uuid="535f7b44-70d6-4d68-a3c6-ca38032d5323"/>
+				<reportElement x="341" y="288" width="196" height="20" uuid="535f7b44-70d6-4d68-a3c6-ca38032d5323"/>
 				<textElement>
 					<font fontName="Arial" size="11" isBold="true"/>
 				</textElement>
