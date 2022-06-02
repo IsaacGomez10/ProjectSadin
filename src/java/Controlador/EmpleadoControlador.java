@@ -1,26 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Controlador;
 
 import ModeloDAO.EmpleadoDAO;
 import ModeloVO.EmpleadoVO;
 import java.io.IOException;
-import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import javax.servlet.http.Part;
 
-/**
- *
- * @author Damian
- */
 @WebServlet(name = "EmpleadoControlador", urlPatterns = {"/Empleado"})
 public class EmpleadoControlador extends HttpServlet {
 
@@ -47,7 +38,7 @@ public class EmpleadoControlador extends HttpServlet {
         String IdLugarExpedicion = request.getParameter("txtIdLugarExpedicion");
         String Estado = request.getParameter("txtEstado");
 
-        EmpleadoVO empVO = new EmpleadoVO(IdEmpleado, Nombres, Apellidos, IdTipoDocumento, NumeroDocumento, Telefono, Email, IdLugarExpedicion,Estado);
+        EmpleadoVO empVO = new EmpleadoVO(IdEmpleado, Nombres, Apellidos, IdTipoDocumento, NumeroDocumento, Telefono, Email, IdLugarExpedicion, Estado);
         EmpleadoDAO empDAO = new EmpleadoDAO(empVO);
 
         //Recibir datos del formulario a traves de una variable 

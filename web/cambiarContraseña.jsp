@@ -16,7 +16,6 @@
         <title>Cambiar Contraseña</title>
     </head>
     <body>
-    <center>
         <h1>Cambiar Contraseña</h1>
         
         <%@include file="navFuncionario.jsp" %>
@@ -46,6 +45,5 @@
             ${mensajeError}
             <% }%>
         </div>
-    </center>
 </body>
 </html>

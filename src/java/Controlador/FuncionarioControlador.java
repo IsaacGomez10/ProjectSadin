@@ -128,28 +128,28 @@ public class FuncionarioControlador extends HttpServlet {
                 break;
 
             case 3: //Iniciar sesión
+
                 funVO = funDAO.iniciarSesion(Usuario, (Password));
-                    if (funVO != null) {
+                if (funVO != null) {
 
-                        empVO = empDAO.consultarEmpleados(Usuario);
+                    empVO = empDAO.consultarEmpleados(Usuario);
 
-                        HttpSession miSesion = request.getSession(true);
+                    HttpSession miSesion = request.getSession(true);
 
-                        String Id = funVO.getIdFuncionario();
-                        String Empleado = funVO.getIdEmpleado();
+                    String Id = funVO.getIdFuncionario();
+                    String Empleado = funVO.getIdEmpleado();
 
-                        funVO = new FuncionarioVO(Id, Usuario, Password, Empleado);
-                        miSesion.setAttribute("datosEmpleado", empVO);
-                        miSesion.setAttribute("datosEmpleadoRegistrado", empVO);
-                        miSesion.setAttribute("datosFuncionario", funVO);
+                    funVO = new FuncionarioVO(Id, Usuario, Password, Empleado);
+                    miSesion.setAttribute("datosEmpleado", empVO);
+                    miSesion.setAttribute("datosEmpleadoRegistrado", empVO);
+                    miSesion.setAttribute("datosFuncionario", funVO);
 
-                        request.getRequestDispatcher("menu.jsp").forward(request, response);
+                    request.getRequestDispatcher("menu.jsp").forward(request, response);
 
-                    } else {
-                        request.setAttribute("mensajeError", "Corregir Datos");
-                        request.getRequestDispatcher("index.jsp").forward(request, response);
-                    }
-
+                } else {
+                    request.setAttribute("mensajeError", "Corregir Datos");
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
+                }
                 break;
             case 4://Olvidaste la contraseña
                 empVO = empDAO.consultarEmpleados(Usuario);

@@ -12,6 +12,10 @@
         <servlet-name>SolicitudControlador</servlet-name>
         <servlet-class>Controlador.SolicitudControlador</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>cargarDatos</servlet-name>
+        <servlet-class>Controlador.cargarDatos</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>ControladorSolicitud</servlet-name>
         <url-pattern>/ControladorSolicitud</url-pattern>
@@ -23,6 +27,10 @@
     <servlet-mapping>
         <servlet-name>SolicitudControlador</servlet-name>
         <url-pattern>/SolicitudControlador</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>cargarDatos</servlet-name>
+        <url-pattern>/cargarDatos</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

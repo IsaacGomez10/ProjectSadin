@@ -83,7 +83,7 @@ public final class CertificadoSolicitud_jsp extends org.apache.jasper.runtime.Ht
       out.write("\n");
       out.write("\n");
       out.write("\n");
-      out.write("        <form method=\"post\" action=\"Certificacion\" target=\"_black\">\n");
+      out.write("        <form method=\"post\" action=\"Certificacion\">\n");
       out.write("\n");
       out.write("            <span>Número de Documento</span><br>\n");
       out.write("            <input type=\"text\" name=\"txtNumeroDocumento\" placeholder=\"Ingrese documento\">\n");

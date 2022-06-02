@@ -22,20 +22,17 @@
         <%@include file="nav.jsp" %>
 
 
-        <form method="post" action="Certificacion" target="_black">
+        <form method="post" action="Certificacion">
 
+            <div class="captcha-container">
             <span>Número de Documento</span><br>
             <input type="text" name="txtNumeroDocumento" placeholder="Ingrese documento">
 
             <!--Captcha-->
-            <div class="captcha-container">
                 <div class="header">Verificar Captcha</div>
                 <div class="securityCode">
                     <p id="code"></p>
                     <div class="icons">
-                        <span class="readText">
-                            <i class="fas fa-headphones"></i>
-                        </span>
                         <span class="changeText">
                             <i class="fas fa-sync-alt"></i>
                         </span>
@@ -43,8 +40,8 @@
                 </div>
                 <div class="userInput">
                     <input type="text" placeholder="Ingrese captcha" ><br>
-                    <button id="limpiar">Confirmar</button>
-                    <input type="hidden" value="1" class="btn" name="opcion">
+                    <button>Confirmar</button>
+                    <input type="hidden" value="1" name="opcion">
                 </div>
             </div>
             <div>
@@ -55,7 +52,6 @@
         </form><br>
         <%@include file="./ErrorDatosJava/ErrorDatosJava.jsp" %>
 
-        <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
         <script src="./JavaScript/ReCaptcha.js"></script>
 
     </body>
