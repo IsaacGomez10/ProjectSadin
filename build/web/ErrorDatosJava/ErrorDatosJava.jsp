@@ -5,9 +5,5 @@
     <script>
         alert('${MensajeError}');
     </script>
-     <% } else {%>
-     <script>
-        alert('${MensajeExito}');
-    </script>
     <% }%>
 </div>

@@ -1,9 +1,9 @@
-
 package Controlador;
 
 import ModeloDAO.EmpleadoDAO;
 import ModeloVO.EmpleadoVO;
 import java.io.IOException;
+import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -41,6 +41,7 @@ public class EmpleadoControlador extends HttpServlet {
         EmpleadoVO empVO = new EmpleadoVO(IdEmpleado, Nombres, Apellidos, IdTipoDocumento, NumeroDocumento, Telefono, Email, IdLugarExpedicion, Estado);
         EmpleadoDAO empDAO = new EmpleadoDAO(empVO);
 
+        String Dato = request.getParameter("txtDato");
         //Recibir datos del formulario a traves de una variable 
         int opcion = Integer.parseInt(request.getParameter("opcion"));
 
@@ -99,7 +100,7 @@ public class EmpleadoControlador extends HttpServlet {
                     request.setAttribute("EmpleadoConsultado", empVO);
                     request.getRequestDispatcher("ActualizarEmpleado.jsp").forward(request, response);
                 } else {
-                    request.setAttribute("mensajeError", "El empleado No existe, verifique el documento");
+                    request.setAttribute("mensajeError", "El empleado No existe, verifique el número de documento");
                     request.getRequestDispatcher("ConsultarEmpleado.jsp").forward(request, response);
                 }
                 break;

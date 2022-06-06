@@ -1,4 +1,3 @@
-
 package Controlador;
 
 import ModeloDAO.AdministrarArchivos;
@@ -34,7 +33,7 @@ public class cargarDatos extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        
+
         String IdEmpleado = request.getParameter("txtIdEmpleado");
         String Nombres = request.getParameter("txtNombres");
         String Apellidos = request.getParameter("txtApellidos");
@@ -48,8 +47,8 @@ public class cargarDatos extends HttpServlet {
         //Recibir csv
         Part archivocsv = request.getPart("archivocsv");
 
-        EmpleadoVO EmpVO = new EmpleadoVO(IdEmpleado, Nombres, Apellidos, IdTipoDocumento, NumeroDocumento, Telefono, Email, IdLugarExpedicion, Estado);
-        EmpleadoDAO EmpDAO = new EmpleadoDAO(EmpVO);
+        EmpleadoVO empVO = new EmpleadoVO(IdEmpleado, Nombres, Apellidos, IdTipoDocumento, NumeroDocumento, Telefono, Email, IdLugarExpedicion, Estado);
+        EmpleadoDAO empDAO = new EmpleadoDAO(empVO);
 
         //Recibir datos del formulario a traves de una variable 
         int opcion = Integer.parseInt(request.getParameter("opcion"));
@@ -57,20 +56,23 @@ public class cargarDatos extends HttpServlet {
         switch (opcion) {
 
             case 1://Guardar CSV
+
                 AdministrarArchivos adminFiles = new AdministrarArchivos();
                 String rutaAbsoluta = adminFiles.guardarArchivo(archivocsv, adminFiles.validarRuta());
+
                 try {
-                    if (EmpDAO.cargarUsuarios(rutaAbsoluta) == true) {
-                        request.setAttribute("mensajeExito", "La carga se hizo correactamente");
-                        request.getRequestDispatcher("cargarCSV.jsp").forward(request, response);
+
+                    if (empDAO.cargarUsuarios(rutaAbsoluta) == true) {
+
+                        request.setAttribute("MensajeExito", "La carga se hizo correactamente");
+                        request.getRequestDispatcher("cargarDatos.jsp").forward(request, response);
                     } else {
-                        request.setAttribute("mensajeError", "Error");
-                        request.getRequestDispatcher("cargarCSV.jsp").forward(request, response);
+                        request.setAttribute("MensajeError", "Error");
+                        request.getRequestDispatcher("cargarDatos.jsp").forward(request, response);
                     }
 
-                }catch (SQLException e) {
+                } catch (SQLException e) {
                 }
-                request.getRequestDispatcher("cargarCSV.jsp").forward(request, response);
                 break;
         }
 

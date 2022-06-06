@@ -4,6 +4,8 @@
     Author     : Damian
 --%>
 
+<%@page import="ModeloDAO.EmpleadoDAO"%>
+<%@page import="ModeloDAO.LugarExpedicionDAO"%>
 <%@page import="ModeloVO.TipoDocumentoVO"%>
 <%@page import="ModeloDAO.TipoDocumentoDAO"%>
 <%@page import="ModeloVO.LugarExpedicionVO"%>
@@ -19,7 +21,6 @@
     </head>
     <body>
         <%@include file="navFuncionario.jsp" %>
-    <center>
         <h1>Actualizar empleado</h1>
         <%
             EmpleadoVO empVO = (EmpleadoVO) request.getAttribute("EmpleadoConsultado");
@@ -33,22 +34,37 @@
 
             <span>Apellidos</span><br>
             <input type="text" name="txtApellidos" value="<%=empVO.getApellidos()%>" readonly="readonly"><br>                        
-
+            
             <span>Tipo de documento</span><br>
-            <input type="text" name="txtIdTipoDocumento" value="<%=empVO.getIdTipoDocumento()%>" readonly="readonly"><br>                        
+            <select required="" name="txtIdTipoDocumento">
+                
+                <%  
+                    TipoDocumentoDAO tipoDocDAO = new TipoDocumentoDAO();
+                    for (TipoDocumentoVO tipoDocVO : tipoDocDAO.Listar()) {
+                %>
+                <option selected="" required="" value="<%=tipoDocVO.getIdTipoDocumento()%>"><%=tipoDocVO.getTipoDocumento()%></option>
+                <%}%>
+            </select><br>
 
             <span>Número de Documento</span><br>
             <input type="text" name="txtNumeroDocumento" value="<%=empVO.getNumeroDocumento()%>" readonly="readonly"><br>                        
 
             <span>Télefono</span><br>
-            <input type="text" name="txtTelefono" value="<%=empVO.getTelefono()%>" ><br>     
+            <input onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="10" type="text" name="txtTelefono" value="<%=empVO.getTelefono()%>" ><br>     
 
             <span>Email</span><br>
             <input type="text" name="txtEmail" value="<%=empVO.getEmail()%>" ><br>                        
 
-            <span>Lugar de Expedición</span><br>
-            <input type="text" name="txtIdLugarExpedicion" value="<%=empVO.getIdLugarExpedicion()%>" readonly="readonly"><br>
-            
+             <span>Lugar Expedición</span><br>
+            <select required="" name="txtIdLugarExpedicion">
+                <%
+                    LugarExpedicionDAO lugarDAO = new LugarExpedicionDAO();
+                    for (LugarExpedicionVO lugarVO : lugarDAO.Listar()) {
+
+                %>
+                <option selected required="" value="<%=lugarVO.getIdLugarExpedicion()%>"><%=lugarVO.getCiudad()%></option>
+                <%}%>
+            </select><br> 
             <span>Estado</span>
             <select aria-required="true" name="txtEstado">
                 <option selected disabled>Seleccione...</option>
@@ -65,7 +81,6 @@
                 request.getRequestDispatcher("ConsultarEmpleado.jsp").forward(request, response);
             }
         %>
-    </center>
     
 </body>
 </html>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="JAVA" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a641c9d2-16a6-47cd-acfd-7f1875f55b85">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a641c9d2-16a6-47cd-acfd-7f1875f55b85">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="131"/>
@@ -65,7 +65,7 @@ where e.idempleado = $P{numeroDocumento}]]>
 			</staticText>
 			<textField>
 				<reportElement x="20" y="0" width="536" height="72" uuid="ea99adf5-e298-4eb4-b2e1-b5e61a766a85"/>
-				<textElement textAlignment="Justified">
+				<textElement textAlignment="Justified" markup="html">
 					<font fontName="Arial" size="12"/>
 				</textElement>
 				<textFieldExpression><![CDATA["Una vez revisados los datos que reposan en la historia laboral de Certifica que " + $F{concat(e.Nombres, ' ',e.Apellidos)} + ", identificado con " + $F{tipodocumento} + " número " +$F{numerodocumento} + " expedida en " + $F{LugarExpedicion} + ", se verificó es un empleado activo de esta empresa, cumple con el cargo de " + $F{NombreCargo} + " y devenga " +$F{Salario}+" de manera mensual."]]></textFieldExpression>
