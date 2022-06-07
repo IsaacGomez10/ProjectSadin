@@ -9,6 +9,9 @@ import ModeloVO.ContratoVO;
 import ModeloVO.EmpleadoVO;
 import Util.Conexion;
 import Util.Crud;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +19,10 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.apache.poi.ss.usermodel.DataFormatter;
+import org.apache.poi.ss.usermodel.Row;
+import org.apache.poi.xssf.usermodel.XSSFSheet;
+import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 /**
  *
@@ -97,6 +104,50 @@ public class ContratoDAO extends Conexion implements Crud {
         return operacion;
     }
 
+    
+    public boolean cargarContrato(String rutaAbsoluta) throws SQLException, IOException {
+
+        try {
+            sql = "insert into contrato(IdEmpleado, FechaContratacion, FechaFinalizacion, Salario, IdCargo,IdDependencia, "
+                    + "IdTipoContrato, IdJornada, IdHorario) values(?,?,?,?,?,?,?,?,?)";
+            conexion = obtenerConexion();
+            FileInputStream file = new FileInputStream(new File(rutaAbsoluta));
+
+            XSSFWorkbook wb = new XSSFWorkbook(file);
+            XSSFSheet sheet = wb.getSheetAt(0);
+            DataFormatter dataFormater = new DataFormatter();
+            int numFilas = sheet.getLastRowNum();
+            
+            //SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
+
+            for (int a = 1; a <= numFilas; a++) {
+                Row fila = sheet.getRow(a);
+
+                puente = conexion.prepareStatement(sql);
+                puente.setString(1, dataFormater.formatCellValue(fila.getCell(0)));
+                
+                puente.setString(2, dataFormater.formatCellValue(fila.getCell(1)));
+                puente.setString(3, dataFormater.formatCellValue(fila.getCell(2)));
+                puente.setString(4, dataFormater.formatCellValue(fila.getCell(3)));
+                puente.setString(5, dataFormater.formatCellValue(fila.getCell(4)));
+                puente.setString(6, dataFormater.formatCellValue(fila.getCell(5)));
+                puente.setString(7, dataFormater.formatCellValue(fila.getCell(6)));
+                puente.setString(8, dataFormater.formatCellValue(fila.getCell(7)));
+                puente.setString(9, dataFormater.formatCellValue(fila.getCell(8)));
+
+                puente.execute();
+            }
+            File buscarArchivo = new File(rutaAbsoluta);
+            buscarArchivo.delete();
+            operacion = true;
+            conexion = cerrarConexion();
+        } catch (Exception e) {
+            Logger.getLogger(ContratoDAO.class.getName()).log(Level.SEVERE, null, e);
+
+        }
+
+        return operacion;
+    }
     @Override
     public boolean actualizarRegistro() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.

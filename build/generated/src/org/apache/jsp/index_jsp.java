@@ -3,9 +3,8 @@ package org.apache.jsp;
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.jsp.*;
-import ModeloSolicitudVO.SolicitudVO;
 
-public final class CertificadoSolicitud_jsp extends org.apache.jasper.runtime.HttpJspBase
+public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
     implements org.apache.jasper.runtime.JspSourceDependent {
 
   private static final JspFactory _jspxFactory = JspFactory.getDefaultFactory();
@@ -13,8 +12,7 @@ public final class CertificadoSolicitud_jsp extends org.apache.jasper.runtime.Ht
   private static java.util.List<String> _jspx_dependants;
 
   static {
-    _jspx_dependants = new java.util.ArrayList<String>(2);
-    _jspx_dependants.add("/./EliminarCache/EliminarCache.jsp");
+    _jspx_dependants = new java.util.ArrayList<String>(1);
     _jspx_dependants.add("/nav.jsp");
   }
 
@@ -51,25 +49,11 @@ public final class CertificadoSolicitud_jsp extends org.apache.jasper.runtime.Ht
       out.write("\r\n");
       out.write("\r\n");
       out.write("\r\n");
-      out.write("\r\n");
-
-    response.setHeader("Cache-control", "no-cache");
-    response.setHeader("Pragma", "no-cache");
-    response.setDateHeader("Expires", 0);
-
-      out.write('\r');
-      out.write('\n');
-      out.write("\r\n");
       out.write("<!DOCTYPE html>\r\n");
       out.write("<html>\r\n");
       out.write("    <head>\r\n");
       out.write("        <meta http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">\r\n");
-      out.write("        <title>Certificación</title>\r\n");
-      out.write("        <link rel=\"stylesheet\" href=\"https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css\">\r\n");
-      out.write("        <meta http-equiv=\"Expires\" content=\"0\">\r\n");
-      out.write("        <meta http-equiv=\"Last-Modified\" content=\"0\">\r\n");
-      out.write("        <meta http-equiv=\"Cache-Control\" content=\"no-cache, mustrevalidate\">\r\n");
-      out.write("        <meta http-equiv=\"Pragma\" content=\"no-cache\">\r\n");
+      out.write("        <title>Iniciar Sesion</title>\r\n");
       out.write("    </head>\r\n");
       out.write("    <body>\r\n");
       out.write("        ");
@@ -82,37 +66,43 @@ public final class CertificadoSolicitud_jsp extends org.apache.jasper.runtime.Ht
       out.write("</nav>");
       out.write("\r\n");
       out.write("\r\n");
+      out.write("        <h1>Iniciar Sesión</h1>\r\n");
+      out.write("        <form method=\"post\" action=\"Funcionario\" >\r\n");
       out.write("\r\n");
-      out.write("        <form method=\"post\" action=\"Certificacion\">\r\n");
-      out.write("\r\n");
-      out.write("            <label>Para solicitar un su certificado verifique su número de documento</label><br>\r\n");
-      out.write("            <span>Número de Documento</span>\r\n");
-      out.write("            <input type=\"text\" name=\"txtNumeroDocumento\" placeholder=\"Ingrese documento\">\r\n");
-      out.write("            <button>Confirmar</button>\r\n");
-      out.write("            <input type=\"hidden\" value=\"1\" name=\"opcion\">\r\n");
-      out.write("\r\n");
+      out.write("            <span>Usuario</span><br>\r\n");
+      out.write("            <input type=\"text\" name=\"txtUsuario\"><br>\r\n");
+      out.write("            <span>Contraseña</span><br>\r\n");
+      out.write("            <input type=\"password\" name=\"txtPassword\"><br>\r\n");
+      out.write("            <br>\r\n");
+      out.write("            <button>Iniciar Sesión</button>\r\n");
+      out.write("            <input type=\"hidden\" value=\"3\" name=\"opcion\">\r\n");
       out.write("        </form>\r\n");
       out.write("\r\n");
-      out.write("        <div style=\"color:red;\">\r\n");
-      out.write("            ");
-                if (request.getAttribute("MensajeError") != null) {
+      out.write("        <br>\r\n");
+      out.write("        <div>¿No tienes una cuenta aún?<a href=\"registrarFuncionario.jsp\"> Crea una cuenta</a></div>\r\n");
+      out.write("        <a href=\"olvidarContraseña.jsp\">¿Olvidaste tu contraseña?</a></div>\r\n");
       out.write("\r\n");
-      out.write("            ");
+      out.write("    <div style=\"color:red;\">\r\n");
+      out.write("        ");
+
+            if (request.getAttribute("MensajeError") != null) {
+      out.write("\r\n");
+      out.write("        ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${MensajeError}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\r\n");
-      out.write("            ");
+      out.write("        ");
  } else {
       out.write("\r\n");
-      out.write("            ");
+      out.write("        ");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${MensajeExito}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("\r\n");
-      out.write("            ");
+      out.write("        ");
 }
       out.write("\r\n");
-      out.write("        </div>\r\n");
+      out.write("    </div>\r\n");
       out.write("\r\n");
-      out.write("    </body>\r\n");
-      out.write("</html>\r\n");
+      out.write("</body>\r\n");
+      out.write("</html>");
     } catch (Throwable t) {
       if (!(t instanceof SkipPageException)){
         out = _jspx_out;

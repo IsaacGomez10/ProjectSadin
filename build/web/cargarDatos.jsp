@@ -11,9 +11,9 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Cargar datos</title>
+        <title>Cargar datos desde el excel</title>
     </head>
-    
+
     <body>
         <%@include file="navFuncionario.jsp" %>
 
@@ -29,13 +29,5 @@
             <input type="hidden" value="1" name="opcion">           
 
         </form>
-        <div style="color:red;">
-            <%
-                if (request.getAttribute("MensajeError") != null) {%>
-            ${MensajeError}
-            <% } else {%>
-            ${MensajeExito}
-            <%}%>
-        </div>
     </body>
 </html>

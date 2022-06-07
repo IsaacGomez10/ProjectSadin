@@ -1,8 +1,13 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
 package Controlador;
 
 import ModeloDAO.AdministrarArchivos;
-import ModeloDAO.EmpleadoDAO;
-import ModeloVO.EmpleadoVO;
+import ModeloDAO.ContratoDAO;
+import ModeloVO.ContratoVO;
 import java.io.IOException;
 import java.sql.SQLException;
 import javax.servlet.ServletException;
@@ -18,8 +23,8 @@ import javax.servlet.http.Part;
  * @author Damian
  */
 @MultipartConfig
-@WebServlet(name = "CargarDatosControlador", urlPatterns = {"/Cargar"})
-public class cargarDatos extends HttpServlet {
+@WebServlet(name = "CargaMasivaContratoControlador", urlPatterns = {"/CargaContrato"})
+public class CargaMasivaContratoControlador extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -34,48 +39,47 @@ public class cargarDatos extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
 
+        //1. Recibir datos de la vista
+        String IdContrato = request.getParameter("txtIdContrato");
         String IdEmpleado = request.getParameter("txtIdEmpleado");
-        String Nombres = request.getParameter("txtNombres");
-        String Apellidos = request.getParameter("txtApellidos");
-        String IdTipoDocumento = request.getParameter("txtIdTipoDocumento");
-        String NumeroDocumento = request.getParameter("txtNumeroDocumento");
-        String Telefono = request.getParameter("txtTelefono");
-        String Email = request.getParameter("txtEmail");
-        String IdLugarExpedicion = request.getParameter("txtIdLugarExpedicion");
-        String Estado = request.getParameter("txtEstado");
+        String FechaContratacion = request.getParameter("txtFechaContratacion");
+        String FechaFinalizacion = request.getParameter("txtFechaFinalizacion");
+        String Salario = request.getParameter("txtSalario");
+        String IdCargo = request.getParameter("txtIdCargo");
+        String IdDependencia = request.getParameter("txtDependencia");
+        String IdTipoContrato = request.getParameter("txtIdTipoContrato");
+        String IdJornada = request.getParameter("txtIdJornada");
+        String IdHorario = request.getParameter("txtHorario");
 
-        //Recibir csv
         Part archivocsv = request.getPart("archivocsv");
 
-        EmpleadoVO empVO = new EmpleadoVO(IdEmpleado, Nombres, Apellidos, IdTipoDocumento, NumeroDocumento, Telefono, Email, IdLugarExpedicion, Estado);
-        EmpleadoDAO empDAO = new EmpleadoDAO(empVO);
+        //2. Quien tiene los datos de forma segura? VO
+        ContratoVO conVO = new ContratoVO(IdContrato, IdEmpleado, FechaContratacion, FechaFinalizacion, Salario, IdCargo, IdDependencia, IdTipoContrato, IdJornada, IdHorario);
+        //3. Quien hace las operaciones? DAO
+        ContratoDAO conDAO = new ContratoDAO(conVO);
 
-        //Recibir datos del formulario a traves de una variable 
         int opcion = Integer.parseInt(request.getParameter("opcion"));
 
+        
         switch (opcion) {
 
             case 1://Guardar CSV
-
                 AdministrarArchivos adminFiles = new AdministrarArchivos();
                 String rutaAbsoluta = adminFiles.guardarArchivo(archivocsv, adminFiles.validarRuta());
-
                 try {
-
-                    if (empDAO.cargarUsuarios(rutaAbsoluta) == true) {
-
-                        request.setAttribute("MensajeExito", "La carga se hizo correactamente");
-                        request.getRequestDispatcher("cargarContrato.jsp").forward(request, response);
+                    if (conDAO.cargarContrato(rutaAbsoluta) == true) {
+                        request.setAttribute("mensajeExito", "La carga se hizo correactamente");
+                        request.getRequestDispatcher("cargaContrato.jsp").forward(request, response);
                     } else {
-                        request.setAttribute("MensajeError", "Error");
-                        request.getRequestDispatcher("cargarDatos.jsp").forward(request, response);
+                        request.setAttribute("mensajeError", "Error");
+                        request.getRequestDispatcher("cargaContrato.jsp").forward(request, response);
                     }
 
-                } catch (SQLException e) {
+                }catch (SQLException e) {
                 }
+                request.getRequestDispatcher("cargaContrato.jsp").forward(request, response);
                 break;
         }
-
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
