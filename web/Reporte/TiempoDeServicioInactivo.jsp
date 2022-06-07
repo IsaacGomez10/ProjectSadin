@@ -20,7 +20,7 @@
 con la siguiente linea de codigo*/
     Conexion conexion = new Conexion();
     /*Establecemos la ruta del reporte*/
-    File reportFile = new File(application.getRealPath("Reportes/Tiempo_Servicio.jasper"));
+    File reportFile = new File(application.getRealPath("Reportes/Tiempo_Servicio_Inactivo.jasper"));
     /*Enviamos parámetros porque nuestro reporte los necesita asi que escriba 
 y seguiremos el formato del método runReportToPdf*/
  /*Con Map y el HaspMap nos servira para crear los paramentros*/

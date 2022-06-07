@@ -13,8 +13,10 @@
 <%@page import="ModeloDAO.EmpleadoDAO"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <!DOCTYPE html>
-<%--<%@include file="sesiones.jsp"%>--%>
+<%@include file="css-js.jsp" %>
+<%@include file="sesiones.jsp"%>
 
 <html>
     <head>
@@ -37,7 +39,7 @@
                             event.returnValue = false;" maxlength="14" onkeyup="doSearch()" placeholder="Ingrese documento"/>
             </section>
             <br>
-            <table border="1" id="datos" number-per-page="10" current-page="">
+            <table border="1" id="datos" number-per-page="10">
                 <thead>
                     <tr>
                         <th>Nombres</th>

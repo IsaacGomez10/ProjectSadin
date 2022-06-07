@@ -106,4 +106,6 @@ public class ContratoDAO extends Conexion implements Crud {
     public boolean eliminarRegistro() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+    
+    
 }

@@ -45,16 +45,30 @@ public class SolicitudControlador extends HttpServlet {
 
         //Administrar las variables
         switch (opcion) {
+
             case 1://consultar por numero de documento
-                solVO = solDAO.SolicitarCertificado(NumeroDocumento);
-                if (solVO != null) {
-                    request.setAttribute("ValidarCertificado", solVO);
-                    request.getRequestDispatcher("ConsultarCertificado.jsp").forward(request, response);
-                } else {
-                    request.setAttribute("MensajeError", "El empleado No existe, verifique el número de documento");
-                    request.getRequestDispatcher("CertificadoSolicitud.jsp").forward(request, response);
+
+                if (solDAO.estadoEmpleado(NumeroDocumento) == 1) {
+
+                    solVO = solDAO.SolicitarCertificado(NumeroDocumento);
+
+                    if (solVO != null) {
+                        request.setAttribute("ValidarCertificadoActivo", solVO);
+                        request.getRequestDispatcher("ConsultarCertificado.jsp").forward(request, response);
+                    } else {
+                        request.setAttribute("MensajeError", "Este documento no existe, verifique el número de documento");
+                        request.getRequestDispatcher("CertificadoSolicitud.jsp").forward(request, response);
+                    }
+                } else if (solDAO.estadoEmpleado(NumeroDocumento) == 0) {
+
+                    solVO = solDAO.SolicitarCertificado(NumeroDocumento);
+
+                    request.setAttribute("ValidarCertificadoInactivo", solVO);
+                    request.getRequestDispatcher("ConsultarCertificadoInactivo.jsp").forward(request, response);
                 }
+
                 break;
+
         }
     }
 

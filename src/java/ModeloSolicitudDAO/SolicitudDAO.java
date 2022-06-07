@@ -5,6 +5,7 @@
  */
 package ModeloSolicitudDAO;
 
+import ModeloDAO.EmpleadoDAO;
 import ModeloSolicitudVO.SolicitudVO;
 import Util.Conexion;
 import java.sql.Connection;
@@ -48,8 +49,7 @@ public class SolicitudDAO extends Conexion {
 
         }
     }
-    
-    
+
     public SolicitudVO SolicitarCertificado(String numeroDocumento) {
 
         SolicitudVO solVO = null;
@@ -79,4 +79,27 @@ public class SolicitudDAO extends Conexion {
         return solVO;
     }
 
+    //validación para verificar si el empleado esta activo
+    public int estadoEmpleado(String documento) {
+
+        try {
+            //La sentencia sql permite bucar si el dato que se ingreso ya lo tiene un id
+            sql = "select estado from empleado where numerodocumento = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, documento);
+            mensajero = puente.executeQuery();
+
+            if (mensajero.next()) {
+                //Si ese dato fue encontrado y pertenece a un id, el dato no podra ser registrado
+                return mensajero.getInt(1);
+            }
+            //Finalmente se retorna que el dato se encuentra en un id
+            return 1;
+
+        } catch (Exception e) {
+            Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
+            return 1;
+
+        }
+    }
 }

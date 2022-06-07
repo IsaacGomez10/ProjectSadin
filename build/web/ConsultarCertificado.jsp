@@ -4,6 +4,8 @@
     Author     : isaac
 --%>
 
+
+<%@page import="ModeloSolicitudDAO.SolicitudDAO"%>
 <%@page import="ModeloSolicitudVO.SolicitudVO"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,8 +20,10 @@
         <h1>Solicitar certificado</h1>
 
         <%
-            SolicitudVO solVO = (SolicitudVO) request.getAttribute("ValidarCertificado");
+            SolicitudVO solVO = (SolicitudVO) request.getAttribute("ValidarCertificadoActivo");
+
             if (solVO != null) {
+
         %>
 
         <section>
@@ -28,7 +32,7 @@
 
                 <div>
                     <label><b>Certificado de cargo desempeñado</b></label><br>
-                    <input type="hidden" name="numeroDocumento" value="<%=solVO.getNumeroDocumento()%>" placeholder="Ingrese número de documento">
+                    <input type="hidden" name="numeroDocumento" value="<%=solVO.getNumeroDocumento()%>">
                 </div>
                 <div>
                     &nbsp;
@@ -44,7 +48,7 @@
 
                 <div>
                     <label><b>Certificado de sueldo básico</b></label><br>
-                    <input type="hidden" name="numeroDocumento" value="<%=solVO.getNumeroDocumento()%>" placeholder="Ingrese número de documento">
+                    <input type="hidden" name="numeroDocumento" value="<%=solVO.getNumeroDocumento()%>">
                 </div>
                 <div>
                     &nbsp;
@@ -57,7 +61,7 @@
             <form method="post" action="Reporte/TiempoDeServicio.jsp" target="_black">
                 <div>
                     <label><b>Certificado de tiempo de servicio</b></label><br>
-                    <input type="hidden" name="numeroDocumento"   value="<%=solVO.getNumeroDocumento()%>" placeholder="Ingrese número de documento">
+                    <input type="hidden" name="numeroDocumento"   value="<%=solVO.getNumeroDocumento()%>">
                 </div>
                 <div>
                     &nbsp;
@@ -70,7 +74,7 @@
             <form method="post" action="Reporte/TipoDeContrato.jsp" target="_black">
                 <div>
                     <label><b>Certificado de tipo de contrato</b></label><br>
-                    <input type="hidden" name="numeroDocumento" value="<%=solVO.getNumeroDocumento()%>" placeholder="Ingrese número de documento">
+                    <input type="hidden" name="numeroDocumento" value="<%=solVO.getNumeroDocumento()%>">
                 </div>
                 <div>
                     &nbsp;
@@ -78,10 +82,10 @@
                 </div>
             </form>
         </section>
-
         <% } else {
                 request.getRequestDispatcher("ConsultarEmpleado.jsp").forward(request, response);
             }
         %>
+
     </body>
 </html>

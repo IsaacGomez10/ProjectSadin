@@ -37,7 +37,7 @@
 
 
             <span>Fecha de Contratación</span><br>
-            <input required type="date" id="fechaActual" name="txtFechaContratacion"><br>
+            <input type="date" id="fechaActual" name="txtFechaContratacion" readonly="readonly"><br>
 
             <span>Fecha de Finalización</span><br>
             <input required type="date" name="txtFechaFinalizacion"><br>

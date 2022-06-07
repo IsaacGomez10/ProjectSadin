@@ -10,17 +10,17 @@
             $table.trigger('repaginate');
             var num_rows = $table.find('tbody tr').length;
             var num_pages = Math.ceil(num_rows / num_per_page);
-            var $pager = $('<ul class="pager pagination"></ul>');
+            var $pager = $('<br><ulll class="pager pagination"></ulll>');
             for (var page = 0; page < num_pages; page++) {
-                $('<li class="page"></li>').text(page + 1).bind('click', {
+                $('<liii class="page"></liii>').text(page + 1).bind('click', {
                     new_page: page
                 }, function(event) {
                     current_page = event.data['new_page'];
                     $table.trigger('repaginate');
-                    $(this).addClass('active').siblings().removeClass('active');
+                    $(this).addClass('activeee').siblings().removeClass('activeee');
                 }).appendTo($pager);
             }
-            $pager.insertAfter($table).find('.page:first').addClass('active');
+            $pager.insertAfter($table).find('.page:first').addClass('activeee');
         });
-    };
+    }
 }(jQuery));

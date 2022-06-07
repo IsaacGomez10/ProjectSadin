@@ -24,35 +24,21 @@
 
         <form method="post" action="Certificacion">
 
-            <div class="captcha-container">
-            <span>Número de Documento</span><br>
+            <label>Para solicitar un su certificado verifique su número de documento</label><br>
+            <span>Número de Documento</span>
             <input type="text" name="txtNumeroDocumento" placeholder="Ingrese documento">
+            <button>Confirmar</button>
+            <input type="hidden" value="1" name="opcion">
 
-            <!--Captcha-->
-                <div class="header">Verificar Captcha</div>
-                <div class="securityCode">
-                    <p id="code"></p>
-                    <div class="icons">
-                        <span class="changeText">
-                            <i class="fas fa-sync-alt"></i>
-                        </span>
-                    </div>
-                </div>
-                <div class="userInput">
-                    <input type="text" placeholder="Ingrese captcha" ><br>
-                    <button>Confirmar</button>
-                    <input type="hidden" value="1" name="opcion">
-                </div>
-            </div>
-            <div>
+        </form>
 
-
-            </div>
-
-        </form><br>
-        <%@include file="./ErrorDatosJava/ErrorDatosJava.jsp" %>
-
-        <script src="./JavaScript/ReCaptcha.js"></script>
+        <div style="color:red;">
+            <%                if (request.getAttribute("MensajeError") != null) {%>
+            ${MensajeError}
+            <% } else {%>
+            ${MensajeExito}
+            <%}%>
+        </div>
 
     </body>
 </html>

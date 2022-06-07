@@ -15,29 +15,29 @@
         <%@include file="nav.jsp" %>
 
         <h1>Iniciar Sesión</h1>
-        <form method="post" action="Funcionario">
-            <table>
-                <tr>
-                    Usuario<br>
-                <input type="text" name="txtUsuario"><br>
-                Contraseña<br>
-                <input type="password" name="txtPassword"><br>
-                </tr>
-            </table><br>
+        <form method="post" action="Funcionario" >
+
+            <span>Usuario</span><br>
+            <input type="text" name="txtUsuario"><br>
+            <span>Contraseña</span><br>
+            <input type="password" name="txtPassword"><br>
+            <br>
             <button>Iniciar Sesión</button>
             <input type="hidden" value="3" name="opcion">
         </form>
+
         <br>
         <div>¿No tienes una cuenta aún?<a href="registrarFuncionario.jsp"> Crea una cuenta</a></div>
         <a href="olvidarContraseña.jsp">¿Olvidaste tu contraseña?</a></div>
 
-        <div style="color:red;">
-            <%
-                if (request.getAttribute("mensajeError") != null) {%>
-            ${mensajeError}
-            <% } else {%>
-            ${mensajeExito}
-            <%}%>
-        </div>
-    </body>
+    <div style="color:red;">
+        <%
+            if (request.getAttribute("MensajeError") != null) {%>
+        ${MensajeError}
+        <% } else {%>
+        ${MensajeExito}
+        <%}%>
+    </div>
+
+</body>
 </html>
