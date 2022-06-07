@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cdc9b8d5-854d-47c2-b10f-0aff7dad5311">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="numeroDocumento" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT concat(e.Nombres, ' ',e.Apellidos)  , e.NumeroDocumento, le.LugarExpedicion, cg.NombreCargo, cg.DescripcionCargo, tc.Contrato, c.FechaContratacion, c.FechaFinalizacion,td.tipodocumento
+FROM contrato c
+INNER JOIN empleado e on c.IdEmpleado = e.IdEmpleado
+INNER JOIN cargo cg on c.IdCargo = cg.IdCargo
+INNER JOIN lugarexpedicion le on e.IdLugarExpedicion = le.IdLugarExpedicion
+INNER JOIN tipocontrato tc on c.IdTipoContrato = tc.IdTipoContrato
+inner join tipodocumento td on e.IdTipoDocumento = td.	IdTipoDocumento
+WHERE e.idempleado = $P{numeroDocumento}]]>
+	</queryString>
+	<field name="concat(e.Nombres, &apos; &apos;,e.Apellidos)" class="java.lang.String"/>
+	<field name="NumeroDocumento" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="LugarExpedicion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="NombreCargo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="DescripcionCargo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="Contrato" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="FechaContratacion" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="FechaFinalizacion" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tipodocumento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="222" splitType="Stretch">
+			<staticText>
+				<reportElement x="234" y="201" width="90" height="20" uuid="adb96348-73b3-49ef-92d3-dd04e44a17aa"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CERTIFICA QUE:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="117" y="144" width="320" height="31" uuid="4a38bd83-c631-416c-ba9a-e98e4a4cfea5"/>
+				<textElement textAlignment="Center">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LA EMPRESA DE ACUEDUCTO Y ALCANTARILLADO DE BOGOTÁ - E.S.P.]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="336" splitType="Stretch">
+			<textField>
+				<reportElement x="17" y="0" width="536" height="125" uuid="dbb877b2-9a02-4ef6-be9b-8f67d083177d"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Una vez revisados los documentos que reposan en la historia laboral de <b>" + $F{concat(e.Nombres, ' ',e.Apellidos)} + "</b>, identificado con " + $F{tipodocumento} + " número " + $F{NumeroDocumento} + " expedida en " + $F{LugarExpedicion} + ", trabajó en esta empresa desde " + $F{FechaContratacion} + " hasta el " + $F{FechaFinalizacion} + ", desempeñado en el cargo de " + $F{NombreCargo} + ", cumpliendolas funciones " + $F{DescripcionCargo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="17" y="87" width="536" height="38" uuid="25eb4a92-edf1-49e5-ab46-fc7bc314732f"/>
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[La presente constancia se expide en Bogotá fecha, por solicitud del depende si está ativo o no, con destino a: <b>QUIEN INTERESE</b>]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="17" y="125" width="100" height="20" uuid="b63a957f-f5ba-4990-8d8a-0451c3826975"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Cordialmente,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="315" width="211" height="20" uuid="949b5424-eaef-43b9-b0f6-507ae9dfe806"/>
+				<textElement>
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<text><![CDATA[Director Mejoramiento Calida de Vida]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="342" y="302" width="196" height="20" uuid="bced3692-e91c-4417-ac76-e81fac122248"/>
+				<textElement>
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cristiano Ronaldo Dos Santos Aveiro]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="189" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>
