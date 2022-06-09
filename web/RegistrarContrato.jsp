@@ -30,9 +30,17 @@
     <body>
 
         <h1>Registrar Contrato</h1>
+        <div style="color:red;">
+            <%                if (request.getAttribute("MensajeError") != null) {%>
+            ${MensajeError}
+            <% } else {%>
+            ${MensajeExito}
+            <%}%>
+        </div>
 
+        
         <form method="post" action="Contrato" id="formulario">
-            
+
             <input type="hidden" value="<%=IdEmpleado%>" name="txtIdEmpleado"> 
 
 
@@ -104,7 +112,6 @@
             <input type="hidden" value="1" name="opcion">
         </form>
 
-        <%@include file="./ErrorDatosJava/ErrorDatosJava.jsp" %>
         <script src="JavaScript/validar.js"></script>
         <script src="JavaScript/Fechas.js"></script>
 

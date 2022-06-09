@@ -27,14 +27,14 @@
             <input type="hidden" value="4" name="opcion">
         </form>
 
-        <div style="color:red;">
-            <%
-                if (request.getAttribute("mensajeError") != null) {%>
-            ${mensajeError}
+       <div style="color:red;">
+            <%                if (request.getAttribute("MensajeError") != null) {%>
+            ${MensajeError}
             <% } else {%>
-            ${mensajeExito}
+            ${MensajeExito}
             <%}%>
         </div>
+
     </center>
 </body>
 </html>

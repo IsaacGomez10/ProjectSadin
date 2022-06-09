@@ -21,6 +21,14 @@
     <body>
         <%@include file="navFuncionario.jsp" %>
         <h1>Registrar Empleados</h1>
+        
+        <div style="color:red;">
+            <%                if (request.getAttribute("MensajeError") != null) {%>
+            ${MensajeError}
+            <% } else {%>
+            ${MensajeExito}
+            <%}%>
+        </div>
 
         <form method="post" action="Empleado" id="formulario">
             
@@ -98,14 +106,11 @@
                 <option required="" value="<%=lugarVO.getIdLugarExpedicion()%>"><%=lugarVO.getCiudad()%></option>
                 <%}%>
             </select><br>   
-            
-            <input type="hidden" value="1" name="txtEstado" >
-
+           
             <button type="submit">Continuar</button>
             <input type="hidden" value="1" name="opcion">
         </form>
 
-        <%@include file="./ErrorDatosJava/ErrorDatosJava.jsp" %>
         <script src="JavaScript/validaciones.js"></script>
     </body>
 </html>

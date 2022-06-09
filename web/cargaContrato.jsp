@@ -28,12 +28,12 @@
 
         </form>
         <div style="color:red;">
-               <%
-                if (request.getAttribute("mensajeError") != null) {%>
-            ${mensajeError}
+            <%                if (request.getAttribute("MensajeError") != null) {%>
+            ${MensajeError}
             <% } else {%>
-            ${mensajeExito}
+            ${MensajeExito}
             <%}%>
         </div>
+
     </body>
 </html>

@@ -29,5 +29,13 @@
             <input type="hidden" value="1" name="opcion">           
 
         </form>
+        <div style="color:red;">
+            <%                if (request.getAttribute("MensajeError") != null) {%>
+            ${MensajeError}
+            <% } else {%>
+            ${MensajeExito}
+            <%}%>
+        </div>
+
     </body>
 </html>

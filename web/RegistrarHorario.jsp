@@ -15,26 +15,26 @@
     </head>
     <body>
         <%@include file="navFuncionario.jsp" %>
-        
+
     <center>
         <h1>Registrar Horario</h1>
         <form method="post" action="Horario">
-            
+
             <span>Descripcion de horario</span><br>
             <textarea required name="txtHorarioLaboral" rows="5" cols="40" style="resize: none;" placeholder="Ingresar Descripción"></textarea><br>
-           
-                <button>Registrar</button>
-                <input type="hidden" value="1" name="opcion">
+
+            <button>Registrar</button>
+            <input type="hidden" value="1" name="opcion">
         </form><br>
         <a href="Index.jsp">Inicio</a>
         <div style="color:red;">
-            <%
-                if (request.getAttribute("mensajeError") !=null) {%>
-                ${mensajeError}
-                <% }else{%>
-                ${mensajeExito}
-                <%}%>
+            <%                if (request.getAttribute("MensajeError") != null) {%>
+            ${MensajeError}
+            <% } else {%>
+            ${MensajeExito}
+            <%}%>
         </div>
+
     </center>
-    </body>
+</body>
 </html>

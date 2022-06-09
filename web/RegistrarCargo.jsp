@@ -25,26 +25,19 @@
             <span>Dependencias</span><br>
             <input required type="text" name="txtDependencias" placeholder="Ingrese Dependencia"><br>
             
-            <button onclick="return validar();">Registrar</button>
+            <button>Registrar</button>
             <input type="hidden" value="1" name="opcion">
         </form><br>
         <a href="Index.jsp">Inicio</a>
 
-        <div>
-            <%
-                if (request.getAttribute("mensajeError") != null) {%>
-            ${mensajeError}
+        <div style="color:red;">
+            <%                if (request.getAttribute("MensajeError") != null) {%>
+            ${MensajeError}
             <% } else {%>
-            ${mensajeExito}
+            ${MensajeExito}
             <%}%>
         </div>
-        <script>
-            function validar() {
-                console.log("Datos guardados correctamente!");
-                let borrar = document.getElementById("formulario");
-                borrar.reset();
-                return false;
-            }
-        </script>
+
+
     </body>
 </html>
