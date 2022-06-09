@@ -61,45 +61,46 @@ public class FuncionarioControlador extends HttpServlet {
 
         switch (opcion) {
             case 1: //Enviar contraseña provisional
-                if (funDAO.funcionarioExistente(Usuario) == 0) {
-                    empVO = empDAO.consultarEmpleados(Usuario);
-                    if (empVO != null) {
-                        String PasswordEmp = funDAO.GenerarContraseña();
-                        Destino = empVO.getEmail();
-                        Asunto = "Contraseña Provisional";
-                        Mensaje = "Esta es la contraseña provisional para tu inicio de sesion en Sadin: \n\n" + PasswordEmp + "\n\n" + " Recuerde que debes cambiarla apenas entres";
+                if (funDAO.estadoEmpleado(Usuario) == 1) {
+                    if (funDAO.funcionarioExistente(Usuario) == 0) {
+                        empVO = empDAO.consultarEmpleados(Usuario);
+                        if (empVO != null) {
+                            String PasswordEmp = funDAO.GenerarContraseña();
+                            Destino = empVO.getEmail();
+                            Asunto = "Contraseña Provisional";
+                            Mensaje = "Esta es la contraseña provisional para tu inicio de sesion en Sadin: \n\n" + PasswordEmp + "\n\n" + " Recuerde que debes cambiarla apenas entres";
 
-                        funCorreoVO = new FuncionarioVO(Destino, Asunto, Mensaje);
-                        funCorreoDAO = new FuncionarioDAO(funCorreoVO);
+                            funCorreoVO = new FuncionarioVO(Destino, Asunto, Mensaje);
+                            funCorreoDAO = new FuncionarioDAO(funCorreoVO);
 
-                        if (funCorreoDAO.EnviarCorreo()) {
+                            if (funCorreoDAO.EnviarCorreo()) {
 
-                            Usuario = empVO.getNumeroDocumento();
-                            Password = PasswordEmp;
-                            IdEmpleado = empVO.getIdEmpleado();
+                                Usuario = empVO.getNumeroDocumento();
+                                Password = PasswordEmp;
+                                IdEmpleado = empVO.getIdEmpleado();
 
-                            funVO = new FuncionarioVO(IdFuncionario, Usuario, Password, IdEmpleado);
-                            funDAO = new FuncionarioDAO(funVO);
-                            funDAO.agregarRegistro();
+                                funVO = new FuncionarioVO(IdFuncionario, Usuario, Password, IdEmpleado);
+                                funDAO = new FuncionarioDAO(funVO);
+                                funDAO.agregarRegistro();
 
-                            if (funDAO.estadoEmpleado(Usuario) == 1) {
                                 request.setAttribute("MensajeExito", "Se ha enviado una contraseña provisional a su correo");
                                 request.getRequestDispatcher("index.jsp").forward(request, response);
+
                             } else {
-                                request.setAttribute("MensajeError", "Este empleado no se encuentra activo");
+                                request.setAttribute("MensajeError", "Se ha presentado un error. Intentelo mas tarde!");
                                 request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
                             }
+
                         } else {
-                            request.setAttribute("MensajeError", "Se ha presentado un error. Intentelo mas tarde!");
+                            request.setAttribute("MensajeError", "El empleado No existe");
                             request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
                         }
-
                     } else {
-                        request.setAttribute("MensajeError", "El empleado No existe");
+                        request.setAttribute("MensajeError", "Este usuario ya existe.");
                         request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
                     }
                 } else {
-                    request.setAttribute("MensajeError", "Este usuario ya existe.");
+                    request.setAttribute("MensajeError", "Este empleado no se encuentra activo");
                     request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
                 }
                 break;
