@@ -100,7 +100,7 @@ public class EmpleadoControlador extends HttpServlet {
                     request.setAttribute("EmpleadoConsultado", empVO);
                     request.getRequestDispatcher("ActualizarEmpleado.jsp").forward(request, response);
                 } else {
-                    request.setAttribute("mensajeError", "El empleado No existe, verifique el número de documento");
+                    request.setAttribute("MensajeError", "El empleado No existe, verifique el número de documento");
                     request.getRequestDispatcher("ConsultarEmpleado.jsp").forward(request, response);
                 }
                 break;

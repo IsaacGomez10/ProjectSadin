@@ -83,23 +83,23 @@ public class FuncionarioControlador extends HttpServlet {
                             funDAO.agregarRegistro();
 
                             if (funDAO.estadoEmpleado(Usuario) == 1) {
-                                request.setAttribute("mensajeExito", "Se ha enviado una contraseña provisional a su correo");
+                                request.setAttribute("MensajeExito", "Se ha enviado una contraseña provisional a su correo");
                                 request.getRequestDispatcher("index.jsp").forward(request, response);
                             } else {
-                                request.setAttribute("mensajeError", "Este empleado no se encuentra activo");
+                                request.setAttribute("MensajeError", "Este empleado no se encuentra activo");
                                 request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
                             }
                         } else {
-                            request.setAttribute("mensajeError", "Se ha presentado un error. Intentelo mas tarde!");
+                            request.setAttribute("MensajeError", "Se ha presentado un error. Intentelo mas tarde!");
                             request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
                         }
 
                     } else {
-                        request.setAttribute("mensajeError", "El empleado No existe");
+                        request.setAttribute("MensajeError", "El empleado No existe");
                         request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
                     }
                 } else {
-                    request.setAttribute("mensajeError", "Este usuario ya existe.");
+                    request.setAttribute("MensajeError", "Este usuario ya existe.");
                     request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
                 }
                 break;
@@ -113,15 +113,15 @@ public class FuncionarioControlador extends HttpServlet {
                         funDAO = new FuncionarioDAO(funVO);
                         funDAO.actualizarRegistro();
 
-                        request.setAttribute("mensajeExito", "La contraseña se ha actualizado correctamente!");
+                        request.setAttribute("MensajeExito", "La contraseña se ha actualizado correctamente!");
                         request.getRequestDispatcher("menu.jsp").forward(request, response);
 
                     } else {
-                        request.setAttribute("mensajeError", "Las contraseñas no coinciden!");
+                        request.setAttribute("MensajeError", "Las contraseñas no coinciden!");
                         request.getRequestDispatcher("cambiarContraseña.jsp").forward(request, response);
                     }
                 } else {
-                    request.setAttribute("mensajeError", "La contraseña actual es incorrecta!");
+                    request.setAttribute("MensajeError", "La contraseña actual es incorrecta!");
                     request.getRequestDispatcher("cambiarContraseña.jsp").forward(request, response);
                 }
 
@@ -147,7 +147,7 @@ public class FuncionarioControlador extends HttpServlet {
                     request.getRequestDispatcher("menu.jsp").forward(request, response);
 
                 } else {
-                    request.setAttribute("mensajeError", "Corregir Datos");
+                    request.setAttribute("MensajeError", "Corregir Datos");
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 }
                 break;
@@ -173,20 +173,20 @@ public class FuncionarioControlador extends HttpServlet {
                             funDAO = new FuncionarioDAO(funVO);
                             funDAO.actualizarRegistro();
 
-                            request.setAttribute("mensajeExito", "Se ha enviado una contraseña provisional a su correo");
+                            request.setAttribute("MensajeExito", "Se ha enviado una contraseña provisional a su correo");
                             request.getRequestDispatcher("index.jsp").forward(request, response);
 
                         } else {
-                            request.setAttribute("mensajeError", "Se ha presentado un error. Intentelo mas tarde!");
+                            request.setAttribute("MensajeError", "Se ha presentado un error. Intentelo mas tarde!");
                             request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
                         }
 
                     } else {
-                        request.setAttribute("mensajeError", "El empleado No existe");
+                        request.setAttribute("MensajeError", "El empleado No existe");
                         request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
                     }
                 } else {
-                    request.setAttribute("mensajeError", "Este empleado no se encuentra activo, verifique por favor.");
+                    request.setAttribute("MensajeError", "Este empleado no se encuentra activo, verifique por favor.");
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 }
                 break;

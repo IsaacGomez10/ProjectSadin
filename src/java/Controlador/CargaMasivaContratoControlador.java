@@ -68,10 +68,10 @@ public class CargaMasivaContratoControlador extends HttpServlet {
                 String rutaAbsoluta = adminFiles.guardarArchivo(archivocsv, adminFiles.validarRuta());
                 try {
                     if (conDAO.cargarContrato(rutaAbsoluta) == true) {
-                        request.setAttribute("mensajeExito", "La carga se hizo correactamente");
+                        request.setAttribute("MensajeExito", "La carga se hizo correactamente");
                         request.getRequestDispatcher("cargaContrato.jsp").forward(request, response);
                     } else {
-                        request.setAttribute("mensajeError", "Error");
+                        request.setAttribute("MensajeError", "Error");
                         request.getRequestDispatcher("cargaContrato.jsp").forward(request, response);
                     }
 

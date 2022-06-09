@@ -49,25 +49,25 @@ public class CargoControlador extends HttpServlet {
         switch(opcion){
             case 1: //Agregar registro
                 if(carDAO.agregarRegistro()){
-                    request.setAttribute("mensajeExito", "El cargo se registró correctamente!");
+                    request.setAttribute("MensajeExito", "El cargo se registró correctamente!");
                 }else{
-                    request.setAttribute("mensajeError", "El cargo No se registró correctamente");
+                    request.setAttribute("MensajeError", "El cargo No se registró correctamente");
                 }
                 request.getRequestDispatcher("registrarCargo.jsp").forward(request, response);
                 break;
             case 2: //Actualizar registro
                 if(carDAO.actualizarRegistro()){
-                    request.setAttribute("mensajeExito", "El cargo se actualizó correctamente!");
+                    request.setAttribute("MensajeExito", "El cargo se actualizó correctamente!");
                 }else{
-                    request.setAttribute("mensajeError", "El cargo No se actualizó correctamente");
+                    request.setAttribute("MensajeError", "El cargo No se actualizó correctamente");
                 }
                 request.getRequestDispatcher("actualizarCargo.jsp").forward(request, response);
                 break;
             case 3: //Eliminar registro
                 if(carDAO.eliminarRegistro()){
-                    request.setAttribute("mensajeExito", "El cargo se eliminó correctamente!");
+                    request.setAttribute("MensajeExito", "El cargo se eliminó correctamente!");
                 }else{
-                    request.setAttribute("mensajeError", "El cargo No se eliminó correctamente");
+                    request.setAttribute("MensajeError", "El cargo No se eliminó correctamente");
                 }
                 request.getRequestDispatcher("eliminarCargo.jsp").forward(request, response);
                 break;

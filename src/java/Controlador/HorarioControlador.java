@@ -53,25 +53,25 @@ public class HorarioControlador extends HttpServlet {
         switch (opcion) {
             case 1: //Agregar registro
                 if (horarioDAO.agregarRegistro()) {
-                    request.setAttribute("mensajeExito", "El horario se registro correctamente");
+                    request.setAttribute("MensajeExito", "El horario se registro correctamente");
                 } else {
-                    request.setAttribute("mensajeError", "El horario NO se registro correctamente");
+                    request.setAttribute("MensajeError", "El horario NO se registro correctamente");
                 }
                 request.getRequestDispatcher("registrarHorario.jsp").forward(request, response);
                 break;
             case 2: //Actualizar registro
                 if (horarioDAO.actualizarRegistro()) {
-                    request.setAttribute("mensajeExito", "El horario se actualizó correctamente!");
+                    request.setAttribute("MensajeExito", "El horario se actualizó correctamente!");
                 } else {
-                    request.setAttribute("mensajeError", "El horario NO se actualiazó correctamente");
+                    request.setAttribute("MensajeError", "El horario NO se actualiazó correctamente");
                 }
                 request.getRequestDispatcher("actualizarHorario.jsp").forward(request, response);
                 break;
             case 3: //Eliminar registro
                 if (horarioDAO.eliminarRegistro()) {
-                    request.setAttribute("mensajeExito", "El horario se eliminó correctamente!");
+                    request.setAttribute("MensajeExito", "El horario se eliminó correctamente!");
                 } else {
-                    request.setAttribute("mensajeError", "El horario NO se eliminó correctamente");
+                    request.setAttribute("MensajeError", "El horario NO se eliminó correctamente");
                 }
                 request.getRequestDispatcher("eliminarHorario.jsp").forward(request, response);
                 break;
