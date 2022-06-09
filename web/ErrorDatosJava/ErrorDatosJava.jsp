@@ -1,9 +1,19 @@
+<head>
+
+</head>
 <div>
-    <%
-    if (request.getAttribute("MensajeError") != null) {%>
-    
     <script>
+
+        <%
+            if (request.getAttribute("MensajeError") != null) {%>
+
         alert('${MensajeError}');
+
+        <% } else {%>
+        alert('Bienvenido!!');
+        <% }%>
+
     </script>
-    <% }%>
+
+
 </div>

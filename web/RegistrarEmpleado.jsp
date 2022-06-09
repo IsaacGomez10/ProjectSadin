@@ -16,7 +16,7 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registrar Empleado</title>
-        <link rel="stylesheet" href="CSS/estilosForms.css">
+        <link rel="stylesheet" href="Css/estilosForms.css">
     </head>
     <body>
         <%@include file="navFuncionario.jsp" %>

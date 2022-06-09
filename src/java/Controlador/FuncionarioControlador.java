@@ -88,20 +88,20 @@ public class FuncionarioControlador extends HttpServlet {
 
                             } else {
                                 request.setAttribute("MensajeError", "Se ha presentado un error. Intentelo mas tarde!");
-                                request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
+                                request.getRequestDispatcher("index.jsp").forward(request, response);
                             }
 
                         } else {
                             request.setAttribute("MensajeError", "El empleado No existe");
-                            request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
+                            request.getRequestDispatcher("index.jsp").forward(request, response);
                         }
                     } else {
                         request.setAttribute("MensajeError", "Este usuario ya existe.");
-                        request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
+                        request.getRequestDispatcher("index.jsp").forward(request, response);
                     }
                 } else {
                     request.setAttribute("MensajeError", "Este empleado no se encuentra activo");
-                    request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
+                    request.getRequestDispatcher("index.jsp").forward(request, response);
                 }
                 break;
             case 2: //Actualizar contraseña
@@ -129,26 +129,31 @@ public class FuncionarioControlador extends HttpServlet {
                 break;
 
             case 3: //Iniciar sesión
+                if (funDAO.estadoEmpleado(Usuario) == 1) {
 
-                funVO = funDAO.iniciarSesion(Usuario, (Password));
-                if (funVO != null) {
+                    funVO = funDAO.iniciarSesion(Usuario, (Password));
+                    if (funVO != null) {
 
-                    empVO = empDAO.consultarEmpleados(Usuario);
+                        empVO = empDAO.consultarEmpleados(Usuario);
 
-                    HttpSession miSesion = request.getSession(true);
+                        HttpSession miSesion = request.getSession(true);
 
-                    String Id = funVO.getIdFuncionario();
-                    String Empleado = funVO.getIdEmpleado();
+                        String Id = funVO.getIdFuncionario();
+                        String Empleado = funVO.getIdEmpleado();
 
-                    funVO = new FuncionarioVO(Id, Usuario, Password, Empleado);
-                    miSesion.setAttribute("datosEmpleado", empVO);
-                    miSesion.setAttribute("datosEmpleadoRegistrado", empVO);
-                    miSesion.setAttribute("datosFuncionario", funVO);
+                        funVO = new FuncionarioVO(Id, Usuario, Password, Empleado);
+                        miSesion.setAttribute("datosEmpleado", empVO);
+                        miSesion.setAttribute("datosEmpleadoRegistrado", empVO);
+                        miSesion.setAttribute("datosFuncionario", funVO);
 
-                    request.getRequestDispatcher("menu.jsp").forward(request, response);
+                        request.getRequestDispatcher("menu.jsp").forward(request, response);
 
+                    } else {
+                        request.setAttribute("MensajeError", "Este funcionario no existe");
+                        request.getRequestDispatcher("index.jsp").forward(request, response);
+                    }
                 } else {
-                    request.setAttribute("MensajeError", "Corregir Datos");
+                    request.setAttribute("MensajeError", "Este empleado no se encuentra activo");
                     request.getRequestDispatcher("index.jsp").forward(request, response);
                 }
                 break;
@@ -179,12 +184,12 @@ public class FuncionarioControlador extends HttpServlet {
 
                         } else {
                             request.setAttribute("MensajeError", "Se ha presentado un error. Intentelo mas tarde!");
-                            request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
+                            request.getRequestDispatcher("index.jsp").forward(request, response);
                         }
 
                     } else {
                         request.setAttribute("MensajeError", "El empleado No existe");
-                        request.getRequestDispatcher("registrarFuncionario.jsp").forward(request, response);
+                        request.getRequestDispatcher("index.jsp").forward(request, response);
                     }
                 } else {
                     request.setAttribute("MensajeError", "Este empleado no se encuentra activo, verifique por favor.");
