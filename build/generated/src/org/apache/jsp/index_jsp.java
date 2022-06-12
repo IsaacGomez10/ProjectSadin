@@ -81,10 +81,8 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <label for=\"password\" class=\"form__label\">Contraseña</label>\r\n");
       out.write("                            </div>\r\n");
       out.write("                        </div>\r\n");
-      out.write("\r\n");
       out.write("                        <button class=\"btn solid\" type=\"submit\"> Ingresar <i class=\"fas fa-angle-double-right\"></i></button>\r\n");
       out.write("                        <input type=\"hidden\" value=\"3\" name=\"opcion\">\r\n");
-      out.write("\r\n");
       out.write("                        <a class=\"only__link\" href=\"olvidarContraseña.jsp\">¿Ha olvidado tu contraseña?</a>\r\n");
       out.write("                    </form>\r\n");
       out.write("\r\n");
@@ -97,16 +95,12 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                                <input type=\"text\" name=\"txtUsuario\" id=\"doc\" class=\"form__input\" placeholder=\" \" autocomplete=\"off\">\r\n");
       out.write("                                <label for=\"doc\" class=\"form__label\">Número de Documento</label>\r\n");
       out.write("                            </div>\r\n");
-      out.write("                            <div class=\"contenedor-terminos\"><input type=\"checkbox\" data-required=\"1\" name=\"terminos\" id=\"terminos\" value=\"\">\r\n");
-      out.write("                                <label for=\"terminos\">\r\n");
-      out.write("                                    <span class=\"span-terminos\"> Acepto <a target=\"_blank\" href=\"#\" class=\"only__link\">Términos y condiciones</a></span>\r\n");
-      out.write("                                </label>\r\n");
-      out.write("                            </div>\r\n");
       out.write("\r\n");
-      out.write("                            <button class=\"btn solid\" type=\"submit\"> Registrarse <i class=\"fas fa-angle-double-right\"></i></button>\r\n");
-      out.write("                            <input type=\"hidden\" value=\"1\" name=\"opcion\">\r\n");
       out.write("                        </div>\r\n");
+      out.write("                        <button class=\"btn solid\" type=\"submit\"> Registrarse <i class=\"fas fa-angle-double-right\"></i></button>\r\n");
+      out.write("                        <input type=\"hidden\" value=\"1\" name=\"opcion\">\r\n");
       out.write("                    </form>\r\n");
+      out.write("\r\n");
       out.write("                </div>\r\n");
       out.write("            </div>\r\n");
       out.write("\r\n");
@@ -142,34 +136,31 @@ public final class index_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("\r\n");
       out.write("        ");
       out.write("<head>\r\n");
-      out.write("    \r\n");
+      out.write("\r\n");
       out.write("</head>\r\n");
       out.write("<div>\r\n");
       out.write("    <script>\r\n");
-      out.write("    ");
-
-    if (request.getAttribute("MensajeError") != null) {
       out.write("\r\n");
-      out.write("    \r\n");
+      out.write("        ");
+
+            if (request.getAttribute("MensajeError") != null) {
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("        alert('");
       out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${MensajeError}", java.lang.String.class, (PageContext)_jspx_page_context, null));
       out.write("');\r\n");
       out.write("\r\n");
-      out.write("    ");
+      out.write("        ");
  } else {
       out.write("\r\n");
-      out.write("\r\n");
-      out.write("        alert('");
-      out.write((java.lang.String) org.apache.jasper.runtime.PageContextImpl.evaluateExpression("${MensajeError}", java.lang.String.class, (PageContext)_jspx_page_context, null));
-      out.write("');\r\n");
-      out.write("\r\n");
-      out.write("    ");
+      out.write("        alert('Bienvenido!!');\r\n");
+      out.write("        ");
  }
       out.write("\r\n");
+      out.write("\r\n");
       out.write("    </script>\r\n");
-      out.write("    \r\n");
-      out.write("    <script src=\"//cdn.jsdelivr.net/npm/sweetalert2@11\"></script>\r\n");
-      out.write("    \r\n");
+      out.write("\r\n");
+      out.write("\r\n");
       out.write("</div>\r\n");
       out.write("\r\n");
       out.write("        <script src=\"Css/js/appLogin.js\"></script>\r\n");

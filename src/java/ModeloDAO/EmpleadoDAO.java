@@ -318,5 +318,5 @@ public class EmpleadoDAO extends Conexion implements Crud {
         }
         return listaEmpleados;
     }
-
+    
 }

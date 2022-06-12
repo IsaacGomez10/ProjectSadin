@@ -32,13 +32,24 @@
         <h1>Actualizar Empleado</h1>
 
         <form method="post" action="Empleado">
+            <%--
+            llevar esto para datatable
             <section>
                 <label>Ingrese número de documento del empleado que busca, si ingresa un número desconocido no recibira datos.</label><br>
                 <label>Buscar empleado</label>
                 <input id="buscarDocumento" type="text" onKeypress="if (event.keyCode < 45 || event.keyCode > 57)
                             event.returnValue = false;" maxlength="14" onkeyup="doSearch()" placeholder="Ingrese documento"/>
-            </section>
+            </section>--%>
             <br>
+            
+            <div>
+                <label>Ingrese número de documento del empleado que actualizara</label><br>
+                <label>Buscar empleado</label>
+                <input name="txtNumeroDocumento" type="text" placeholder="Ingrese documento" onKeypress="if (event.keyCode < 45 || event.keyCode > 57)
+                            event.returnValue = false;" >
+                <td><button>Editar</button></td>
+                <input type="hidden" value="3" name="opcion">
+            </div>
             <table border="1" id="datos" number-per-page="10">
                 <thead>
                     <tr>
@@ -53,8 +64,7 @@
                     </tr>
                 </thead>
 
-                <%
-                    EmpleadoDAO empDAO = new EmpleadoDAO();
+                <%                    EmpleadoDAO empDAO = new EmpleadoDAO();
                     ArrayList<EmpleadoVO> listaEmpleados = empDAO.obtenerEmpleados();
                     for (EmpleadoVO empVO : listaEmpleados) {
 
@@ -69,24 +79,19 @@
                     <td><%=empVO.getEmail()%></td>
                     <td><%=empVO.getIdLugarExpedicion()%></td>
                     <td><%=empVO.getEstado()%></td>
-
-                <input name="txtNumeroDocumento" value="<%=empVO.getNumeroDocumento()%>" type="hidden">
-                <td><button>Editar</button></td>
-                <input type="hidden" value="3" name="opcion">
                 </tr>
-
                 <% }%>
             </table>
         </form>
 
         <div style="color:red;">
-            <%
-                if (request.getAttribute("MensajeError") != null) {%>
+            <%                if (request.getAttribute("MensajeError") != null) {%>
             ${MensajeError}
             <% } else {%>
             ${MensajeExito}
             <%}%>
         </div>
+
         <%@include file="./ErrorDatosJava/ErrorDatosJava.jsp" %>
 
     </body>

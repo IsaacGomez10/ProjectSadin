@@ -85,26 +85,6 @@ inputs.forEach((input) => {
 });
 
 
-//formulario.addEventListener('submit', (e) => {
-// e.preventDefault();
-
-//const terminos = document.getElementById('terminos');
-//if (campos.nombre && campos.apellido && campos.tipoDocumento && campos.numeroDocumento && campos.telefono && campos.email && campos.lugarExpedicion) {
-// formulario.reset();
-
-//document.getElementById('formulario__mensaje-exito').classList.add('formulario__mensaje-exito-activo');
-//setTimeout(() => {
-//document.getElementById('formulario__mensaje-exito').classList.remove('formulario__mensaje-exito-activo');
-// }, 5000);
-
-//document.querySelectorAll('.formulario__grupo-correcto').forEach((icono) => {
-//icono.classList.remove('formulario__grupo-correcto');
-// });
-// } else {
-//     document.getElementById('formulario__mensaje').classList.add('formulario__mensaje-activo');
-//    }
-//});
-
 
 
 

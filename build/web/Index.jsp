@@ -15,13 +15,13 @@
         <link rel="icon" href="Css/recursos/Logo sadin.svg">
         <title>Iniciar Sesión</title>
     </head>
-    <body>
+    <body ondragstart="return false" onselectstart="return false" oncontextmenu="return false">
         <%--@include file="nav.jsp"--%>
         <div class="container">
             <div class="forms-container">
                 <div class="signin-signup">
                     <form method="post" action="Funcionario" class="sign-in-form">
-                        <a href="#">
+                        <a href="landingPage.jsp">
                             <img src="Css/recursos/LogoHeader.svg" class="logo" alt="SADIN">
                         </a>
                         <h2 class="title">Iniciar Sesión</h2>
@@ -36,15 +36,13 @@
                                 <label for="password" class="form__label">Contraseña</label>
                             </div>
                         </div>
-
                         <button class="btn solid" type="submit"> Ingresar <i class="fas fa-angle-double-right"></i></button>
                         <input type="hidden" value="3" name="opcion">
-
                         <a class="only__link" href="olvidarContraseña.jsp">¿Ha olvidado tu contraseña?</a>
                     </form>
 
                     <form method="post" action="Funcionario" class="sign-up-form">
-                        <a href="#">
+                        <a href="landingPage.jsp">
                             <img src="Css/recursos/LogoHeader.svg" class="logo" alt="SADIN"></a>
                         <h2 class="title">Registrate como funcionario</h2>
                         <div class="form">
@@ -52,16 +50,12 @@
                                 <input type="text" name="txtUsuario" id="doc" class="form__input" placeholder=" " autocomplete="off">
                                 <label for="doc" class="form__label">Número de Documento</label>
                             </div>
-                            <div class="contenedor-terminos"><input type="checkbox" data-required="1" name="terminos" id="terminos" value="">
-                                <label for="terminos">
-                                    <span class="span-terminos"> Acepto <a target="_blank" href="#" class="only__link">Términos y condiciones</a></span>
-                                </label>
-                            </div>
 
-                            <button class="btn solid" type="submit"> Registrarse <i class="fas fa-angle-double-right"></i></button>
-                            <input type="hidden" value="1" name="opcion">
                         </div>
+                        <button class="btn solid" type="submit"> Registrarse <i class="fas fa-angle-double-right"></i></button>
+                        <input type="hidden" value="1" name="opcion">
                     </form>
+
                 </div>
             </div>
 

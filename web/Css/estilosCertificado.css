@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;700;900&display=swap');
+
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #fff;
+}
+
+.containers {
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 1000px;
+    flex-wrap: wrap;
+    padding: 40px 0;
+
+}
+
+.containers .cards{
+
+    position: relative;
+    width: 300px;
+    height: 420px;
+    border: 2px solid rgba(0, 0, 0, 0.2);
+    /*    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05),
+                    inset -5px -5px -5px rgba(255, 255, 255, 0.5),
+                     5px 5px 5px rgba(0, 0, 0, 0.05),
+                    -5px -5px -5px rgba(255, 255, 255, 0.5);*/
+    border-radius: 15px;
+    margin: 30px;
+
+}
+
+.containers .cards .box {
+
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    background: #ebf5fc;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    border-radius: 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+
+}
+
+.containers .cards:hover .box{
+    transform: translateY(-50px);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(45deg,#e4bd5c,#cd9f29);
+    cursor: default;
+
+}
+
+.containers .cards .box .content {
+    padding: 20px;
+    text-align: center;
+}
+
+.containers .cards .box .content h1 {
+    position: absolute;
+    top: -10px;
+    right: 30px;
+    font-size: 8em;
+    color: rgba(0, 0, 0, 0.02);
+}
+
+.containers .cards:hover .box .content h1 {
+    color: rgba(0, 0, 0, 0.05);
+}
+
+.containers .cards .box .content h3 {
+    font-size: 1.8em;
+    color: #777;
+    z-index: 1;
+    transition: 0.5s;
+}
+
+.containers .cards .box .content p {
+    font-size: 1em;
+    font-weight: 300;
+    color: #777;
+    z-index: 1;
+    transition: 0.5s;
+}
+
+.containers .cards:hover .box .content h3,
+.containers .cards:hover .box .content p
+{
+    color: #fff;
+}
+
+.containers .cards .box .content button {
+    position: relative;
+    display: inline-block;
+    padding: 8px 20px;
+    background:  linear-gradient(45deg,#309f08,#44cd29);
+    margin-top: 15px;
+    border-radius: 20px;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 400;
+    box-shadow: 0 rgba(0, 0, 0, 0.02);
+    transition: 0.5s ease;
+    cursor: pointer;
+}
+
+.containers .cards:hover .box .content button {
+    background: linear-gradient(45deg,#e4bd5c,#cd8b29);
+}
+
+.containers .cards .box .content button:hover {
+    border: 1px solid #fff;
+    background: linear-gradient(45deg,#cca646,#b87715);
+}

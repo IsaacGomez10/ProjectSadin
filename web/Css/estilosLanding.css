@@ -1,0 +1,873 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400&display=swap');
+
+/*Fonts*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;700;900&display=swap');
+
+/*
+:root {
+    --purple: #f0ab45;
+    --pink: #e8de0d;
+    --gradient: linear-gradient(90deg, #f0ab45, #e8de0d);
+    --shadow-black-100: 0 5px 15px rgba(0, 0, 0, 0.1);
+    --shadow-black-300: 0 5px 15px rgba(0, 0, 0, 0.3);
+}*/
+
+* {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    outline: none;
+    border: none;
+}
+
+*::selection {
+    background: #e8de0d;
+    color: #fff;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
+
+
+section {
+    padding: 0 9%;
+    padding-top: 4rem;
+    padding-bottom: 4rem;
+}
+
+.btn {
+    display: inline-block;
+    margin-top: 1rem;
+    padding: .8rem 3rem;
+    border-radius: 5rem;
+    background: linear-gradient(90deg, #f0ab45, #e8de0d);
+    font-size: 1.7rem;
+    color: #fff;
+    cursor: pointer;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    transition: all .3s linear;
+}
+
+.btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.heading {
+    text-align: center;
+    background: linear-gradient(90deg, #f0ab45, #e8de0d);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+    padding: 1rem;
+}
+
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    padding: 1.5rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+header .LogoTitulo {
+    width: 15vw;
+}
+
+header .logo span {
+    color: #e8de0d;
+    font-size: 18px;
+}
+
+header .logo small {
+    color: #f0ab45;
+    font-size: 18px;
+}
+
+nav.navbar {
+    background-color: transparent;
+    padding: 10px 0;
+    transition: all 0.5s ease;
+}
+
+header .navbar a {
+    font-size: 1.2rem;
+    margin-left: 2rem;
+    color: #000;
+    text-transform: capitalize;
+    position: relative;
+}
+
+header .navbar a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: rgb(225, 118, 24);
+    transition: all 0.5s ease;
+    transform: scale(0);
+}
+
+header .navbar a.active::before,
+header .navbar a:hover::before {
+    transform: scale(1);
+
+}
+
+nav.navbar .navbar-shrink {
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--main-color);
+    padding: 10px 0;
+}
+
+header input {
+    display: none;
+}
+
+header label {
+    font-size: 3rem;
+    color: #f0ab45;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+}
+
+.home {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #f1f1f1;
+    background-size:  300px 100px;
+    background-position: top ;  
+}
+
+
+
+.home .image img {
+    width: 35vw;
+    animation: float 3s linear infinite;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 32px;
+    margin-top: 80px;
+    margin-left: 40px;
+    
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0rem);
+    }
+
+    50% {
+        transform: translateY(-3.5rem);
+    }
+}
+
+.home .content h3 {
+    font-size: 3.5rem;
+    color: #333;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+
+    text-transform: uppercase;
+}
+
+.home .content h3 span {
+    color: #e8de0d;
+    font-weight: 700;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+}
+
+.home .content p {
+    font-size: 1.5rem;
+    color: #666;
+    padding: 1rem 0;
+}
+
+.features {
+    background-color: #f1f1f1;
+}
+
+.features .box-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.features .box-container .box {
+    flex: 1 1 30rem;
+    background: #fff;
+    border-radius: .5rem;
+    border: .1rem solid rgba(0, 0, 0, .2);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    margin: 1.5rem;
+    padding: 3rem 2rem;
+    text-align: center;
+    transition: .2s linear;
+}
+
+.features .box-container .box img {
+    height: 15rem;
+}
+
+.features .box-container .box h3 {
+    font-size: 2rem;
+    color: #333;
+    padding-top: 1rem;
+}
+
+.features .box-container .box p {
+    font-size: 1.3rem;
+    color: #666;
+    padding: 1rem 0;
+}
+
+.about {
+    background: url(../images/about-bg.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+    padding-bottom: 3rem;
+}
+
+.about .column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.aboutSadin .column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.aboutSadin .column .imageAbout {
+    flex: 1 1 40rem;
+}
+  .aboutSadin .column .imageAbout img {
+      width: 70%;
+    
+  }
+.about .column .image {
+    flex: 1 1 40rem;
+}
+
+.about .column .image img {
+    width: 50%;
+  
+}
+
+.about .column .content {
+    flex: 1 1 20rem;
+}
+.about .column .content p{
+    font-size: 12px;
+}
+.about .column .content h3 {
+    font-size: 3rem;
+    color: #666;
+}
+.about .column .functions{
+  padding-right:230px;
+  }
+
+.aboutSadin .column .functions ul li {
+    font-size: 1.2rem;
+    color: #666;
+    padding: 1rem 0;
+    text-decoration: none;
+ list-style:none;
+}
+
+.aboutSadinCertificados{
+  background: #f1f1f1;
+}
+
+.aboutSadinCertificados .column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+ 
+}
+.aboutSadinCertificados .column .imageAbout {
+    flex: 1 1 40rem;
+}
+.aboutSadinCertificados .column .imageAbout img {
+    width: 70%;
+}	
+  
+.aboutSadinCertificados .column .content .buttons a:last-child {
+    margin-left: 2rem;
+}
+
+
+.aboutSadinCertificados .column .functions ul li {
+    font-size: 1.2rem;
+    color: #666;
+    padding: 1rem 0;
+    text-decoration: none;
+ list-style:none;
+}
+	
+
+
+
+
+.about .column .content i{
+    font-size: 2rem;
+    color: #666;
+    padding: 1rem 0;
+    text-decoration: none;
+  font-style: normal;
+
+}
+
+.aboutSadin .column .content .buttons a:last-child {
+    margin-left: 2rem;
+}
+
+
+
+
+.content .contentText {
+  font-family: 'Poppins',sans-serif;
+}
+
+.contentText .images{
+  width: 20px;
+}
+
+
+.newsletter {
+    text-align: center;
+    padding: 5rem 1rem;
+    background: url(../images/subscribe-bg.png) no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.newsletter h3 {
+    color: #fff;
+    font-size: 3rem;
+    text-transform: uppercase;
+}
+
+.newsletter p {
+    color: #fff;
+    font-size: 1.6rem;
+    margin: 2rem auto;
+    width: 70rem;
+}
+
+.newsletter form {
+    display: flex;
+    max-width: 70rem;
+    border: .2rem solid #fff;
+    padding: .5rem;
+    border-radius: 5rem;
+    margin: 2rem auto;
+    height: 5.5rem;
+}
+
+.newsletter form input[type="email"] {
+    padding: 0 2rem;
+    font-size: 1.7rem;
+    background: none;
+    width: 100%;
+    color: #fff;
+    text-transform: none;
+    background: none;
+}
+
+.newsletter form input[type="email"]::placeholder {
+    color: #eee;
+    text-transform: capitalize;
+}
+
+.newsletter form input[type="submit"] {
+    background: #fff;
+    width: 20rem;
+    font-size: 1.7rem;
+    border-radius: 5rem;
+    cursor: pointer;
+}
+
+.newsletter form input[type="submit"]:hover {
+    color: #e8de0d;
+}
+
+.review .box-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.review .box-container .box {
+    background: #fff;
+    margin: 1rem;
+    padding: 1rem;
+    text-align: center;
+    position: relative;
+    border: .1rem solid rgba(0, 0, 0, .2);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    flex: 1 1 30rem;
+    border-radius: .5rem;
+}
+
+.review .box-container .box .fa-quote-right {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    font-size: 8rem;
+    color: #e8de0d;
+    opacity: .3;
+}
+
+.review .box-container .box .user img {
+    border-radius: 50%;
+    object-fit: cover;
+    height: 7rem;
+    width: 7rem;
+    margin-top: 2rem;
+}
+
+.review .box-container .box .user h3 {
+    color: #e8de0d;
+    font-size: 2rem;
+}
+
+.review .box-container .box .user .stars i {
+    color: #f0ab45;
+    font-size: 1.5rem;
+    padding: 1rem 0;
+}
+
+.review .box-container .box .comment {
+    color: #666;
+    font-size: 1.4rem;
+    padding: 1rem;
+}
+
+.pricing .box-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.pricing .box-container .box {
+    flex: 1 1 27rem;
+    margin: 1rem;
+    padding: 1rem;
+    background: #fff;
+    border: .1rem solid rgba(0, 0, 0, .2);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+    text-align: center;
+    padding-bottom: 3rem;
+}
+
+.pricing .box-container .box:nth-child(2),
+.pricing .box-container .box:hover {
+    border: .2rem solid #e8de0d;
+}
+
+.pricing .box-container .box .title {
+    color: #f0ab45;
+    font-size: 2.5rem;
+    padding-top: 1rem;
+}
+
+.pricing .box-container .box .price {
+    font-size: 4rem;
+    color: #e8de0d;
+    padding: 1rem 0;
+}
+
+.pricing .box-container .box .price span {
+    font-size: 2rem;
+}
+
+.pricing .box-container .box ul {
+    padding: 1rem 0;
+    list-style: none;
+}
+
+.pricing .box-container .box ul li {
+    font-size: 1.7rem;
+    color: #666;
+    padding: .5rem 0;
+}
+
+.pricing .box-container .box ul li .fa-check {
+    color: lightgreen;
+}
+
+.pricing .box-container .box ul li .fa-times {
+    color: tomato;
+}
+
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 4rem;
+}
+
+.contact .image {
+    flex: 1 1 20rem;
+}
+
+.contact .image img {
+    width: 70%;
+}
+
+.form {
+    flex: 1 1 50rem;
+    padding: 5rem 10rem;
+    border: .1rem solid rgba(0, 0, 0, .2);
+    box-shadow: 0 .1rem .1rem rgba(0, 0, 0, .1);
+    border-radius: 1rem;
+    background: #fafafa;
+}
+
+/* FORMULARIOS */
+.form__contact {
+    width: 24rem;
+    padding: 4rem;
+    border-radius: 1rem;
+    background-color: white;
+  }
+  .form__groups {
+    position: relative;
+    height: 3rem;
+    margin-bottom: 1.5rem;
+  }
+  .form__inputs {
+    width: 100%;
+    height: 4rem;
+    border: 2px solid #cfd8dc;
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-weight: inherit;
+    color: #2e2e2e;
+    outline: none;
+    padding: 1.25rem;
+    background: none;
+    font-size: 12px;
+  }
+  .form__inputs:hover {
+    border-color: #fff99e;
+  }
+  .form__inputs:focus {
+    border-color: #e5ad34;
+  }
+  .form__labels {
+    font-size: 12px;
+    position: absolute;
+    left: 1rem;
+    top: 0.9rem;
+    padding: 0 0.5rem;
+    background-color: white;
+    color: #8f8f8f;
+    transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
+  }
+
+  .form__textarea{
+    width: 100%;
+    height: 6rem;
+    border: 2px solid #cfd8dc;
+    border-radius: 0.5rem;
+    font-family: inherit;
+    font-weight: inherit;
+    color: #2e2e2e;
+    outline: none;
+    padding: 1.25rem;
+    bottom: 20px; 
+    background: none;
+    resize: none;
+    overflow: auto;
+    max-height: 330px;
+  }
+  /* 
+  1. When the input is in the focus state
+  reduce the size of the label and move upwards 
+  
+  2. Keep label state when content is in input field 
+  */
+  .form__inputs:focus ~ .form__labels,
+  .form__inputs:not(:placeholder-shown).form__inputs:not(:focus) ~ .form__labels {
+    top: -0.5rem;
+    left: 0.8rem;
+    font-size: 1rem;
+    color: #cc8100;
+  }
+
+  /* Animation textarea*/
+  .form__textarea:focus ~ .form__labels,
+  .form__textarea:not(:placeholder-shown).form__textarea:not(:focus) ~ .form__labels {
+    top: -0.5rem;
+    left: 0.8rem;
+    font-size: 1rem;
+    color: #cc8100;
+  }
+
+
+/* CONTACT */
+
+.contact {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-bottom: 4rem;
+}
+
+.contact .image {
+    flex: 1 1 20rem;
+}
+
+.contact .image img {
+    width: 80%;
+    padding: 2rem;
+}
+
+.contact form {
+    flex: 1 1 35rem;
+    padding: 80px 60px;
+    border: .1rem solid rgba(0, 0, 0, .2);
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    border-radius: .5rem;
+    background: #fff;
+}
+
+.heading__contact {
+    text-align: center;
+    background: linear-gradient(90deg, #f0ab45, #e8de0d);
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    font-size: 3.5rem;
+    text-transform: uppercase;
+
+}
+.contact form .heading__contact {
+    text-align: left;
+    padding-bottom: .5rem;
+}
+.contact form .heading {
+    text-align: left;
+    padding: 0;
+    padding-bottom: .5rem;
+}
+
+.contact form .inputBox {
+    position: absolute;
+}
+
+.contact form .inputBox input{
+    width: 100%;
+    background: none;
+    color: #666;
+    margin: 1.5rem 0;
+    padding: .5rem 0;
+    font-size: 1.7rem;
+    border-bottom: .1rem solid rgba(0, 0, 0, .1);
+    text-transform: none;
+}
+
+
+.contact form .inputBox label {
+    position: absolute;
+    top: 1.7rem;
+    left: 0;
+    font-size: 1.7rem;
+    color: #666;
+    transition: .2s linear;
+}
+
+.contact form .inputBox input:focus~label,
+.contact form .inputBox input:valid~label{
+    top: -.5rem;
+    font-size: 1.5rem;
+    color: #e8de0d;
+}
+/*Footer*/
+.footer {
+  padding: 15px;
+  border-top: 2px solid #008031;
+  background: #181818;
+  }
+
+.logo-image {
+  height: 35px;
+  display: block;
+  margin: 0 auto;
+  }
+
+.footer p{
+  margin-top: 5px;
+  color: #ababab;
+  font-size: 10px;
+  text-align: center;
+}
+/* media queries  */
+
+@media (max-width:1200px) {
+
+    html {
+        font-size: 55%;
+    }
+
+}
+
+@media (max-width:991px) {
+
+    section {
+        padding: 4 6%; 
+        padding-top: 7.5rem;
+        padding-bottom: 2rem;
+    }
+
+}
+
+@media (max-width:768px) {
+  
+
+    header label {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 1rem 2rem;
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        transform-origin: top;
+        transform: scaleY(0);
+        opacity: 0;
+        transition: .2s linear;
+    }
+
+    header .navbar a {
+        display: block;
+        margin: 2rem 0;
+        font-size: 2rem;
+    }
+
+    header input:checked~.navbar {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+
+    header input:checked~label::before {
+        content: '\f00d';
+    }
+
+    .home {
+        flex-flow: column-reverse;
+        background: #fff;
+    }
+
+    .home .image img {
+        width: 100%;
+    }
+
+    .home .content h3 {
+        font-size: 2 rem;
+    }
+
+    .home .content p {
+        font-size: 1.5rem;
+    }
+
+    .about {
+        background-position: right;
+      
+    }
+  .functions{
+    margin-left: 50px;
+    
+    }
+  
+  .imageAbout{
+    margin-left: 70px;
+    }
+   
+  .aboutVentajas{
+    background-position: right;
+      }
+
+  .imageventaja{
+    margin-left: 70px;
+    }
+  
+    .advantage{
+      margin-left: 70px;
+    
+      }
+
+    .newsletter p {
+        width: auto;
+    }
+
+}
+
+@media (max-width:450px) {
+
+    html {
+        font-size: 50%;
+    }
+
+    .about .column .content .buttons a {
+        width: 100%;
+        text-align: center;
+    }
+
+    .about .column .content .buttons a:last-child {
+        margin: 1rem 0;
+    }
+
+  /* Footer*/
+
+  .form__input {
+  width:100%;
+  height: 40px;
+  border: 2px solid #cfd8dc;
+  border-radius: 0.5rem;
+  font-family: inherit;
+  font-weight: inherit;
+  color: #2e2e2e;
+  outline: none;
+  padding: 1.25rem;
+  background: none;
+}
+
+}

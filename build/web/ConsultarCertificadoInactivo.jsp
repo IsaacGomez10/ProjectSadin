@@ -13,32 +13,45 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- icon  -->
+        <link rel="icon" href="Css/recursos/Logo sadin.svg">
         <title>Certificación</title>
+        <link rel="stylesheet" href="Css/estilosCertificado.css">
     </head>
-    <body>
-
-        <h1>Solicitar certificado</h1>
-
+    <body ondragstart="return false" onselectstart="return false" oncontextmenu="return false">
+        <%@include file="VistasParciales/nav.jsp" %>
         <%
             SolicitudVO solVO = (SolicitudVO) request.getAttribute("ValidarCertificadoInactivo");
-
             if (solVO != null) {
-
         %>
-         <form method="post" action="Reporte/TiempoDeServicioInactivo.jsp" target="_black">
-                <div>
-                    <label><b>Certificado de tiempo de servicio</b></label><br>
-                    <input type="hidden" name="numeroDocumento"   value="<%=solVO.getNumeroDocumento()%>">
+
+        <div class="containers">
+            <section>
+
+                <div class="home" id="home">
+                    <div class="content">
+                        <h3>Seleccione su <span>Certificado</span></h3>
+                    </div>
                 </div>
-                <div>
-                    &nbsp;
-                    <input type="submit" name="button" id="button" value="Generar Reporte">
+            </section>
+            <div class="cards">
+                <div class="box">
+                    <div class="content">
+                        <form method="post" action="Reporte/TiempoDeServicio.jsp" target="_black">
+                            <h1>01</h1>
+                            <h3>Certificado tiempo de servicio</h3>
+                            <input type="hidden" name="numeroDocumento" value="<%=solVO.getNumeroDocumento()%>">
+                            &nbsp;
+                            <button type="submit">Obtener</button>
+                        </form>
+                    </div>
                 </div>
-            </form>
+            </div>
+        </div>
+
         <% } else {
                 request.getRequestDispatcher("ConsultarEmpleado.jsp").forward(request, response);
             }
         %>
-
     </body>
 </html>
