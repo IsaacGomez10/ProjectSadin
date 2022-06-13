@@ -1,5 +1,5 @@
+/*Fonts*/
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;700;900&display=swap');
-
 
 * {
     margin: 0;
@@ -27,20 +27,18 @@ body {
 
 }
 
-.containers .cards{
-
-    position: relative;
-    width: 300px;
-    height: 420px;
-    border: 2px solid rgba(0, 0, 0, 0.2);
-    /*    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.05),
-                    inset -5px -5px -5px rgba(255, 255, 255, 0.5),
-                     5px 5px 5px rgba(0, 0, 0, 0.05),
-                    -5px -5px -5px rgba(255, 255, 255, 0.5);*/
-    border-radius: 15px;
-    margin: 30px;
-
+body .containers .cards {
+  position: relative;
+  min-width: 320px;
+  height: 440px;
+  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+    5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  margin: 30px;
+  transition: 0.5s;
 }
+
 
 .containers .cards .box {
 
@@ -115,9 +113,9 @@ body {
     color: #fff;
     text-decoration: none;
     font-weight: 400;
-    box-shadow: 0 rgba(0, 0, 0, 0.02);
     transition: 0.5s ease;
     cursor: pointer;
+    border: 0;
 }
 
 .containers .cards:hover .box .content button {
@@ -128,3 +126,190 @@ body {
     border: 1px solid #fff;
     background: linear-gradient(45deg,#cca646,#b87715);
 }
+
+
+
+/*HEADER*/
+header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+    padding: 1.5rem 9%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 1000;
+}
+
+header .LogoTitulo {
+    width: 15vw;
+}
+
+header .logo span {
+    color: #e8de0d;
+    font-size: 18px;
+}
+
+header .logo small {
+    color: #f0ab45;
+    font-size: 18px;
+}
+
+nav.navbar {
+    background-color: transparent;
+    padding: 10px 0;
+    transition: all 0.5s ease;
+}
+
+header .navbar a {
+    font-size: 13px;
+    margin-left: 2rem;
+    color: #000;
+    text-transform: capitalize;
+    position: relative;
+    text-decoration: none;
+}
+
+header .navbar a::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: rgb(225, 118, 24);
+    transition: all 0.5s ease;
+    transform: scale(0);
+}
+
+header .navbar a.active::before,
+header .navbar a:hover::before {
+    transform: scale(1);
+
+}
+
+nav.navbar .navbar-shrink {
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+    background-color: var(--main-color);
+    padding: 10px 0;
+}
+
+header input {
+    display: none;
+}
+
+header label {
+    font-size: 3rem;
+    color: #f0ab45;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+}
+
+
+/* datos completos*/
+.main{
+    padding-top: 10rem;
+}
+
+@media (max-width:768px) {
+
+    header label {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    header .navbar {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #fff;
+        padding: 1rem 2rem;
+        border-top: .1rem solid rgba(0, 0, 0, .2);
+        box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+        transform-origin: top;
+        transform: scaleY(0);
+        opacity: 0;
+        transition: .2s linear;
+    }
+
+    header .navbar a {
+        display: block;
+        margin: 2rem 0;
+        font-size: 2rem;
+    }
+
+    header input:checked~.navbar {
+        transform: scaleY(1);
+        opacity: 1;
+    }
+
+    header input:checked~label::before {
+        content: '\f00d';
+    }
+
+    .home {
+        flex-flow: column-reverse;
+        background: #fff;
+    }
+
+    .home .image img {
+        width: 100%;
+    }
+
+    .home .content h3 {
+        font-size: 2 rem;
+    }
+
+    .home .content p {
+        font-size: 1.5rem;
+    }
+
+    .about {
+        background-position: right;
+
+    }
+    .functions{
+        margin-left: 50px;
+
+    }
+
+    .imageAbout{
+        margin-left: 70px;
+    }
+
+    .aboutVentajas{
+        background-position: right;
+    }
+
+    .imageventaja{
+        margin-left: 70px;
+    }
+
+    .advantage{
+        margin-left: 70px;
+
+    }
+
+    .newsletter p {
+        width: auto;
+    }
+    
+    header .LogoTitulo {
+    width: 25vw;
+}
+
+}
+
+@media (max-width:450px) {
+
+    html {
+        font-size: 50%;
+    }
+
+}
+

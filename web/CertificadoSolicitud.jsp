@@ -25,38 +25,41 @@
 
     </head>
     <body ondragstart="return false" onselectstart="return false" oncontextmenu="return false">
-        <%@include file="VistasParciales/nav.jsp" %>
+        <%@include file="VistasParciales/nav.jsp"%>
         <!-- home section starts  -->
+        <div class="main">
 
-        <section id="solicitud">
-            <section class="home" id="home">
-                <div class="content">
-                    <h3>Solicita aquí tu <span>Certificado</span></h3>
+
+            <section id="solicitud">
+                <section class="home" id="home">
+                    <div class="content">
+                        <h3>Solicita aquí tu <span>Certificado</span></h3>
+                    </div>
+                </section>
+                <div class="carts">
+                    <div class="carts--hover">
+                        <div>
+                            <h3>Ingresa tu número de documento</h3>
+                            <p>Solicita tu certificado laboral ágil, sin papeleo ni complicaciones,
+                                recuerda confirmar tu número de documento para ingresar.</p>
+                        </div>
+                        <form method="post" action="Certificacion">
+
+                            <div class="forms">
+                                <div class="form__groups">
+                                    <input type="text" name="txtNumeroDocumento" id="doc" class="form__inputs" placeholder=" " autocomplete="off" onKeypress="if (event.keyCode < 45 || event.keyCode > 57)
+                                                event.returnValue = false;">
+                                    <label for="doc" class="form__labels">Número de Documento</label>
+                                </div>
+                            </div>
+                            <button class="btn">Confirmar</button>
+                            <input type="hidden" value="1" name="opcion">
+                        </form>
+
+                    </div>
                 </div>
             </section>
-            <div class="carts">
-                <div class="carts--hover">
-                    <div>
-                        <h3>Ingresa tu número de documento</h3>
-                        <p>Solicita tu certificado laboral ágil, sin papeleo ni complicaciones,
-                            recuerda confirmar tu número de documento para ingresar.</p>
-                    </div>
-                    <form method="post" action="Certificacion">
-
-                        <div class="forms">
-                            <div class="form__groups">
-                                <input type="text" name="txtNumeroDocumento" id="doc" class="form__inputs" placeholder=" " autocomplete="off" onKeypress="if (event.keyCode < 45 || event.keyCode > 57)
-                                            event.returnValue = false;">
-                                <label for="doc" class="form__labels">Número de Documento</label>
-                            </div>
-                        </div>
-                        <button class="btn">Confirmar</button>
-                        <input type="hidden" value="1" name="opcion">
-                    </form>
-
-                </div>
-            </div>
-        </section>
+        </div>
         <%@include file="VistasParciales/footer.jsp" %>
     </body>
 </html>
