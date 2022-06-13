@@ -50,7 +50,7 @@
             <div class="content">
                 <h3>tu Certificado Laboral<span> Desde Casa</span></h3>
                 <p>Solicita tu certificado laboral ágil, sin papeleo ni complicaciones</p>
-                <a href="index.jsp" class="btn">Iniciar sesión <i class="fas fa-angle-double-right"></i></a>
+                <a href="CertificadoSolicitud.jsp" class="btn">Solicitar Certificado<i class="fas fa-angle-double-right"></i></a>
             </div>
 
             <div class="image">

@@ -6,7 +6,6 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<%@include file="sesiones.jsp"%>
 
 <html>
     <head>
@@ -15,11 +14,6 @@
         <title>SADIN</title>
     </head>
     <body>
-        <%@include file="navFuncionario.jsp" %>
-
-        <h1>Bienvenido</h1>
-
-
-
+        <%@include file="sesiones.jsp"%>
     </body>
 </html>

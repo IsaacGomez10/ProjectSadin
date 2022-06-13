@@ -15,20 +15,20 @@
 %>
 
 <%
-     HttpSession buscarSesion = (HttpSession)request.getSession();
-    String IdEmpleado ="",Usuario ="",NombreUsuario ="", IdFuncionario="";
-    if (buscarSesion.getAttribute("datosFuncionario") == null){
+    HttpSession buscarSesion = (HttpSession) request.getSession();
+    String IdEmpleado = "", Usuario = "", NombreUsuario = "", IdFuncionario = "";
+    if (buscarSesion.getAttribute("datosFuncionario") == null) {
         request.getRequestDispatcher("index.jsp").forward(request, response);
-        
-    }else{
-        EmpleadoVO empVO = (EmpleadoVO)buscarSesion.getAttribute("datosEmpleado");
-        EmpleadoVO empReVO = (EmpleadoVO)buscarSesion.getAttribute("datosEmpleadoRegistrado");
-        FuncionarioVO funVO = (FuncionarioVO)buscarSesion.getAttribute("datosFuncionario");
+
+    } else {
+        EmpleadoVO empVO = (EmpleadoVO) buscarSesion.getAttribute("datosEmpleado");
+        EmpleadoVO empReVO = (EmpleadoVO) buscarSesion.getAttribute("datosEmpleadoRegistrado");
+        FuncionarioVO funVO = (FuncionarioVO) buscarSesion.getAttribute("datosFuncionario");
         IdEmpleado = empReVO.getIdEmpleado();
         Usuario = funVO.getUsuario();
-        NombreUsuario = (empVO.getNombres()+ " " +empVO.getApellidos());
+        NombreUsuario = (empVO.getNombres() + " " + empVO.getApellidos());
         IdFuncionario = funVO.getIdFuncionario();
-        
+
     }
 
 %>
@@ -36,18 +36,18 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <!-- icon  -->
+        <link rel="icon" href="Css/recursos/Logo sadin.svg">
     </head>
+
     <body>
-        <div style="float: right">
-            <h1 style="color: red">
-                Bienvenido: <%=NombreUsuario%>
-            </h1>
-            <form method="post" action="Sesiones">
-                <input style="float: right" type="submit" value="Cerrar Sesion">
-            </form>
-            
-        </div><br><br>
-        <div></div><br><br>
-        <div></div><br><br>
+        
+    <div style="float: right">
+        <h1 style="color: red">Bienvenido: <%=NombreUsuario%></h1>
+        <form method="post" action="Sesiones">
+            <input style="float: right" type="submit" value="Cerrar Sesion">
+        </form>
+    </div>
+
     </body>
 </html>

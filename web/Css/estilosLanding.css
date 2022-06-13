@@ -153,7 +153,7 @@ header label {
     justify-content: center;
     background: #f1f1f1;
     background-size:  300px 100px;
-    background-position: top ;  
+    background-position: top ;
 }
 
 
@@ -165,7 +165,7 @@ header label {
     border-radius: 32px;
     margin-top: 80px;
     margin-left: 40px;
-    
+
 }
 
 @keyframes float {
@@ -263,17 +263,17 @@ header label {
 .aboutSadin .column .imageAbout {
     flex: 1 1 40rem;
 }
-  .aboutSadin .column .imageAbout img {
-      width: 70%;
-    
-  }
+.aboutSadin .column .imageAbout img {
+    width: 70%;
+
+}
 .about .column .image {
     flex: 1 1 40rem;
 }
 
 .about .column .image img {
     width: 50%;
-  
+
 }
 
 .about .column .content {
@@ -287,19 +287,19 @@ header label {
     color: #666;
 }
 .about .column .functions{
-  padding-right:230px;
-  }
+    padding-right:230px;
+}
 
 .aboutSadin .column .functions ul li {
     font-size: 1.2rem;
     color: #666;
     padding: 1rem 0;
     text-decoration: none;
- list-style:none;
+    list-style:none;
 }
 
 .aboutSadinCertificados{
-  background: #f1f1f1;
+    background: #f1f1f1;
 }
 
 .aboutSadinCertificados .column {
@@ -307,15 +307,15 @@ header label {
     align-items: center;
     justify-content: center;
     flex-wrap: wrap;
- 
+
 }
 .aboutSadinCertificados .column .imageAbout {
     flex: 1 1 40rem;
 }
 .aboutSadinCertificados .column .imageAbout img {
     width: 70%;
-}	
-  
+}
+
 .aboutSadinCertificados .column .content .buttons a:last-child {
     margin-left: 2rem;
 }
@@ -326,9 +326,9 @@ header label {
     color: #666;
     padding: 1rem 0;
     text-decoration: none;
- list-style:none;
+    list-style:none;
 }
-	
+
 
 
 
@@ -338,7 +338,7 @@ header label {
     color: #666;
     padding: 1rem 0;
     text-decoration: none;
-  font-style: normal;
+    font-style: normal;
 
 }
 
@@ -350,11 +350,11 @@ header label {
 
 
 .content .contentText {
-  font-family: 'Poppins',sans-serif;
+    font-family: 'Poppins',sans-serif;
 }
 
 .contentText .images{
-  width: 20px;
+    width: 20px;
 }
 
 
@@ -559,13 +559,13 @@ header label {
     padding: 4rem;
     border-radius: 1rem;
     background-color: white;
-  }
-  .form__groups {
+}
+.form__groups {
     position: relative;
     height: 3rem;
     margin-bottom: 1.5rem;
-  }
-  .form__inputs {
+}
+.form__inputs {
     width: 100%;
     height: 4rem;
     border: 2px solid #cfd8dc;
@@ -577,14 +577,14 @@ header label {
     padding: 1.25rem;
     background: none;
     font-size: 12px;
-  }
-  .form__inputs:hover {
+}
+.form__inputs:hover {
     border-color: #fff99e;
-  }
-  .form__inputs:focus {
+}
+.form__inputs:focus {
     border-color: #e5ad34;
-  }
-  .form__labels {
+}
+.form__labels {
     font-size: 12px;
     position: absolute;
     left: 1rem;
@@ -593,9 +593,11 @@ header label {
     background-color: white;
     color: #8f8f8f;
     transition: top 200ms ease-in, left 200ms ease-in, font-size 200ms ease-in;
-  }
+    cursor: text;
 
-  .form__textarea{
+}
+
+.form__textarea{
     width: 100%;
     height: 6rem;
     border: 2px solid #cfd8dc;
@@ -605,34 +607,36 @@ header label {
     color: #2e2e2e;
     outline: none;
     padding: 1.25rem;
-    bottom: 20px; 
+    bottom: 20px;
     background: none;
     resize: none;
     overflow: auto;
     max-height: 330px;
-  }
-  /* 
-  1. When the input is in the focus state
-  reduce the size of the label and move upwards 
-  
-  2. Keep label state when content is in input field 
-  */
-  .form__inputs:focus ~ .form__labels,
-  .form__inputs:not(:placeholder-shown).form__inputs:not(:focus) ~ .form__labels {
-    top: -0.5rem;
-    left: 0.8rem;
-    font-size: 1rem;
-    color: #cc8100;
-  }
+}
+/* 
+1. When the input is in the focus state
+reduce the size of the label and move upwards 
 
-  /* Animation textarea*/
-  .form__textarea:focus ~ .form__labels,
-  .form__textarea:not(:placeholder-shown).form__textarea:not(:focus) ~ .form__labels {
+2. Keep label state when content is in input field 
+*/
+.form__inputs:focus ~ .form__labels,
+.form__inputs:not(:placeholder-shown).form__inputs:not(:focus) ~ .form__labels {
     top: -0.5rem;
     left: 0.8rem;
     font-size: 1rem;
     color: #cc8100;
-  }
+    cursor: default;
+}
+
+/* Animation textarea*/
+.form__textarea:focus ~ .form__labels,
+.form__textarea:not(:placeholder-shown).form__textarea:not(:focus) ~ .form__labels {
+    top: -0.5rem;
+    left: 0.8rem;
+    font-size: 1rem;
+    color: #cc8100;
+    cursor: default;
+}
 
 
 /* CONTACT */
@@ -716,22 +720,22 @@ header label {
 }
 /*Footer*/
 .footer {
-  padding: 15px;
-  border-top: 2px solid #008031;
-  background: #181818;
-  }
+    padding: 15px;
+    border-top: 2px solid #008031;
+    background: #181818;
+}
 
 .logo-image {
-  height: 35px;
-  display: block;
-  margin: 0 auto;
-  }
+    height: 35px;
+    display: block;
+    margin: 0 auto;
+}
 
 .footer p{
-  margin-top: 5px;
-  color: #ababab;
-  font-size: 10px;
-  text-align: center;
+    margin-top: 5px;
+    color: #ababab;
+    font-size: 10px;
+    text-align: center;
 }
 /* media queries  */
 
@@ -746,7 +750,7 @@ header label {
 @media (max-width:991px) {
 
     section {
-        padding: 4 6%; 
+        padding: 4 6%;
         padding-top: 7.5rem;
         padding-bottom: 2rem;
     }
@@ -754,7 +758,7 @@ header label {
 }
 
 @media (max-width:768px) {
-  
+
 
     header label {
         visibility: visible;
@@ -810,29 +814,29 @@ header label {
 
     .about {
         background-position: right;
-      
-    }
-  .functions{
-    margin-left: 50px;
-    
-    }
-  
-  .imageAbout{
-    margin-left: 70px;
-    }
-   
-  .aboutVentajas{
-    background-position: right;
-      }
 
-  .imageventaja{
-    margin-left: 70px;
     }
-  
+    .functions{
+        margin-left: 50px;
+
+    }
+
+    .imageAbout{
+        margin-left: 70px;
+    }
+
+    .aboutVentajas{
+        background-position: right;
+    }
+
+    .imageventaja{
+        margin-left: 70px;
+    }
+
     .advantage{
-      margin-left: 70px;
-    
-      }
+        margin-left: 70px;
+
+    }
 
     .newsletter p {
         width: auto;
@@ -855,19 +859,19 @@ header label {
         margin: 1rem 0;
     }
 
-  /* Footer*/
+    /* Footer*/
 
-  .form__input {
-  width:100%;
-  height: 40px;
-  border: 2px solid #cfd8dc;
-  border-radius: 0.5rem;
-  font-family: inherit;
-  font-weight: inherit;
-  color: #2e2e2e;
-  outline: none;
-  padding: 1.25rem;
-  background: none;
-}
+    .form__input {
+        width:100%;
+        height: 40px;
+        border: 2px solid #cfd8dc;
+        border-radius: 0.5rem;
+        font-family: inherit;
+        font-weight: inherit;
+        color: #2e2e2e;
+        outline: none;
+        padding: 1.25rem;
+        background: none;
+    }
 
 }
