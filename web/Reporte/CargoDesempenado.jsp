@@ -32,12 +32,10 @@ y seguiremos el formato del método runReportToPdf*/
         /*Capturamos el valor de nuestra formulario que es el codigo del cliente que es un
 varchar(5), lo almacenamos en una String*/
     String numeroDocumento = request.getParameter("numeroDocumento");
-    String logo = "/Reportes/images/AcueductoLogo.png";
     /*Digitamos la siguiente linea de codigo entre parentesis ira el parametro que agregamos en nuestro reporte
 llamado $P{CODIGO}, pero solo se escribira "CODIGO", el String que capturamos lo colocamos, en este caso el 
 reporte solo nos pide un parametro*/
     parameters.put("numeroDocumento", numeroDocumento);
-    parameters.put("logo",this.getClass().getResourceAsStream(logo));
     /*Enviamos la ruta del reporte, los parámetros y la conexión(objeto Connection)*/
     byte[] bytes = JasperRunManager.runReportToPdf(reportFile.getPath(), parameters, conexion.obtenerConexion());
     /*Indicamos que la respuesta va a ser en formato PDF*/
@@ -49,6 +47,5 @@ reporte solo nos pide un parametro*/
     /*Limpiamos y cerramos flujos de salida*/
     ouputStream.flush();
     ouputStream.close();
-
+    
 %>
-

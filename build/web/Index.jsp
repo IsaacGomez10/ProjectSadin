@@ -16,7 +16,6 @@
         <title>Iniciar Sesión</title>
     </head>
     <body ondragstart="return false" onselectstart="return false" oncontextmenu="return false">
-        <%--@include file="nav.jsp"--%>
         <div class="container">
             <div class="forms-container">
                 <div class="signin-signup">
@@ -28,17 +27,17 @@
 
                         <div class="form">
                             <div class="form__group">
-                                <input type="text" name="txtUsuario" class="form__input" id="user" placeholder=" " autocomplete="off"><br>
+                                <input type="text" name="txtUsuario" class="form__input" id="user" placeholder=" " autocomplete="off" required=""><br>
                                 <label for="user" class="form__label">Usuario</label>
                             </div>
                             <div class="form__group">
-                                <input type="password" name="txtPassword" id="password" class="form__input" placeholder=" ">
+                                <input type="password" name="txtPassword" id="password" class="form__input" placeholder=" " required="">
                                 <label for="password" class="form__label">Contraseña</label>
                             </div>
                         </div>
                         <button class="btn solid" type="submit"> Ingresar <i class="fas fa-angle-double-right"></i></button>
                         <input type="hidden" value="3" name="opcion">
-                        <a class="only__link" href="olvidarContraseña.jsp">¿Ha olvidado tu contraseña?</a>
+                        <a class="only__link" href="#" onclick="cambiarClave()">¿Ha olvidado tu contraseña?</a>
                     </form>
 
                     <form method="post" action="Funcionario" class="sign-up-form">
@@ -46,8 +45,10 @@
                             <img src="Css/recursos/LogoHeader.svg" class="logo" alt="SADIN"></a>
                         <h2 class="title">Registrate como funcionario</h2>
                         <div class="form">
+
                             <div class="form__group">
-                                <input type="text" name="txtUsuario" id="doc" class="form__input" placeholder=" " autocomplete="off">
+                                <input type="text" name="txtUsuario" id="doc" class="form__input" placeholder=" " autocomplete="off" required="" onKeypress="if (event.keyCode < 45 || event.keyCode > 57)
+                                            event.returnValue = false;">
                                 <label for="doc" class="form__label">Número de Documento</label>
                             </div>
 
@@ -57,6 +58,7 @@
                     </form>
 
                 </div>
+                <%@include file="./ErrorDatosJava/ErrorDatosJava.jsp" %>
             </div>
 
             <div class="panels-container">
@@ -87,9 +89,12 @@
                     <img src="Css/recursos/register.svg" class="image" alt="" />
                 </div>
             </div>
+
         </div>
 
-        <%@include file="./ErrorDatosJava/ErrorDatosJava.jsp" %>
         <script src="Css/js/appLogin.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script src="Css/js/cambiarClave.js"></script>
+
     </body>
 </html>

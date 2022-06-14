@@ -19,7 +19,6 @@
         <link rel="stylesheet" href="Css/estilosForms.css">
     </head>
     <body>
-        <%@include file="navFuncionario.jsp" %>
         <h1>Registrar Empleados</h1>
         
         <div style="color:red;">

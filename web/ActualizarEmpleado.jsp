@@ -20,7 +20,6 @@
         <title>Actualizar empleado</title>
     </head>
     <body>
-        <%@include file="navFuncionario.jsp" %>
         <h1>Actualizar empleado</h1>
         <%
             EmpleadoVO empVO = (EmpleadoVO) request.getAttribute("EmpleadoConsultado");

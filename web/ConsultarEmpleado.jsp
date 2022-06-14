@@ -28,7 +28,6 @@
     <body>
 
 
-        <%@include file="navFuncionario.jsp" %>
         <h1>Actualizar Empleado</h1>
 
         <form method="post" action="Empleado">

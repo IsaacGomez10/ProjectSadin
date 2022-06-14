@@ -70,7 +70,7 @@ where e.idempleado = $P{numeroDocumento}]]>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="Arial" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Certifica que <b>" + $F{concat(e.Nombres, ' ',e.Apellidos)} + "</b>, identificado con" + $F{tipodocumento} + " número " + $F{numerodocumento} + " expedida en " + $F{LugarExpedicion} + ", se encuentra vinculado a esta empresa por medio de un contrato " +  $F{Contrato} + ", como " + $F{NombreCargo} + " en la jornada " + $F{Jornada} + ",con horario de " + $F{HorarioLaboral}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Una vez revisados los datos que reposan en la historia laboral de <b>" + $F{concat(e.Nombres, ' ',e.Apellidos)} + "</b>, identificado con" + $F{tipodocumento} + " número " + $F{numerodocumento} + " expedida en " + $F{LugarExpedicion} + ", se encuentra vinculado a esta empresa por medio de un contrato " +  $F{Contrato} + ", como " + $F{NombreCargo} + " en la jornada " + $F{Jornada} + ",con horario de " + $F{HorarioLaboral}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="19" y="94" width="540" height="36" uuid="8c93773f-83f1-46cc-9204-71f1277b87e2"/>

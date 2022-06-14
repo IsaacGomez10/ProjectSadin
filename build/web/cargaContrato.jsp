@@ -12,7 +12,6 @@
         <title>JSP Page</title>
     </head>
     <body>
-         <%@include file="navFuncionario.jsp" %>
 
         <h1>Cargar datos desde el excel</h1>
 

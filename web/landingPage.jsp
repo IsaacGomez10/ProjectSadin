@@ -221,7 +221,8 @@
                 </div>
 
                 <div class="form__groups">
-                    <input type="text" id="phone" class="form__inputs" placeholder=" " autocomplete="off">
+                    <input type="text" id="phone" class="form__inputs" placeholder=" " autocomplete="off" onKeypress="if (event.keyCode < 45 || event.keyCode > 57)
+                                                event.returnValue = false;">
                     <label for="phone" class="form__labels">Teléfono</label>
                 </div>
 

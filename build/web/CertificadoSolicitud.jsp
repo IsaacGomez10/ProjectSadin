@@ -22,7 +22,6 @@
 
         <!-- font awesome icons -->
         <link rel="stylesheet" href="css/font-awesome.css">
-
     </head>
     <body ondragstart="return false" onselectstart="return false" oncontextmenu="return false">
         <%@include file="VistasParciales/nav.jsp"%>
@@ -43,7 +42,7 @@
                             <p>Solicita tu certificado laboral ágil, sin papeleo ni complicaciones,
                                 recuerda confirmar tu número de documento para ingresar.</p>
                         </div>
-                        <form method="post" action="Certificacion">
+                        <form method="post" action="Certificacion" target="_black">
 
                             <div class="forms">
                                 <div class="form__groups">

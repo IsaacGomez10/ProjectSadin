@@ -8,6 +8,11 @@
     font-family: 'Poppins', sans-serif;
 }
 
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+}
+
 body {
     display: flex;
     justify-content: center;
@@ -28,15 +33,15 @@ body {
 }
 
 body .containers .cards {
-  position: relative;
-  min-width: 320px;
-  height: 440px;
-  box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
-    inset -5px -5px 15px rgba(255, 255, 255, 0.1),
-    5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
-  border-radius: 15px;
-  margin: 30px;
-  transition: 0.5s;
+    position: relative;
+    min-width: 320px;
+    height: 440px;
+    box-shadow: inset 5px 5px 5px rgba(0, 0, 0, 0.2),
+        inset -5px -5px 15px rgba(255, 255, 255, 0.1),
+        5px 5px 15px rgba(0, 0, 0, 0.3), -5px -5px 15px rgba(255, 255, 255, 0.1);
+    border-radius: 15px;
+    margin: 30px;
+    transition: 0.5s;
 }
 
 
@@ -215,13 +220,22 @@ header label {
     padding-top: 10rem;
 }
 
-@media (max-width:768px) {
+/* media queries  */
 
+@media (max-width:1200px) {
+
+    html {
+        font-size: 55%;
+    }
+
+}
+
+@media (max-width:768px) {
+    
     header label {
         visibility: visible;
         opacity: 1;
     }
-
     header .navbar {
         position: absolute;
         top: 100%;
@@ -298,18 +312,12 @@ header label {
     .newsletter p {
         width: auto;
     }
-    
+
     header .LogoTitulo {
-    width: 25vw;
-}
-
-}
-
-@media (max-width:450px) {
-
-    html {
-        font-size: 50%;
+        width: 25vw;
     }
 
 }
+
+
 
