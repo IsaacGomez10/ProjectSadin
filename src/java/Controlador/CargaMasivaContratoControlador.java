@@ -68,8 +68,8 @@ public class CargaMasivaContratoControlador extends HttpServlet {
                 String rutaAbsoluta = adminFiles.guardarArchivo(archivocsv, adminFiles.validarRuta());
                 try {
                     if (conDAO.cargarContrato(rutaAbsoluta) == true) {
-                        request.setAttribute("MensajeExito", "La carga se hizo correactamente");
-                        request.getRequestDispatcher("cargaContrato.jsp").forward(request, response);
+                        request.setAttribute("MensajeExito", "Los datos se han cargado correctamente");
+                        request.getRequestDispatcher("cargarDatos.jsp").forward(request, response);
                     } else {
                         request.setAttribute("MensajeError", "Error");
                         request.getRequestDispatcher("cargaContrato.jsp").forward(request, response);
@@ -77,7 +77,6 @@ public class CargaMasivaContratoControlador extends HttpServlet {
 
                 }catch (SQLException e) {
                 }
-                request.getRequestDispatcher("cargaContrato.jsp").forward(request, response);
                 break;
         }
     }

@@ -32,7 +32,7 @@
             <section id="solicitud">
                 <section class="home" id="home">
                     <div class="content">
-                        <h3>Solicita aquí tu <span>Certificado</span></h3>
+                        <h3>Solicita aquí tu <span>certificado</span></h3>
                     </div>
                 </section>
                 <div class="carts">
@@ -48,7 +48,7 @@
                                 <div class="form__groups">
                                     <input type="text" name="txtNumeroDocumento" id="doc" class="form__inputs" placeholder=" " autocomplete="off" onKeypress="if (event.keyCode < 45 || event.keyCode > 57)
                                                 event.returnValue = false;">
-                                    <label for="doc" class="form__labels">Número de Documento</label>
+                                    <label for="doc" class="form__labels">Número de documento</label>
                                 </div>
                             </div>
                             <button class="btn">Confirmar</button>

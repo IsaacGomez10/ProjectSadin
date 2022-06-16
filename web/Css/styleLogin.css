@@ -285,6 +285,7 @@ reduce the size of the label and move upwards
 .only__link:hover{
   text-decoration: underline;
   color: #0057a8;
+  cursor: pointer;
 }
 /* ANIMATION */
 

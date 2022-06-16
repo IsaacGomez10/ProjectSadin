@@ -68,7 +68,7 @@ public class FuncionarioControlador extends HttpServlet {
                             String PasswordEmp = funDAO.GenerarContraseña();
                             Destino = empVO.getEmail();
                             Asunto = "Contraseña Provisional";
-                            Mensaje = "Esta es la contraseña provisional para tu inicio de sesion en Sadin: \n\n" + PasswordEmp + "\n\n" + " Recuerde que debes cambiarla apenas entres";
+                            Mensaje = "Esta es la contraseña provisional para tu inicio de sesion en Sadin: \n\n" + PasswordEmp + "\n\n Recuerda que debes cambiar tu contraseña cuando ingreses";
 
                             funCorreoVO = new FuncionarioVO(Destino, Asunto, Mensaje);
                             funCorreoDAO = new FuncionarioDAO(funCorreoVO);
@@ -158,9 +158,8 @@ public class FuncionarioControlador extends HttpServlet {
                 }
                 break;
             case 4://Olvidaste la contraseña
-                empVO = empDAO.consultarEmpleados(Usuario);
-
                 if (funDAO.estadoEmpleado(Usuario) == 1) {
+                empVO = empDAO.consultarEmpleados(Usuario);
 
                     if (empVO != null) {
                         String PasswordEmp = funDAO.GenerarContraseña();

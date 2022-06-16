@@ -16,100 +16,106 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registrar Empleado</title>
-        <link rel="stylesheet" href="Css/estilosForms.css">
+        <!-- icon  -->
+        <link rel="icon" href="Css/recursos/Logo sadin.svg">
+        <%@include file="VistasParciales/linksHead.jsp"%>
+
     </head>
     <body>
-        <h1>Registrar Empleados</h1>
-        
-        <div style="color:red;">
-            <%                if (request.getAttribute("MensajeError") != null) {%>
-            ${MensajeError}
-            <% } else {%>
-            ${MensajeExito}
-            <%}%>
+        <div class="container-scroller">
+            <%@include file="VistasParciales/navDashboard.jsp"%>
+
+            <div class="container-fluid page-body-wrapper">
+                <%@include file="VistasParciales/menuDashboard.jsp"%>
+
+                <div class="main-panel">
+                    <div class="content-wrapper">
+                        <div class="row">
+                            <div class="col-12 grid-margin">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Registrar Empleado</h4>
+                                        <form class="form-sample">
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    <div class="form-group ">
+                                                        <label>Nombres</label>
+                                                        <input required="" type="text" class="form-control" name="txtNombres" id="nombre" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="form-group ">
+                                                        <label>Apellidos </label>
+                                                        <input required="" type="text" name="txtApellidos" id="apellido" class="form-control" />
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    <div class="form-group">
+                                                        <label>Tipo de documento</label>
+                                                        <select required="" class="form-control" name="txtIdTipoDocumento">
+                                                            <option selected disabled>Seleccione tipo de documento</option>
+                                                            <%  TipoDocumentoDAO tipoDocDAO = new TipoDocumentoDAO();
+                                                                for (TipoDocumentoVO tipoDocVO : tipoDocDAO.Listar()) {
+                                                            %>
+                                                            <option required="" value="<%=tipoDocVO.getIdTipoDocumento()%>"><%=tipoDocVO.getTipoDocumento()%></option>
+                                                            <%}%>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="form-group">
+                                                        <label>Número de documento</label>
+                                                        <input type="text" class="form-control" required="" onKeypress="if (event.keyCode < 45 || event.keyCode > 57)
+                                                                    event.returnValue = false;" maxlength="14" type="text"  name="txtNumeroDocumento" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="form-group">
+                                                        <label>Teléfono</label>
+                                                        <input type="text" class="form-control" required="" onKeypress="if (event.keyCode < 45 || event.keyCode > 57)
+                                                                    event.returnValue = false;" maxlength="10" type="text"name="txtTelefono" id="telefono" />
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="form-group">
+                                                        <label>Correo electrónico</label>
+                                                        <input type="text" class="form-control" name="txtEmail" id="email" placeholder="correo@correo.com"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="form-group">
+                                                        <label>Lugar de expedición</label>
+
+                                                        <select required="" name="txtIdLugarExpedicion" class="form-control" >
+                                                            <option selected disabled>Seleccione ciudad</option>
+                                                            <%
+                                                                LugarExpedicionDAO lugarDAO = new LugarExpedicionDAO();
+                                                                for (LugarExpedicionVO lugarVO : lugarDAO.Listar()) {
+
+                                                            %>
+                                                            <option required="" value="<%=lugarVO.getIdLugarExpedicion()%>"><%=lugarVO.getCiudad()%></option>
+                                                            <%}%>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div> 
+
+                                            <button type="submit" class="btn btn-warning">Continuar</button>
+                                            <input type="hidden" value="1" name="opcion">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
-
-        <form method="post" action="Empleado" id="formulario">
-            
-            <div class="formulario__grupo" id="grupo__nombre">
-                <label for="nombre" class="formulario__label">Nombres</label>
-                <div class="formulario__grupo-input">
-                    <input required="" type="text" class="formulario__input" name="txtNombres" id="nombre" placeholder="Ingrese Nombres">
-                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                </div>
-                <p class="formulario__input-error">Los Nombres no pueden tener caracteres epeciales.</p>
-            </div>
+        <%@include file="VistasParciales/scriptsFooter.jsp"%>
 
 
-            <div class="formulario__grupo" id="grupo__apellido">
-                <label for="apellido" class="formulario__label">Apellidos</label>
-                <div class="formulario__grupo-input">
-                    <input required="" type="text" class="formulario__input" name="txtApellidos" id="apellido" placeholder="Ingrese Apellidos">
-                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                </div>
-                <p class="formulario__input-error">Los Apellidos no pueden tener caracteres epeciales.</p>
-            </div>
-
-
-
-            <span>Tipo de documento</span><br>
-            <select required="" name="txtIdTipoDocumento">
-                <option selected disabled>Seleccione tipo de documento</option>
-                <%  TipoDocumentoDAO tipoDocDAO = new TipoDocumentoDAO();
-                    for (TipoDocumentoVO tipoDocVO : tipoDocDAO.Listar()) {
-                %>
-                <option required="" value="<%=tipoDocVO.getIdTipoDocumento()%>"><%=tipoDocVO.getTipoDocumento()%></option>
-                <%}%>
-            </select><br>
-
-
-            <div class="formulario__grupo" id="grupo__numeroDocumento">
-                <label for="numeroDocumento" class="formulario__label">Número de Documento</label>
-                <div class="formulario__grupo-input">
-                    <input required="" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="14" type="text" class="formulario__input" name="txtNumeroDocumento" id="numeroDocumento" placeholder="Ingrese Documento">
-                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                </div>
-                <p class="formulario__input-error">Ingrese un número de documento valido.</p>
-            </div>
-
-
-            <div class="formulario__grupo" id="grupo__telefono">
-                <label for="telefono " class="formulario__label">Teléfono</label>
-                <div class="formulario__grupo-input">
-                    <input required="" onKeypress="if (event.keyCode < 45 || event.keyCode > 57) event.returnValue = false;" maxlength="10" type="text" class="formulario__input" name="txtTelefono" id="telefono" placeholder="3XXXXXXXXX">
-                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                </div>
-                <p class="formulario__input-error">Ingrese un número de telefono valido, maximo 10 dígitos.</p>
-            </div>
-
-
-            <div class="formulario__grupo" id="grupo__email">
-                <label for="email" class="formulario__label">Correo Electrónico</label>
-                <div class="formulario__grupo-input">
-                    <input required=""  type="email" class="formulario__input" name="txtEmail" id="email" placeholder="correo@correo.com">
-                    <i class="formulario__validacion-estado fas fa-times-circle"></i>
-                </div>
-                <p class="formulario__input-error">Ingrese un correo electrónico valido.</p>
-            </div>
-
-
-
-            <span>Lugar Expedición</span><br>
-            <select required="" name="txtIdLugarExpedicion">
-                <option selected disabled>Seleccione ciudad</option>
-                <%
-                    LugarExpedicionDAO lugarDAO = new LugarExpedicionDAO();
-                    for (LugarExpedicionVO lugarVO : lugarDAO.Listar()) {
-
-                %>
-                <option required="" value="<%=lugarVO.getIdLugarExpedicion()%>"><%=lugarVO.getCiudad()%></option>
-                <%}%>
-            </select><br>   
-           
-            <button type="submit">Continuar</button>
-            <input type="hidden" value="1" name="opcion">
-        </form>
-
-        <script src="JavaScript/validaciones.js"></script>
     </body>
 </html>

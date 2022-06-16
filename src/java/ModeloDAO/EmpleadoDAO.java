@@ -243,7 +243,7 @@ public class EmpleadoDAO extends Conexion implements Crud {
     }
 
     //lógica de carga masiva
-    public boolean cargarUsuarios(String rutaAbsoluta) throws SQLException, IOException {
+    public boolean cargarEmpleados(String rutaAbsoluta) throws SQLException, IOException {
 
         try {
             sql = "insert into empleado (Nombres, Apellidos, IdTipoDocumento, NumeroDocumento, Telefono, Email, IdLugarExpedicion, Estado) values (?,?,?,?,?,?,?,?)";

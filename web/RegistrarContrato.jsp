@@ -25,96 +25,140 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Registrar Contrato</title>
+        <title>Registrar Empleado</title>
+        <!-- icon  -->
+        <link rel="icon" href="Css/recursos/Logo sadin.svg">
+        <%@include file="VistasParciales/linksHead.jsp"%>
+
     </head>
     <body>
+        <div class="container-scroller">
+            <%@include file="VistasParciales/navDashboard.jsp"%>
 
-        <h1>Registrar Contrato</h1>
-        <div style="color:red;">
-            <%                if (request.getAttribute("MensajeError") != null) {%>
-            ${MensajeError}
-            <% } else {%>
-            ${MensajeExito}
-            <%}%>
+            <div class="container-fluid page-body-wrapper">
+                <%@include file="VistasParciales/menuDashboard.jsp"%>
+
+                <div class="main-panel">
+                    <div class="content-wrapper">
+                        <div class="row">
+                            <div class="col-12 grid-margin">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Registrar Contrato</h4>
+                                        <form method="post" action="Contrato" id="formulario" class="form-sample">
+                                            <input type="hidden" value="<%=IdEmpleado%>" name="txtIdEmpleado"> 
+
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    <div class="form-group row">
+                                                        <label>Fecha de contratación</label>
+                                                        <input type="date" class="form-control" id="fechaActual" name="txtFechaContratacion" readonly="readonly"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="form-group row">
+                                                        <label>Fecha de finalización</label>
+                                                        <input type="date" class="form-control" required  name="txtFechaFinalizacion"/>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="row">
+                                                <div class="col-md-10">
+                                                    <div class="form-group row">
+                                                        <label>Salario</label>
+                                                        <input type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57)
+                                                                    event.returnValue = false;" required name="txtSalario"/>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="form-group row">
+                                                        <label>Horario</label>
+                                                        <select class="form-control" name="txtHorario">
+                                                            <option selected disabled>Seleccione un horario</option>
+                                                            <%                    HorarioDAO horarioDAO = new HorarioDAO();
+                                                                for (HorarioVO horarioVO : horarioDAO.Listar()) {
+                                                            %>
+                                                            <option value="<%=horarioVO.getIdHorario()%>"><%=horarioVO.getHorarioLaboral()%></option>
+                                                            <%}%>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="form-group row">
+                                                        <label>Cargo</label>
+                                                        <select class="form-control" name="txtIdCargo">
+                                                            <option selected disabled>Seleccione un cargo</option>
+                                                            <%
+                                                                CargoDAO cargoDAO = new CargoDAO();
+                                                                for (CargoVO cargoVO : cargoDAO.Listar()) {
+                                                            %>
+                                                            <option value="<%=cargoVO.getIdCargo()%>"><%=cargoVO.getNombreCargo()%></option>
+                                                            <%}%>
+                                                        </select>
+
+                                                    </div>
+                                                </div>
+                                                <div class="col-md-10">
+                                                    <div class="form-group row">
+                                                        <label>Dependencia</label>
+                                                        <select class="form-control" name="txtDependencia">
+                                                            <option selected disabled>Seleccione...</option>
+                                                            <%
+                                                                DependenciaDAO depenDAO = new DependenciaDAO();
+                                                                for (DependenciaVO depenVO : depenDAO.Listar()) {
+                                                            %>
+                                                            <option value="<%=depenVO.getIdDependencia()%>"><%=depenVO.getDependencia()%></option>
+                                                            <%}%>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-10">
+                                                    <div class="form-group row">
+                                                        <label>Tipo de Contrato</label>
+                                                        <select class="form-control" name="txtIdTipoContrato">
+                                                            <option selected disabled>Seleccione...</option>
+                                                            <%
+                                                                TipoContratoDAO tipoConDAO = new TipoContratoDAO();
+                                                                for (TipoContratoVO tipoConVO : tipoConDAO.Listar()) {
+                                                            %>
+                                                            <option value="<%=tipoConVO.getIdTipoContrato()%>"><%=tipoConVO.getContrato()%></option>
+                                                            <%}%>
+                                                        </select>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-md-10">
+                                                    <div class="form-group row">
+                                                        <label>Jornada</label>
+                                                        <select class="form-control" name="txtIdJornada">
+                                                            <option selected disabled>Seleccione...</option>
+                                                            <%
+                                                                JornadaDAO jornadaDAO = new JornadaDAO();
+                                                                for (JornadaVO jornadaVO : jornadaDAO.Listar()) {
+                                                            %>
+                                                            <option value="<%=jornadaVO.getIdJornada()%>"><%=jornadaVO.getJornada()%></option>
+                                                            <%}%>
+                                                        </select>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <button type="submit" class="btn btn-warning">Registrar</button>
+                                            <input type="hidden" value="1" name="opcion">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
-        
-        <form method="post" action="Contrato" id="formulario">
-
-            <input type="hidden" value="<%=IdEmpleado%>" name="txtIdEmpleado"> 
-
-
-            <span>Fecha de Contratación</span><br>
-            <input type="date" id="fechaActual" name="txtFechaContratacion" readonly="readonly"><br>
-
-            <span>Fecha de Finalización</span><br>
-            <input required type="date" name="txtFechaFinalizacion"><br>
-
-            <span>Salario</span><br>
-            <input onKeypress="if (event.keyCode < 45 || event.keyCode > 57)
-                        event.returnValue = false;" required type="text" name="txtSalario" placeholder="Ingrese Salario"><br>
-
-            <span>Horario</span><br>
-            <select aria-required="true" name="txtHorario">
-                <option selected disabled>Seleccione...</option>
-                <%                    HorarioDAO horarioDAO = new HorarioDAO();
-                    for (HorarioVO horarioVO : horarioDAO.Listar()) {
-                %>
-                <option value="<%=horarioVO.getIdHorario()%>"><%=horarioVO.getHorarioLaboral()%></option>
-                <%}%>
-            </select><br>
-
-            <span>Cargo</span><br>
-            <select aria-required="true" name="txtIdCargo">
-                <option selected disabled>Seleccione...</option>
-                <%
-                    CargoDAO cargoDAO = new CargoDAO();
-                    for (CargoVO cargoVO : cargoDAO.Listar()) {
-                %>
-                <option value="<%=cargoVO.getIdCargo()%>"><%=cargoVO.getNombreCargo()%></option>
-                <%}%>
-            </select><br>
-
-            <span>Dependencia</span><br>
-            <select aria-required="true" name="txtDependencia">
-                <option selected disabled>Seleccione...</option>
-                <%
-                    DependenciaDAO depenDAO = new DependenciaDAO();
-                    for (DependenciaVO depenVO : depenDAO.Listar()) {
-                %>
-                <option value="<%=depenVO.getIdDependencia()%>"><%=depenVO.getDependencia()%></option>
-                <%}%>
-            </select><br>
-
-            <span>Tipo de Contrato</span><br>
-            <select aria-required="true" name="txtIdTipoContrato">
-                <option selected disabled>Seleccione...</option>
-                <%
-                    TipoContratoDAO tipoConDAO = new TipoContratoDAO();
-                    for (TipoContratoVO tipoConVO : tipoConDAO.Listar()) {
-                %>
-                <option value="<%=tipoConVO.getIdTipoContrato()%>"><%=tipoConVO.getContrato()%></option>
-                <%}%>
-            </select><br>
-
-            <span>Jornada</span><br>
-            <select aria-required="true" name="txtIdJornada">
-                <option selected disabled>Seleccione...</option>
-                <%
-                    JornadaDAO jornadaDAO = new JornadaDAO();
-                    for (JornadaVO jornadaVO : jornadaDAO.Listar()) {
-                %>
-                <option value="<%=jornadaVO.getIdJornada()%>"><%=jornadaVO.getJornada()%></option>
-                <%}%>
-            </select><br>
-
-            <button onclick="validar">Registrar</button>
-            <input type="hidden" value="1" name="opcion">
-        </form>
-
+        <%@include file="VistasParciales/scriptsFooter.jsp"%>
         <script src="JavaScript/validar.js"></script>
         <script src="JavaScript/Fechas.js"></script>
-
 
     </body>
 </html>

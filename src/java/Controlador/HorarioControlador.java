@@ -57,7 +57,7 @@ public class HorarioControlador extends HttpServlet {
                 } else {
                     request.setAttribute("MensajeError", "El horario NO se registro correctamente");
                 }
-                request.getRequestDispatcher("registrarHorario.jsp").forward(request, response);
+                request.getRequestDispatcher("RegistrarHorario.jsp").forward(request, response);
                 break;
             case 2: //Actualizar registro
                 if (horarioDAO.actualizarRegistro()) {

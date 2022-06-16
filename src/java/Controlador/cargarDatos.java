@@ -62,10 +62,10 @@ public class cargarDatos extends HttpServlet {
 
                 try {
 
-                    if (empDAO.cargarUsuarios(rutaAbsoluta) == true) {
+                    if (empDAO.cargarEmpleados(rutaAbsoluta) == true) {
 
-                        request.setAttribute("MensajeExito", "La carga se hizo correactamente");
-                        request.getRequestDispatcher("cargarContrato.jsp").forward(request, response);
+                        request.setAttribute("MensajeExito", "Los datos principales se han cargado correctamente, continue la operación");
+                        request.getRequestDispatcher("cargaContrato.jsp").forward(request, response);
                     } else {
                         request.setAttribute("MensajeError", "Error");
                         request.getRequestDispatcher("cargarDatos.jsp").forward(request, response);

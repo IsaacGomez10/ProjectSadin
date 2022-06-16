@@ -65,11 +65,7 @@
 
         <section class="about" id="about">
 
-            <section class="home" id="home">
-                <div class="content">
-                    <h1 class="heading__contact">Acerca de SADIN</h1>
-                </div>
-            </section>
+            <h1 class="heading"> Acerca de SADIN </h1>
 
             <div class="column">
                 <div class="image">
@@ -91,11 +87,7 @@
 
         <section class="features" id="features">
 
-            <section class="home" id="home">
-                <div class="content">
-                   <h1 class="heading__contact">Módulos</h1>
-                </div>
-            </section>
+            <h1 class="heading"> Módulos </h1>
 
             <div class="box-container">
 
@@ -134,11 +126,7 @@
 
         <section class="aboutSadin" id="review">
 
-            <section class="home" id="home">
-                <div class="content">
-                    <h1 class="heading__contact">Funcionalidades</h1>
-                </div>
-            </section>
+            <h1 class="heading"> Funcionalidades </h1>
 
             <div class="column">
 
@@ -167,11 +155,7 @@
 
         <section class="aboutSadinCertificados" id="ventajas">
 
-            <section class="home" id="home">
-                <div class="content">
-                    <h1 class="heading__contact">Ventajas</h1>
-                </div>
-            </section>
+            <h1 class="heading"> Ventajas </h1>
 
             <div class="column">
 

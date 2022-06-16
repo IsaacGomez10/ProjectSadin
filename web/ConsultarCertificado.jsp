@@ -15,7 +15,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <!-- icon  -->
         <link rel="icon" href="Css/recursos/Logo sadin.svg">
-        <title>Certificación</title>
+        <title>Sadin Certificados</title>
         <link rel="stylesheet" href="Css/estilosCertificado.css">
         <!-- font awesome icons -->
         <link rel="stylesheet" href="css/font-awesome.css">
@@ -31,11 +31,13 @@
         %>
 
         <div class="main">
-
+            <h1 class="home">Selecciona tu <span>certificado</span></h1>
             <div class="containers">
+
                 <div class="cards">
                     <div class="box">
                         <div class="content">
+
                             <form method="post" action="Reporte/CargoDesempenado.jsp" target="_black">
                                 <h1>01</h1>
                                 <h3>Certificado cargo desempeñado</h3>

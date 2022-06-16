@@ -8643,7 +8643,7 @@
  * Copyright 2011-2021 The Bootstrap Authors
  * Copyright 2011-2021 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
- */
+ 
 :root {
   --blue: #5E50F9;
   --indigo: #6610f2;
@@ -8690,7 +8690,7 @@
   --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", "Liberation Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
-
+*/
 *,
 *::before,
 *::after {
@@ -16835,14 +16835,14 @@ button.bg-dark:focus,
   z-index: 1030;
 }
 
-@supports (position: sticky) {
+/*@supports (position: sticky) {
   .sticky-top {
     position: sticky;
     top: 0;
     z-index: 1020;
   }
 }
-
+*/
 .sr-only {
   position: absolute;
   width: 1px;

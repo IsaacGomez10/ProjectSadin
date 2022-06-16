@@ -53,7 +53,7 @@ public class CargoControlador extends HttpServlet {
                 }else{
                     request.setAttribute("MensajeError", "El cargo No se registró correctamente");
                 }
-                request.getRequestDispatcher("registrarCargo.jsp").forward(request, response);
+                request.getRequestDispatcher("RegistrarCargo.jsp").forward(request, response);
                 break;
             case 2: //Actualizar registro
                 if(carDAO.actualizarRegistro()){

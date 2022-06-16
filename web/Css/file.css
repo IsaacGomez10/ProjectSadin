@@ -1,0 +1,23 @@
+/*file*/
+.uploadFile{
+    font-size: 16px;
+    background: #ccc;
+    border-radius: 25px;
+    width: 450px;
+    outline: none;
+}
+
+::-webkit-file-upload-button{
+    color: #fff;
+    background: #2980b9;
+    padding: 20px;
+    border: none;
+    border-radius: 25px;
+    box-shadow: 1px 0 1px #ccc;
+    outline: none;
+}
+
+::-webkit-file-upload-button:hover{
+    border: #24C2C7;
+    background: #0050e3;
+}

@@ -60,10 +60,10 @@ public class ContratoControlador extends HttpServlet {
         switch (opcion) {
             case 1: //Agregar registro
                 if (conDAO.agregarRegistro()) {
-                    request.setAttribute("MensajeExito", "El contrato se registro correctamente");
+                    request.setAttribute("MensajeExito", "Elempleado se registro correctamente");
                     request.getRequestDispatcher("RegistrarEmpleado.jsp").forward(request, response);
                 } else {
-                    request.setAttribute("MensajeError", "El contrato No se registro correctamente");
+                    request.setAttribute("MensajeError", "El contrato No se registro correctamente, verifique");
                     request.getRequestDispatcher("RegistrarContrato.jsp").forward(request, response);
                 }
 

@@ -37,7 +37,7 @@
                         </div>
                         <button class="btn solid" type="submit"> Ingresar <i class="fas fa-angle-double-right"></i></button>
                         <input type="hidden" value="3" name="opcion">
-                        <a class="only__link" href="#" onclick="cambiarClave()">¿Ha olvidado tu contraseña?</a>
+                        <a class="only__link" onclick="cambiarClave()">¿Ha olvidado tu contraseña?</a>
                     </form>
 
                     <form method="post" action="Funcionario" class="sign-up-form">
@@ -49,7 +49,7 @@
                             <div class="form__group">
                                 <input type="text" name="txtUsuario" id="doc" class="form__input" placeholder=" " autocomplete="off" required="" onKeypress="if (event.keyCode < 45 || event.keyCode > 57)
                                             event.returnValue = false;">
-                                <label for="doc" class="form__label">Número de Documento</label>
+                                <label for="doc" class="form__label">Número de documento</label>
                             </div>
 
                         </div>
@@ -58,7 +58,6 @@
                     </form>
 
                 </div>
-                <%@include file="./ErrorDatosJava/ErrorDatosJava.jsp" %>
             </div>
 
             <div class="panels-container">
@@ -73,7 +72,7 @@
                         </button>
 
                     </div>
-                    <img src="Css/recursos/log.svg" class="image" alt="" />
+                    <img src="Css/recursos/log.svg" class="image" alt="Login" />
                 </div>
                 <div class="panel right-panel">
                     <div class="content">
@@ -86,7 +85,7 @@
                         </button>
 
                     </div>
-                    <img src="Css/recursos/register.svg" class="image" alt="" />
+                    <img src="Css/recursos/register.svg" class="image" alt="Register" />
                 </div>
             </div>
 

@@ -12,28 +12,48 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Registrar Horario</title>
+        <!-- icon  -->
+        <link rel="icon" href="Css/recursos/Logo sadin.svg">
+        <%@include file="VistasParciales/linksHead.jsp"%>
+
     </head>
     <body>
+        <div class="container-scroller">
+            <%@include file="VistasParciales/navDashboard.jsp"%>
 
-    <center>
-        <h1>Registrar Horario</h1>
-        <form method="post" action="Horario">
+            <div class="container-fluid page-body-wrapper">
+                <%@include file="VistasParciales/menuDashboard.jsp"%>
 
-            <span>Descripcion de horario</span><br>
-            <textarea required name="txtHorarioLaboral" rows="5" cols="40" style="resize: none;" placeholder="Ingresar Descripción"></textarea><br>
-
-            <button>Registrar</button>
-            <input type="hidden" value="1" name="opcion">
-        </form><br>
-        <a href="Index.jsp">Inicio</a>
-        <div style="color:red;">
-            <%                if (request.getAttribute("MensajeError") != null) {%>
-            ${MensajeError}
-            <% } else {%>
-            ${MensajeExito}
-            <%}%>
+                <div class="main-panel">
+                    <div class="content-wrapper">
+                        <div class="row">
+                            <div class="col-12 grid-margin">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Registrar Horario</h4>
+                                        <form class="form-sample" method="post" action="Horario">
+                                            <div class="row">
+                                                <div class="col-md-12">
+                                                    <div class="form-group">
+                                                        <label for="exampleTextarea1">Descripción de horario</label>
+                                                        <textarea placeholder="Ingresar Descripción" required name="txtHorarioLaboral" class="form-control" id="exampleTextarea1" rows="4"></textarea>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <button class="btn btn-warning">Registrar</button>
+                                            <input type="hidden" value="1" name="opcion">
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
         </div>
+        <%@include file="VistasParciales/scriptsFooter.jsp"%>
 
-    </center>
-</body>
+
+    </body>
 </html>
