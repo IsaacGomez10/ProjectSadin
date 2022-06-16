@@ -31,8 +31,7 @@
             <div class="container-fluid page-body-wrapper">
                 <%@include file="VistasParciales/menuDashboard.jsp"%>
 
-                <%                    
-                    EmpleadoVO empVO = (EmpleadoVO) request.getAttribute("EmpleadoConsultado");
+                <%                    EmpleadoVO empVO = (EmpleadoVO) request.getAttribute("EmpleadoConsultado");
                     if (empVO != null) {
                 %>
                 <div class="main-panel">
@@ -42,7 +41,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="card-title">Actualizar Empleado</h4>
-                                        <form class="form-sample">
+                                        <form class="form-sample" method="post" action="Empleado">
                                             <div class="row">
                                                 <div class="col-md-10">
                                                     <div class="form-group ">
@@ -122,10 +121,12 @@
                             </div>
                         </div>
                     </div>
+                    <%@include file="VistasParciales/footerDashboard.jsp"%>  
                 </div>
             </div>
         </div>
-    </div>
-    <%@include file="VistasParciales/scriptsFooter.jsp"%>
-</body>
+        <%@include file="VistasParciales/scriptsFooter.jsp"%>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <%@include file="ErrorDatosJava/ErrorDatosJava.jsp"%>  
+    </body>
 </html>

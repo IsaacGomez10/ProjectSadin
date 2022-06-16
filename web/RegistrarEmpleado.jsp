@@ -35,7 +35,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="card-title">Registrar Empleado</h4>
-                                        <form class="form-sample">
+                                        <form class="form-sample" method="post" action="Empleado" id="formulario">
                                             <div class="row">
                                                 <div class="col-md-10">
                                                     <div class="form-group ">
@@ -110,12 +110,13 @@
                             </div>
                         </div>
                     </div>
+                    <%@include file="VistasParciales/footerDashboard.jsp"%>  
                 </div>
             </div>
 
         </div>
         <%@include file="VistasParciales/scriptsFooter.jsp"%>
-
-
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <%@include file="ErrorDatosJava/ErrorDatosJava.jsp"%>  
     </body>
 </html>

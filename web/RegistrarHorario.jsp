@@ -48,12 +48,14 @@
                             </div>
                         </div>
                     </div>
+                    <%@include file="VistasParciales/footerDashboard.jsp"%>  
                 </div>
                 
             </div>
         </div>
         <%@include file="VistasParciales/scriptsFooter.jsp"%>
-
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <%@include file="ErrorDatosJava/ErrorDatosJava.jsp"%>
 
     </body>
 </html>

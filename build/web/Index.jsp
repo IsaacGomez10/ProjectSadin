@@ -94,6 +94,6 @@
         <script src="Css/js/appLogin.js"></script>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <script src="Css/js/cambiarClave.js"></script>
-
+        <%@include file="ErrorDatosJava/ErrorDatosJava.jsp"%>  
     </body>
 </html>

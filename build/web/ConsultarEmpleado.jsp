@@ -45,7 +45,7 @@
                                 <p class="card-description">
                                     Busque el empleado por su número de documento
                                 </p>
-                                <form method="post" action="Empleado">
+                                <form method="post" action="Empleado" class="form-sample">
                                     <div class="input-group">
                                         <div class="col-md-4">
                                             <label>Número de documento</label>
@@ -99,10 +99,13 @@
                             </div>
                         </div>
                     </div>
+                    <%@include file="VistasParciales/footerDashboard.jsp"%>  
                 </div>
             </div>
         </div>
         <%@include file="VistasParciales/scriptsFooter.jsp"%>
         <script src="JavaScript/Buscador.js"></script>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <%@include file="ErrorDatosJava/ErrorDatosJava.jsp"%>
     </body>
 </html>

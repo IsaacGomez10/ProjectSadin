@@ -41,8 +41,8 @@
                                                 </div>
                                             </div>
                                         </div>
-                                            <button class="btn btn-warning">Subir archivo</button>
-                                            <input type="hidden" value="1" name="opcion">           
+                                        <button class="btn btn-warning">Subir archivo</button>
+                                        <input type="hidden" value="1" name="opcion">           
                                     </form>
 
                                 </div>
@@ -55,6 +55,7 @@
 
             </div>
             <%@include file="VistasParciales/scriptsFooter.jsp"%>
-
+            <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+            <%@include file="ErrorDatosJava/ErrorDatosJava.jsp"%>
     </body>
 </html>

@@ -60,5 +60,7 @@
             </section>
         </div>
         <%@include file="VistasParciales/footer.jsp" %>
+        <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <%@include file="ErrorDatosJava/ErrorDatosJava.jsp"%>
     </body>
 </html>
