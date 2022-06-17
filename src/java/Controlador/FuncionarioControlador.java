@@ -135,6 +135,7 @@ public class FuncionarioControlador extends HttpServlet {
                     if (funVO != null) {
 
                         empVO = empDAO.consultarEmpleados(Usuario);
+                        
 
                         HttpSession miSesion = request.getSession(true);
 
@@ -145,7 +146,7 @@ public class FuncionarioControlador extends HttpServlet {
                         miSesion.setAttribute("datosEmpleado", empVO);
                         miSesion.setAttribute("datosEmpleadoRegistrado", empVO);
                         miSesion.setAttribute("datosFuncionario", funVO);
-                        
+                                                
                         request.setAttribute("MensajeExito", "Ingreso Correctamente");
                         request.getRequestDispatcher("menu.jsp").forward(request, response);
 

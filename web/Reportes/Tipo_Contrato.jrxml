@@ -103,6 +103,6 @@ where e.idempleado = $P{numeroDocumento}]]>
 		</band>
 	</detail>
 	<pageFooter>
-		<band height="120" splitType="Stretch"/>
+		<band height="52" splitType="Stretch"/>
 	</pageFooter>
 </jasperReport>

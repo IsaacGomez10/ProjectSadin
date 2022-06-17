@@ -29,7 +29,7 @@
                                 <div class="card">
                                     <div class="card-body">
                                         <h4 class="card-title">Monitoreo de datos</h4>
-                                        <canvas id="pieChart" width="607" height="303" style="display: block; width: 607px; height: 303px;" class="chartjs-render-monitor"></canvas>
+                                        <canvas id="pieChart" width="1004" height="604" style="display: block; width: 607px; height: 303px;" class="chartjs-render-monitor"></canvas>
                                     </div>
                                 </div>
                             </div>
@@ -43,7 +43,9 @@
 
         </div>
         <%@include file="VistasParciales/scriptsFooter.jsp"%>
+        <%@include file="VistasParciales/conteo.jsp"%>
         <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
         <%@include file="ErrorDatosJava/ErrorDatosJava.jsp"%>
+        
     </body>
 </html>

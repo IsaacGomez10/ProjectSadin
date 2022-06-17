@@ -40,6 +40,7 @@ public class EmpleadoDAO extends Conexion implements Crud {
     private String sql;
 
     private String idEmpleado = "", nombres = "", apellidos = "", idTipoDocumento = "", numeroDocumento = "", telefono = "", email = "", idLugarExpedicion = "", estado = "";
+    private static int conteoEmpleados;
 
     public EmpleadoDAO() {
     }
@@ -60,7 +61,6 @@ public class EmpleadoDAO extends Conexion implements Crud {
             email = empVO.getEmail();
             idLugarExpedicion = empVO.getIdLugarExpedicion();
             estado = empVO.getEstado();
-
         } catch (Exception e) {
             Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
 
@@ -289,7 +289,7 @@ public class EmpleadoDAO extends Conexion implements Crud {
             mensajero = puente.executeQuery();
 
             while (mensajero.next()) {
-                empVO = new EmpleadoVO(mensajero.getString(1),mensajero.getString("e.nombres"), mensajero.getString("e.apellidos"), mensajero.getString("td.tipodocumento"), mensajero.getString("e.numerodocumento"), mensajero.getString("e.telefono"), mensajero.getString("e.email"), mensajero.getString("le.lugarexpedicion"), mensajero.getString("e.estado"));
+                empVO = new EmpleadoVO(mensajero.getString(1), mensajero.getString("e.nombres"), mensajero.getString("e.apellidos"), mensajero.getString("td.tipodocumento"), mensajero.getString("e.numerodocumento"), mensajero.getString("e.telefono"), mensajero.getString("e.email"), mensajero.getString("le.lugarexpedicion"), mensajero.getString("e.estado"));
             }
 
         } catch (SQLException e) {
@@ -337,4 +337,82 @@ public class EmpleadoDAO extends Conexion implements Crud {
         return listaEmpleados;
     }
 
+    //contador para Grafica
+//    public int contarEmpleados() {
+//
+//        try {
+//            sql = "SELECT COUNT(IdEmpleado) from empleado WHERE Estado = 1";
+//            puente = conexion.prepareStatement(sql);
+//            puente.executeQuery();
+//            
+//            
+//        } catch (Exception e) {
+//            Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
+//        }
+//        
+//    }
+    public int contarEmpleados() {
+
+        try {
+            //La sentencia sql permite bucar si el dato que se ingreso ya lo tiene un id
+            conexion = this.obtenerConexion();
+            sql = "select count(idempleado) from empleado";
+            puente = conexion.prepareStatement(sql);
+            mensajero = puente.executeQuery();
+
+            if (mensajero.next()) {
+                //Si ese dato fue encontrado y pertenece a un id, el dato no podra ser registrado
+                return conteoEmpleados = mensajero.getInt(1);
+            }
+            //Finalmente se retorna que el dato se encuentra en un id
+
+        } catch (Exception e) {
+            Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        return conteoEmpleados;
+    }
+    public int contarEmpleadosActivos() {
+
+        try {
+            //La sentencia sql permite bucar si el dato que se ingreso ya lo tiene un id
+            conexion = this.obtenerConexion();
+            sql = "select count(idempleado) from empleado where estado = 1";
+            puente = conexion.prepareStatement(sql);
+            mensajero = puente.executeQuery();
+
+            if (mensajero.next()) {
+                //Si ese dato fue encontrado y pertenece a un id, el dato no podra ser registrado
+                return conteoEmpleados = mensajero.getInt(1);
+            }
+            //Finalmente se retorna que el dato se encuentra en un id
+
+        } catch (Exception e) {
+            Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        return conteoEmpleados;
+    }
+    
+    public int contarFuncionarios() {
+
+        try {
+            //La sentencia sql permite bucar si el dato que se ingreso ya lo tiene un id
+            conexion = this.obtenerConexion();
+            sql = "select count(idfuncionario) from funcionario";
+            puente = conexion.prepareStatement(sql);
+            mensajero = puente.executeQuery();
+
+            if (mensajero.next()) {
+                //Si ese dato fue encontrado y pertenece a un id, el dato no podra ser registrado
+                return conteoEmpleados = mensajero.getInt(1);
+            }
+            //Finalmente se retorna que el dato se encuentra en un id
+
+        } catch (Exception e) {
+            Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        return conteoEmpleados;
+    }
 }
