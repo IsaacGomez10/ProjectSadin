@@ -1,4 +1,4 @@
-Archivos necesarios(Jasper - iReport - BD-Sadin)
+Archivos necesarios(Jasper & iReport - Librerias - BD-Sadin)
 https://www.mediafire.com/folder/08hbq2ebi9gt2/Archivos+para+SADIN
 
 Librerías
