@@ -39,7 +39,7 @@ public class ContratoDAO extends Conexion implements Crud {
     private String sql;
     private String lastIdEmpleado;
 
-    private String IdContrato = "", FechaContratacion = "", FechaFinalizacion = "", Salario = "", IdHorario = "", IdCargo = "", IdDependencia = "", IdTipoContrato = "", IdEmpleado = "", IdJornada = "";
+    private String NumeroDocumento = "", IdContrato = "", FechaContratacion = "", FechaFinalizacion = "", Salario = "", IdHorario = "", IdCargo = "", IdDependencia = "", IdTipoContrato = "", IdEmpleado = "", IdJornada = "";
 
     public ContratoDAO() {
     }
@@ -77,7 +77,7 @@ public class ContratoDAO extends Conexion implements Crud {
             sql = "insert into contrato(IdEmpleado, FechaContratacion, FechaFinalizacion, Salario, IdCargo,IdDependencia, "
                     + "IdTipoContrato, IdJornada, IdHorario) values(?,?,?,?,?,?,?,?,?)";
             puente = conexion.prepareStatement(sql);
-            
+
             puente.setString(1, IdEmpleado);
             puente.setString(2, FechaContratacion);
             puente.setString(3, FechaFinalizacion);
@@ -104,7 +104,89 @@ public class ContratoDAO extends Conexion implements Crud {
         return operacion;
     }
 
-    
+    @Override
+    public boolean actualizarRegistro() {
+        try {
+            sql = "update contrato set FechaFinalizacion= ?, Salario=?, IdCargo=?, IdDependencia=?, IdTipoContrato=?, IdJornada=?, IdHorario=? where idempleado = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, FechaFinalizacion);
+            puente.setString(2, Salario);
+            puente.setString(3, IdCargo);
+            puente.setString(4, IdDependencia);
+            puente.setString(5, IdTipoContrato);
+            puente.setString(6, IdJornada);
+            puente.setString(7, IdHorario);
+            puente.setString(8, IdEmpleado);
+            puente.executeUpdate();
+            operacion = true;
+
+        } catch (SQLException e) {
+            Logger.getLogger(ContratoDAO.class.getName()).log(Level.SEVERE, null, e);
+
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (SQLException e) {
+                Logger.getLogger(ContratoDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+        return operacion;
+    }
+
+    public ContratoVO consultarContratos(String id) {
+
+        ContratoVO conVO = null;
+
+        try {
+            conexion = this.obtenerConexion();
+            sql = "select * from contrato c inner join empleado e on c.IdEmpleado = e.IdEmpleado where e.NumeroDocumento =?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, id);
+            mensajero = puente.executeQuery();
+
+            while (mensajero.next()) {
+                conVO = new ContratoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3), mensajero.getString(4), mensajero.getString(5), mensajero.getString(6), mensajero.getString(7), mensajero.getString(8), mensajero.getString(9), mensajero.getString(10));
+            }
+
+        } catch (SQLException e) {
+            Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (SQLException e) {
+                Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+
+        return conVO;
+    }
+
+    public ContratoVO actualizarDatos(String id) {
+
+        ContratoVO conVO = null;
+
+        try {
+            conexion = this.obtenerConexion();
+            sql = "select c.FechaFinalizacion,c.Salario,cg.NombreCargo,dc.Dependencia,tc.Contrato,j.Jornada,h.HorarioLaboral from contrato c inner join cargo cg on c.IdCargo = cg.IdCargo inner join dependenciacargos dc on c.IdDependencia = dc.IdDependencia inner join tipocontrato tc on c.IdTipoContrato = tc.IdTipoContrato inner join jornada j on c.IdJornada = j.IdJornada inner join horario h on c.IdHorario = h.IdHorario inner join empleado e on c.IdEmpleado = e.IdEmpleado where e.NumeroDocumento = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, id);
+            mensajero = puente.executeQuery();
+
+            while (mensajero.next()) {
+                conVO = new ContratoVO(mensajero.getString(1), mensajero.getString(2), mensajero.getString(3),
+                        mensajero.getString("c.FechaFinalizacion"), mensajero.getString("c.Salario"),
+                        mensajero.getString("cg.NombreCargo"), mensajero.getString("dc.Dependencia"),
+                        mensajero.getString("tc.Contrato"), mensajero.getString("j.Jornada"),
+                        mensajero.getString("h.HorarioLaboral"));
+            }
+
+        } catch (SQLException e) {
+            Logger.getLogger(ContratoDAO.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        return conVO;
+    }
+
     public boolean cargarContrato(String rutaAbsoluta) throws SQLException, IOException {
 
         try {
@@ -117,15 +199,14 @@ public class ContratoDAO extends Conexion implements Crud {
             XSSFSheet sheet = wb.getSheetAt(0);
             DataFormatter dataFormater = new DataFormatter();
             int numFilas = sheet.getLastRowNum();
-            
-            //SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
 
+            //SimpleDateFormat format = new SimpleDateFormat("dd-MM-yyyy");
             for (int a = 1; a <= numFilas; a++) {
                 Row fila = sheet.getRow(a);
 
                 puente = conexion.prepareStatement(sql);
                 puente.setString(1, dataFormater.formatCellValue(fila.getCell(0)));
-                
+
                 puente.setString(2, dataFormater.formatCellValue(fila.getCell(1)));
                 puente.setString(3, dataFormater.formatCellValue(fila.getCell(2)));
                 puente.setString(4, dataFormater.formatCellValue(fila.getCell(3)));
@@ -148,15 +229,10 @@ public class ContratoDAO extends Conexion implements Crud {
 
         return operacion;
     }
-    @Override
-    public boolean actualizarRegistro() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 
     @Override
     public boolean eliminarRegistro() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-    
-    
+
 }

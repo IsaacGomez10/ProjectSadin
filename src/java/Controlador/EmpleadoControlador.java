@@ -64,6 +64,7 @@ public class EmpleadoControlador extends HttpServlet {
                                 empVO = new EmpleadoVO(Id, Documento);
 
                                 miSesion.setAttribute("datosEmpleadoRegistrado", empVO);
+                                request.setAttribute("MensajeExito", "El empleado se registro correctamente");
                                 request.getRequestDispatcher("RegistrarContrato.jsp").forward(request, response);
                             } else {
                                 request.setAttribute("MensajeError", "El empleado no pudo ser registrado, verifique datos");
@@ -106,8 +107,12 @@ public class EmpleadoControlador extends HttpServlet {
                 break;
             case 4:
                 empVO = empDAO.actualizarDatos(NumeroDocumento);
+                EmpleadoVO numeroId = empVO;
+                numeroId = empDAO.consultarEmpleados(NumeroDocumento);
+
                 if (empVO != null) {
                     request.setAttribute("obtenerDatos", empVO);
+                    request.setAttribute("obtenerIds", numeroId);
                     request.getRequestDispatcher("ActualizarEmpleado.jsp").forward(request, response);
                 } else {
                     request.setAttribute("MensajeError", "El empleado No existe, verifique el número de documento");

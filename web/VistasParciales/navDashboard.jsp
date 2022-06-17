@@ -19,8 +19,7 @@
                 <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
                     <form method="post" action="Sesiones">
                         <div>
-                            <input class="dropdown-item" type="submit" value="Cerrar Sesi?n">
-                            <i class="ti-power-off text-primary"></i>
+                            <input class="dropdown-item" type="submit" value="Cerrar Sesión">
                         </div>
                     </form>
 

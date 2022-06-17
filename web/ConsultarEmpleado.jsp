@@ -49,11 +49,11 @@
                                     <div class="col-4">
                                         <label>Número de documento</label>
                                         <input id="buscarDocumento" type="text" onKeypress="if (event.keyCode < 45 || event.keyCode > 57)
-                                                        event.returnValue = false;" maxlength="14" onkeyup="doSearch()" placeholder="Ingrese documento"  class="form-control"/>
+                                                    event.returnValue = false;" maxlength="14" onkeyup="doSearch()" placeholder="Ingrese documento"  class="form-control"/>
                                     </div>
                                 </div>
                                 <form method="post" action="Empleado" class="form-sample">
-                                    
+
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="table-responsive">
@@ -67,10 +67,13 @@
                                                             <th>Teléfono</th>
                                                             <th>Correo electrónico</th>
                                                             <th>Lugar expedición</th>
+                                                            <th>Actualizar <br> empleado</th>
+                                                            <th>Actualizar <br> contrato</th>
                                                         </tr>
                                                     </thead>
 
-                                                    <%                    EmpleadoDAO empDAO = new EmpleadoDAO();
+                                                    <%                    
+                                                        EmpleadoDAO empDAO = new EmpleadoDAO();
                                                         ArrayList<EmpleadoVO> listaEmpleados = empDAO.obtenerEmpleados();
                                                         for (EmpleadoVO empVO : listaEmpleados) {
 
@@ -87,6 +90,13 @@
                                                             <form method="post" action="Empleado">
                                                                 <input name="txtNumeroDocumento" type="hidden" value="<%= empVO.getNumeroDocumento()%>">         
                                                                 <button class="btn btn-inverse-info btn-icon"><i class="ti-pencil"></i></button>
+                                                                <input type="hidden" value="4" name="opcion">
+                                                            </form>
+                                                        </td>
+                                                        <td>
+                                                            <form method="post" action="Contrato">
+                                                                <input name="txtNumeroDocumento" type="hidden" value="<%= empVO.getNumeroDocumento() %>">         
+                                                                <button class="btn btn-inverse-danger btn-icon"><i class="ti-clipboard"></i></button>
                                                                 <input type="hidden" value="4" name="opcion">
                                                             </form>
                                                         </td>

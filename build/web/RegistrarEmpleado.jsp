@@ -37,13 +37,13 @@
                                         <h4 class="card-title">Registrar Empleado</h4>
                                         <form class="form-sample" method="post" action="Empleado" id="formulario">
                                             <div class="row">
-                                                <div class="col-md-10">
+                                                <div class="col-md-6">
                                                     <div class="form-group ">
                                                         <label>Nombres</label>
                                                         <input required="" type="text" class="form-control" name="txtNombres" id="nombre" />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-10">
+                                                <div class="col-md-6">
                                                     <div class="form-group ">
                                                         <label>Apellidos </label>
                                                         <input required="" type="text" name="txtApellidos" id="apellido" class="form-control" />
@@ -51,7 +51,7 @@
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-10">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Tipo de documento</label>
                                                         <select required="" class="form-control" name="txtIdTipoDocumento">
@@ -64,27 +64,27 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-10">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Número de documento</label>
                                                         <input type="text" class="form-control" required="" onKeypress="if (event.keyCode < 45 || event.keyCode > 57)
                                                                     event.returnValue = false;" maxlength="14" type="text"  name="txtNumeroDocumento" />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-10">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Teléfono</label>
                                                         <input type="text" class="form-control" required="" onKeypress="if (event.keyCode < 45 || event.keyCode > 57)
                                                                     event.returnValue = false;" maxlength="10" type="text"name="txtTelefono" id="telefono" />
                                                     </div>
                                                 </div>
-                                                <div class="col-md-10">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Correo electrónico</label>
                                                         <input type="text" class="form-control" name="txtEmail" id="email" placeholder="correo@correo.com"/>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-10">
+                                                <div class="col-md-6">
                                                     <div class="form-group">
                                                         <label>Lugar de expedición</label>
 
@@ -100,6 +100,12 @@
                                                         </select>
                                                     </div>
                                                 </div>
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
+                                                        <label>Estado</label>
+                                                        <input value="Su estado actual es activo." disabled class="form-control">
+                                                    </div>
+                                                </div> 
                                             </div> 
 
                                             <button type="submit" class="btn btn-warning">Continuar</button>

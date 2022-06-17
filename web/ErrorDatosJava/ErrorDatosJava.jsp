@@ -1,18 +1,19 @@
 <script>
     <%if (request.getAttribute("MensajeError") != null) {%>
-    (window)Swal.fire({
+    Swal.fire({
         icon: 'warning',
         text: 'Oop, ocurrio un error',
-        html: `${MensajeError}`,
+        html: '${MensajeError}',
         confirmButtonText: 'Cerrar'
 
     });
 
     <% } else {%>
+    
     Swal.fire({
         icon: 'succcess',
-        text:'En hora buena!',
-        html: `${MensajeExito}`,
+        text:'Enhorabuena!',
+        html: '${MensajeExito}',
         confirmButtonText: 'Cerrar'
     });
     <%}%>

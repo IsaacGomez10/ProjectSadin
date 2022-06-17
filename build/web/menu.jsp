@@ -24,8 +24,18 @@
 
                 <div class="main-panel">
                     <div class="content-wrapper">
+                        <div class="row">
+                            <div class="col-lg-6 grid-margin grid-margin-lg-0 stretch-card">
+                                <div class="card">
+                                    <div class="card-body">
+                                        <h4 class="card-title">Monitoreo de datos</h4>
+                                        <canvas id="pieChart" width="607" height="303" style="display: block; width: 607px; height: 303px;" class="chartjs-render-monitor"></canvas>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    
+
                     <%@include file="VistasParciales/footerDashboard.jsp"%>  
                 </div>
 

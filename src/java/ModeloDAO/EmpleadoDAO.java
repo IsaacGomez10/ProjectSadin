@@ -93,17 +93,13 @@ public class EmpleadoDAO extends Conexion implements Crud {
     @Override
     public boolean actualizarRegistro() {
         try {
-            sql = "update Empleado set  Nombres =?, Apellidos=?, IdTipoDocumento=?, NumeroDocumento=?, Telefono=?, Email=?, IdLugarexpedicion=?, estado=? where NumeroDocumento=?";
+            sql = "update Empleado set IdTipoDocumento=?, Telefono=?, Email=?, estado=? where NumeroDocumento=?";
             puente = conexion.prepareStatement(sql);
-            puente.setString(1, nombres);
-            puente.setString(2, apellidos);
-            puente.setString(3, idTipoDocumento);
-            puente.setString(4, numeroDocumento);
-            puente.setString(5, telefono);
-            puente.setString(6, email);
-            puente.setString(7, idLugarExpedicion);
-            puente.setString(8, estado);
-            puente.setString(9, numeroDocumento);
+            puente.setString(1, idTipoDocumento);
+            puente.setString(2, telefono);
+            puente.setString(3, email);
+            puente.setString(4, estado);
+            puente.setString(5, numeroDocumento);
             puente.executeUpdate();
             operacion = true;
         } catch (Exception e) {
@@ -298,12 +294,6 @@ public class EmpleadoDAO extends Conexion implements Crud {
 
         } catch (SQLException e) {
             Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
-        } finally {
-            try {
-                this.cerrarConexion();
-            } catch (SQLException e) {
-                Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
-            }
         }
 
         return empVO;

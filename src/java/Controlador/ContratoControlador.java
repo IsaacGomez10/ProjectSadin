@@ -49,6 +49,8 @@ public class ContratoControlador extends HttpServlet {
         String IdJornada = request.getParameter("txtIdJornada");
         String IdHorario = request.getParameter("txtHorario");
 
+        String NumeroDocumento = request.getParameter("txtNumeroDocumento");
+
         //2. Quien tiene los datos de forma segura? VO
         ContratoVO conVO = new ContratoVO(IdContrato, IdEmpleado, FechaContratacion, FechaFinalizacion, Salario, IdCargo, IdDependencia, IdTipoContrato, IdJornada, IdHorario);
         //3. Quien hace las operaciones? DAO
@@ -60,13 +62,48 @@ public class ContratoControlador extends HttpServlet {
         switch (opcion) {
             case 1: //Agregar registro
                 if (conDAO.agregarRegistro()) {
-                    request.setAttribute("MensajeExito", "Elempleado se registro correctamente");
+                    request.setAttribute("MensajeExito", "El contrato se registro correctamente");
                     request.getRequestDispatcher("RegistrarEmpleado.jsp").forward(request, response);
                 } else {
-                    request.setAttribute("MensajeError", "El contrato No se registro correctamente, verifique");
+                    request.setAttribute("MensajeError", "El contrato No se registro correctamente, verifique datos");
                     request.getRequestDispatcher("RegistrarContrato.jsp").forward(request, response);
                 }
 
+                break;
+            case 2://Actualizar registro
+                if (conDAO.actualizarRegistro()) {
+                    request.setAttribute("MensajeExito", "El contrato se actualizo correctamente");
+                    request.getRequestDispatcher("ActualizarEmpleado.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("MensajeError", "El contrato no se actualizo correctamente, verifique datos");
+                    request.getRequestDispatcher("ConsultarEmpleado.jsp").forward(request, response);
+                }
+                break;
+                
+            case 3:
+                conVO = conDAO.consultarContratos(NumeroDocumento);
+                if (conVO != null) {
+                    request.setAttribute("ContratoConsultado", conVO);
+                    request.getRequestDispatcher("ActualizarContrato.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("MensajeError", "El contrato no se encuentra registrado, verifique el contrato del empleado");
+                    request.getRequestDispatcher("ConsultarEmpleado.jsp").forward(request, response);
+                }
+                break;
+                
+            case 4:
+                conVO = conDAO.actualizarDatos(NumeroDocumento);
+                ContratoVO numeroId = conVO;
+                numeroId = conDAO.consultarContratos(NumeroDocumento);
+                
+                if (conVO != null) {
+                    request.setAttribute("obtenerDatos", conVO);
+                    request.setAttribute("obtenerIds", numeroId);
+                    request.getRequestDispatcher("ActualizarContrato.jsp").forward(request, response);
+                } else {
+                    request.setAttribute("MensajeError", "Oops");
+                    request.getRequestDispatcher("ConsultarEmpleado.jsp").forward(request, response);
+                }
                 break;
 
         }

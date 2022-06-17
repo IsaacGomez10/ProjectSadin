@@ -49,29 +49,29 @@
                                             <input type="hidden" value="<%=IdEmpleado%>" name="txtIdEmpleado"> 
 
                                             <div class="row">
-                                                <div class="col-md-10">
-                                                    <div class="form-group row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
                                                         <label>Fecha de contratación</label>
                                                         <input type="date" class="form-control" id="fechaActual" name="txtFechaContratacion" readonly="readonly"/>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-10">
-                                                    <div class="form-group row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
                                                         <label>Fecha de finalización</label>
                                                         <input type="date" class="form-control" required  name="txtFechaFinalizacion"/>
                                                     </div>
                                                 </div>
                                             </div>
                                             <div class="row">
-                                                <div class="col-md-10">
-                                                    <div class="form-group row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
                                                         <label>Salario</label>
                                                         <input type="text" class="form-control" onKeypress="if (event.keyCode < 45 || event.keyCode > 57)
                                                                     event.returnValue = false;" required name="txtSalario"/>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-10">
-                                                    <div class="form-group row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
                                                         <label>Horario</label>
                                                         <select class="form-control" name="txtHorario">
                                                             <option selected disabled>Seleccione un horario</option>
@@ -83,8 +83,8 @@
                                                         </select>
                                                     </div>
                                                 </div>
-                                                <div class="col-md-10">
-                                                    <div class="form-group row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
                                                         <label>Cargo</label>
                                                         <select class="form-control" name="txtIdCargo">
                                                             <option selected disabled>Seleccione un cargo</option>
@@ -98,8 +98,8 @@
 
                                                     </div>
                                                 </div>
-                                                <div class="col-md-10">
-                                                    <div class="form-group row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
                                                         <label>Dependencia</label>
                                                         <select class="form-control" name="txtDependencia">
                                                             <option selected disabled>Seleccione...</option>
@@ -113,8 +113,8 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-10">
-                                                    <div class="form-group row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
                                                         <label>Tipo de Contrato</label>
                                                         <select class="form-control" name="txtIdTipoContrato">
                                                             <option selected disabled>Seleccione...</option>
@@ -128,8 +128,8 @@
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-10">
-                                                    <div class="form-group row">
+                                                <div class="col-md-6">
+                                                    <div class="form-group">
                                                         <label>Jornada</label>
                                                         <select class="form-control" name="txtIdJornada">
                                                             <option selected disabled>Seleccione...</option>

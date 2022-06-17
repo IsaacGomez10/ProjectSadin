@@ -96,7 +96,7 @@ public class FuncionarioControlador extends HttpServlet {
                             request.getRequestDispatcher("index.jsp").forward(request, response);
                         }
                     } else {
-                        request.setAttribute("MensajeError", "Este usuario ya existe.");
+                        request.setAttribute("MensajeError", "Este funcionario ya se encuentra registrado, verifique datos");
                         request.getRequestDispatcher("index.jsp").forward(request, response);
                     }
                 } else {
@@ -150,7 +150,7 @@ public class FuncionarioControlador extends HttpServlet {
                         request.getRequestDispatcher("menu.jsp").forward(request, response);
 
                     } else {
-                        request.setAttribute("MensajeError", "Este funcionario no existe");
+                        request.setAttribute("MensajeError", "Contraseña o Usuario incorrectos, verifique datos");
                         request.getRequestDispatcher("index.jsp").forward(request, response);
                     }
                 } else {

@@ -18,4 +18,5 @@
 <!-- Custom js for this page-->
 <script src="js/dashboard.js"></script>
 <script src="js/Chart.roundedBarCharts.js"></script>
+<script src="js/chart.js"></script>
 <!-- End custom js for this page-->

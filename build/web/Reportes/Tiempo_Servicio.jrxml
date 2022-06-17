@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cdc9b8d5-854d-47c2-b10f-0aff7dad5311">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="0"/>
+	<property name="ireport.y" value="61"/>
 	<parameter name="numeroDocumento" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[SELECT concat(e.Nombres, ' ',e.Apellidos)  , e.NumeroDocumento, le.LugarExpedicion, cg.NombreCargo, cg.DescripcionCargo, tc.Contrato, c.FechaContratacion, c.FechaFinalizacion,td.tipodocumento
@@ -70,14 +70,7 @@ WHERE e.idempleado = $P{numeroDocumento}]]>
 				<textFieldExpression><![CDATA["Una vez revisados los documentos que reposan en la historia laboral de <b>" + $F{concat(e.Nombres, ' ',e.Apellidos)} + "</b>, identificado con " + $F{tipodocumento} + " número " + $F{NumeroDocumento} + " expedida en " + $F{LugarExpedicion} + ", trabajó en esta empresa desde " + $F{FechaContratacion} + " hasta el " + $F{FechaFinalizacion} + ", desempeñado en el cargo de " + $F{NombreCargo} + ", cumpliendolas funciones " + $F{DescripcionCargo}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="17" y="87" width="536" height="38" uuid="25eb4a92-edf1-49e5-ab46-fc7bc314732f"/>
-				<textElement textAlignment="Justified" markup="html">
-					<font fontName="Arial" size="12"/>
-				</textElement>
-				<text><![CDATA[La presente constancia se expide en Bogotá fecha, por solicitud del depende si está ativo o no, con destino a: <b>QUIEN INTERESE</b>]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="17" y="125" width="100" height="20" uuid="b63a957f-f5ba-4990-8d8a-0451c3826975"/>
+				<reportElement x="17" y="196" width="100" height="20" uuid="b63a957f-f5ba-4990-8d8a-0451c3826975"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
@@ -97,6 +90,13 @@ WHERE e.idempleado = $P{numeroDocumento}]]>
 				</textElement>
 				<text><![CDATA[Cristiano Ronaldo Dos Santos Aveiro]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="17" y="125" width="536" height="113" uuid="8d6455f5-be57-43a8-a54a-162a0c4c92df"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["La presente constancia se expide en Bogotá D.C., "+ new SimpleDateFormat(" 'a los 'dd ' días de 'MMMM ' del ' yyyy").format(new Date()) +", por solicitud del empleado, con destino a: <b>QUIEN INTERESE</b>"]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<pageFooter>

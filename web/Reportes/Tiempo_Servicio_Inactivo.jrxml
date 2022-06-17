@@ -70,14 +70,7 @@ WHERE e.idempleado = $P{numeroDocumento}]]>
 				<textFieldExpression><![CDATA["Una vez revisados los documentos que reposan en la historia laboral de <b>" + $F{concat(e.Nombres, ' ',e.Apellidos)} + "</b>, identificado con " + $F{tipodocumento} + " número " + $F{NumeroDocumento} + " expedida en " + $F{LugarExpedicion} + ", trabajó en esta empresa desde " + $F{FechaContratacion} + " hasta el " + $F{FechaFinalizacion} + ", desempeñado en el cargo de " + $F{NombreCargo} + ", cumpliendolas funciones " + $F{DescripcionCargo}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="17" y="87" width="536" height="38" uuid="25eb4a92-edf1-49e5-ab46-fc7bc314732f"/>
-				<textElement textAlignment="Justified" markup="html">
-					<font fontName="Arial" size="12"/>
-				</textElement>
-				<text><![CDATA[La presente constancia se expide en Bogotá fecha, por solicitud del depende si está ativo o no, con destino a: <b>QUIEN INTERESE</b>]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="17" y="125" width="100" height="20" uuid="b63a957f-f5ba-4990-8d8a-0451c3826975"/>
+				<reportElement x="17" y="169" width="100" height="20" uuid="b63a957f-f5ba-4990-8d8a-0451c3826975"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
@@ -97,6 +90,13 @@ WHERE e.idempleado = $P{numeroDocumento}]]>
 				</textElement>
 				<text><![CDATA[Cristiano Ronaldo Dos Santos Aveiro]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="17" y="105" width="540" height="113" uuid="c4122d8d-c7c6-41e8-81c2-9e7909a23e3c"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["La presente constancia se expide en Bogotá D.C., "+ new SimpleDateFormat(" 'a los 'dd ' días de 'MMMM ' del ' yyyy").format(new Date()) +", por solicitud del ex-empleado, con destino a: <b>QUIEN INTERESE</b>"]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<pageFooter>

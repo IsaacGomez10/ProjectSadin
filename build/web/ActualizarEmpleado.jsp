@@ -31,8 +31,12 @@
             <div class="container-fluid page-body-wrapper">
                 <%@include file="VistasParciales/menuDashboard.jsp"%>
 
-                <%                    EmpleadoVO empVO = (EmpleadoVO) request.getAttribute("obtenerDatos");
+                <%                    
+                    EmpleadoVO empVO = (EmpleadoVO) request.getAttribute("obtenerDatos");
+                    EmpleadoVO empIds = (EmpleadoVO) request.getAttribute("obtenerIds");
                     if (empVO != null) {
+                        if (empIds != null) {
+
                 %>
                 <div class="main-panel">
                     <div class="content-wrapper">
@@ -61,7 +65,7 @@
                                                     <div class="form-group">
                                                         <label>Tipo de Documento</label>
                                                         <select required="" class="form-control" name="txtIdTipoDocumento">
-                                                            <option selected disabled value="<%=empVO.getIdTipoDocumento()%>"><%=empVO.getIdTipoDocumento()%></option>
+                                                            <option selected value="<%=empIds.getIdTipoDocumento()%>"><%=empVO.getIdTipoDocumento()%></option>
                                                             <%  TipoDocumentoDAO tipoDocDAO = new TipoDocumentoDAO();
                                                                 for (TipoDocumentoVO tipoDocVO : tipoDocDAO.Listar()) {
                                                             %>
@@ -96,7 +100,7 @@
                                                         <label>Lugar de Expedición</label>
 
                                                         <select required="" name="txtIdLugarExpedicion" class="form-control" readonly="readonly">
-                                                            <option selected value="<%=empVO.getIdLugarExpedicion()%>"><%=empVO.getIdLugarExpedicion()%></option>
+                                                            <option selected value="<%=empIds.getIdLugarExpedicion()%>"><%=empVO.getIdLugarExpedicion()%></option>
                                                             <%
                                                                 LugarExpedicionDAO lugarDAO = new LugarExpedicionDAO();
                                                                 for (LugarExpedicionVO lugarVO : lugarDAO.Listar()) {
@@ -112,7 +116,7 @@
                                                         <label>Estado</label>
 
                                                         <select required="" name="txtEstado" class="form-control" >
-                                                            <option selected value="<%=empVO.getEstado()%>"><%=empVO.getEstado()%></option>
+                                                            <option selected value="<%=empIds.getEstado()%>"><%=empVO.getEstado()%></option>
                                                             <option value="1">Activo</option>
                                                             <option value="0">inactivo</option>
 
@@ -128,7 +132,11 @@
                                         <% } else {
                                                 request.getRequestDispatcher("ConsultarEmpleado.jsp").forward(request, response);
                                             }
-                                            %>
+                                        %>
+                                        <% } else {
+                                                request.getRequestDispatcher("ConsultarEmpleado.jsp").forward(request, response);
+                                            }
+                                        %>
 
                                     </div>
                                 </div>

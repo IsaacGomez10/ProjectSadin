@@ -67,12 +67,14 @@ public class cargarDatos extends HttpServlet {
                         request.setAttribute("MensajeExito", "Los datos principales se han cargado correctamente, continue la operación");
                         request.getRequestDispatcher("cargaContrato.jsp").forward(request, response);
                     } else {
-                        request.setAttribute("MensajeError", "Error");
+                        request.setAttribute("MensajeError", "El archivo no coincide con lo requerido");
                         request.getRequestDispatcher("cargarDatos.jsp").forward(request, response);
                     }
 
                 } catch (SQLException e) {
                 }
+                request.setAttribute("MensajeError", "El archivo no coincide con lo requerido");
+                request.getRequestDispatcher("cargarDatos.jsp").forward(request, response);
                 break;
         }
 

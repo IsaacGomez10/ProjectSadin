@@ -60,7 +60,6 @@ public class CargaMasivaContratoControlador extends HttpServlet {
 
         int opcion = Integer.parseInt(request.getParameter("opcion"));
 
-        
         switch (opcion) {
 
             case 1://Guardar CSV
@@ -71,12 +70,14 @@ public class CargaMasivaContratoControlador extends HttpServlet {
                         request.setAttribute("MensajeExito", "Los datos se han cargado correctamente");
                         request.getRequestDispatcher("cargarDatos.jsp").forward(request, response);
                     } else {
-                        request.setAttribute("MensajeError", "Error");
+                        request.setAttribute("MensajeError", "El archivo no coincide con lo requerido");
                         request.getRequestDispatcher("cargaContrato.jsp").forward(request, response);
                     }
 
-                }catch (SQLException e) {
+                } catch (SQLException e) {
                 }
+                request.setAttribute("MensajeError", "El archivo no coincide con lo requerido");
+                request.getRequestDispatcher("cargaContrato.jsp").forward(request, response);
                 break;
         }
     }

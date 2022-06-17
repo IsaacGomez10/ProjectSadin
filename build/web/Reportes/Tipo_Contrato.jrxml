@@ -66,21 +66,14 @@ where e.idempleado = $P{numeroDocumento}]]>
 	<detail>
 		<band height="322" splitType="Stretch">
 			<textField>
-				<reportElement x="19" y="0" width="537" height="110" uuid="8bdee6f6-6024-4129-9e47-81eb3fdcfee7"/>
+				<reportElement x="19" y="0" width="537" height="131" uuid="8bdee6f6-6024-4129-9e47-81eb3fdcfee7"/>
 				<textElement textAlignment="Justified" markup="html">
 					<font fontName="Arial" size="12"/>
 				</textElement>
-				<textFieldExpression><![CDATA["Una vez revisados los datos que reposan en la historia laboral de <b>" + $F{concat(e.Nombres, ' ',e.Apellidos)} + "</b>, identificado con" + $F{tipodocumento} + " número " + $F{numerodocumento} + " expedida en " + $F{LugarExpedicion} + ", se encuentra vinculado a esta empresa por medio de un contrato " +  $F{Contrato} + ", como " + $F{NombreCargo} + " en la jornada " + $F{Jornada} + ",con horario de " + $F{HorarioLaboral}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["Una vez revisados los datos que reposan en la historia laboral de <b>" + $F{concat(e.Nombres, ' ',e.Apellidos)} + "</b>, identificado con " + $F{tipodocumento} + " número " + $F{numerodocumento} + " expedida en " + $F{LugarExpedicion} + ", se encuentra vinculado a esta empresa por medio de un contrato " +  $F{Contrato} + ", como " + $F{NombreCargo} + " en la jornada " + $F{Jornada} + ", con horario de " + $F{HorarioLaboral}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="19" y="94" width="540" height="36" uuid="8c93773f-83f1-46cc-9204-71f1277b87e2"/>
-				<textElement textAlignment="Justified" markup="html">
-					<font fontName="Arial" size="12"/>
-				</textElement>
-				<text><![CDATA[La presente constancia se expide en Bogotá fecha, por solicitud del depende si está ativo o no, con destino a: <b>QUIEN INTERESE</b>]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="19" y="151" width="100" height="20" uuid="b03e29d9-b31f-43cd-9dcc-53bea8533299"/>
+				<reportElement x="19" y="175" width="100" height="20" uuid="b03e29d9-b31f-43cd-9dcc-53bea8533299"/>
 				<textElement>
 					<font fontName="Arial" size="12"/>
 				</textElement>
@@ -100,6 +93,13 @@ where e.idempleado = $P{numeroDocumento}]]>
 				</textElement>
 				<text><![CDATA[Cristiano Ronaldo Dos Santos Aveiro]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="19" y="121" width="536" height="113" uuid="91744267-37aa-4575-bd6d-89f00969e27b"/>
+				<textElement markup="html">
+					<font fontName="Arial" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA["La presente constancia se expide en Bogotá D.C., "+ new SimpleDateFormat(" 'a los 'dd ' días de 'MMMM ' del ' yyyy").format(new Date()) +", por solicitud del empleado, con destino a: <b>QUIEN INTERESE</b>"]]></textFieldExpression>
+			</textField>
 		</band>
 	</detail>
 	<pageFooter>
