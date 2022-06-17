@@ -44,7 +44,6 @@
             </a>
             <div class="collapse" id="auth">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="#"> Perfil </a></li>
                     <li class="nav-item"> <a class="nav-link" href="cambiarContraseña.jsp"> Cambiar contraseña </a>
                     </li>
                 </ul>

@@ -281,6 +281,34 @@ public class EmpleadoDAO extends Conexion implements Crud {
         return operacion;
     }
 
+    public EmpleadoVO actualizarDatos(String documento) {
+
+        EmpleadoVO empVO = null;
+
+        try {
+            conexion = this.obtenerConexion();
+            sql = "select e.nombres,e.apellidos,td.tipodocumento,e.numerodocumento,e.telefono,e.email,le.lugarexpedicion,e.estado from empleado e inner join lugarexpedicion le on e.IdLugarExpedicion = le.IdLugarExpedicion inner join tipodocumento td on e.IdTipoDocumento = td.IdTipoDocumento where e.NumeroDocumento = ?";
+            puente = conexion.prepareStatement(sql);
+            puente.setString(1, documento);
+            mensajero = puente.executeQuery();
+
+            while (mensajero.next()) {
+                empVO = new EmpleadoVO(mensajero.getString(1),mensajero.getString("e.nombres"), mensajero.getString("e.apellidos"), mensajero.getString("td.tipodocumento"), mensajero.getString("e.numerodocumento"), mensajero.getString("e.telefono"), mensajero.getString("e.email"), mensajero.getString("le.lugarexpedicion"), mensajero.getString("e.estado"));
+            }
+
+        } catch (SQLException e) {
+            Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
+        } finally {
+            try {
+                this.cerrarConexion();
+            } catch (SQLException e) {
+                Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
+            }
+        }
+
+        return empVO;
+    }
+
     //Listar empleados con sus datos
     public ArrayList<EmpleadoVO> obtenerEmpleados() {
         ArrayList<EmpleadoVO> listaEmpleados = new ArrayList<>();
@@ -295,7 +323,7 @@ public class EmpleadoDAO extends Conexion implements Crud {
 
             while (mensajero.next()) {
                 EmpleadoVO empVO = new EmpleadoVO();
-                
+
                 empVO.setNombres(mensajero.getString("nombres"));
                 empVO.setApellidos(mensajero.getString("apellidos"));
                 empVO.setIdTipoDocumento(mensajero.getString("tipodocumento"));
@@ -318,5 +346,5 @@ public class EmpleadoDAO extends Conexion implements Crud {
         }
         return listaEmpleados;
     }
-    
+
 }

@@ -145,7 +145,8 @@ public class FuncionarioControlador extends HttpServlet {
                         miSesion.setAttribute("datosEmpleado", empVO);
                         miSesion.setAttribute("datosEmpleadoRegistrado", empVO);
                         miSesion.setAttribute("datosFuncionario", funVO);
-
+                        
+                        request.setAttribute("MensajeExito", "Ingreso Correctamente");
                         request.getRequestDispatcher("menu.jsp").forward(request, response);
 
                     } else {
@@ -159,7 +160,7 @@ public class FuncionarioControlador extends HttpServlet {
                 break;
             case 4://Olvidaste la contraseña
                 if (funDAO.estadoEmpleado(Usuario) == 1) {
-                empVO = empDAO.consultarEmpleados(Usuario);
+                    empVO = empDAO.consultarEmpleados(Usuario);
 
                     if (empVO != null) {
                         String PasswordEmp = funDAO.GenerarContraseña();

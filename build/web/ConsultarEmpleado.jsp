@@ -45,18 +45,19 @@
                                 <p class="card-description">
                                     Busque el empleado por su número de documento
                                 </p>
-                                <form method="post" action="Empleado" class="form-sample">
-                                    <div class="input-group">
-                                        <div class="col-md-4">
-                                            <label>Número de documento</label>
-                                            <input id="buscarDocumento" type="text" onKeypress="if (event.keyCode < 45 || event.keyCode > 57)
+                                <div class="form-group">
+                                    <div class="col-4">
+                                        <label>Número de documento</label>
+                                        <input id="buscarDocumento" type="text" onKeypress="if (event.keyCode < 45 || event.keyCode > 57)
                                                         event.returnValue = false;" maxlength="14" onkeyup="doSearch()" placeholder="Ingrese documento"  class="form-control"/>
-                                        </div>
                                     </div>
+                                </div>
+                                <form method="post" action="Empleado" class="form-sample">
+                                    
                                     <div class="row">
                                         <div class="col-12">
                                             <div class="table-responsive">
-                                                <table class="table" id="datos" number-per-page="10" current-page="">
+                                                <table class="table table-hover table-bordered" id="datos" number-per-page="10" current-page="">
                                                     <thead>
                                                         <tr>
                                                             <th>Nombres</th>
@@ -86,7 +87,7 @@
                                                             <form method="post" action="Empleado">
                                                                 <input name="txtNumeroDocumento" type="hidden" value="<%= empVO.getNumeroDocumento()%>">         
                                                                 <button class="btn btn-inverse-info btn-icon"><i class="ti-pencil"></i></button>
-                                                                <input type="hidden" value="3" name="opcion">
+                                                                <input type="hidden" value="4" name="opcion">
                                                             </form>
                                                         </td>
                                                         <% }%>
