@@ -47,7 +47,6 @@ public class SolicitudControlador extends HttpServlet {
         switch (opcion) {
 
             case 1://consultar por numero de documento
-
                 if (solDAO.estadoEmpleado(NumeroDocumento) == 1) {
 
                     solVO = solDAO.SolicitarCertificado(NumeroDocumento);

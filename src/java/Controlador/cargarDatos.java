@@ -73,8 +73,7 @@ public class cargarDatos extends HttpServlet {
 
                 } catch (SQLException e) {
                 }
-                request.setAttribute("MensajeError", "El archivo no coincide con lo requerido");
-                request.getRequestDispatcher("cargarDatos.jsp").forward(request, response);
+                request.getRequestDispatcher("cargaContrato.jsp").forward(request, response);
                 break;
         }
 

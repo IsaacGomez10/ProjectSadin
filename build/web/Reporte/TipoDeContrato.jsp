@@ -1,9 +1,3 @@
-<%-- 
-    Document   : TipoDeContratoCodigo
-    Created on : May 12, 2022, 8:35:52 AM
-    Author     : isaac
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <%@ page import="net.sf.jasperreports.engine.*" %> 
@@ -33,5 +27,6 @@ reporte solo nos pide un parametro*/
     response.setContentLength(bytes.length);
     ServletOutputStream ouputStream = response.getOutputStream();
     ouputStream.write(bytes, 0, bytes.length);
-    /*Limpiamos y cerramos flujos de salida*/ ouputStream.flush();
+    /*Limpiamos y cerramos flujos de salida*/ 
+    ouputStream.flush();
     ouputStream.close(); %>

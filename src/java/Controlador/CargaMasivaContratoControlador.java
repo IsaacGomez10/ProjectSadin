@@ -68,7 +68,7 @@ public class CargaMasivaContratoControlador extends HttpServlet {
                 try {
                     if (conDAO.cargarContrato(rutaAbsoluta) == true) {
                         request.setAttribute("MensajeExito", "Los datos se han cargado correctamente");
-                        request.getRequestDispatcher("cargarDatos.jsp").forward(request, response);
+                        request.getRequestDispatcher("cargaDatos.jsp").forward(request, response);
                     } else {
                         request.setAttribute("MensajeError", "El archivo no coincide con lo requerido");
                         request.getRequestDispatcher("cargaContrato.jsp").forward(request, response);
@@ -76,8 +76,7 @@ public class CargaMasivaContratoControlador extends HttpServlet {
 
                 } catch (SQLException e) {
                 }
-                request.setAttribute("MensajeError", "El archivo no coincide con lo requerido");
-                request.getRequestDispatcher("cargaContrato.jsp").forward(request, response);
+                request.getRequestDispatcher("cargarDatos.jsp").forward(request, response);
                 break;
         }
     }

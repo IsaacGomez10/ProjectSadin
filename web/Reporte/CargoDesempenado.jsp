@@ -20,7 +20,7 @@
 <%
     
 
-    /*Importamos la clase "Conexion_Postgresql" y la instanciamos por el nombre conexion
+    /*Importamos la clase "Conexion_Mysql" y la instanciamos por el nombre conexion
 con la siguiente linea de codigo*/
     Conexion conexion = new Conexion();
     /*Establecemos la ruta del reporte*/
@@ -40,7 +40,7 @@ reporte solo nos pide un parametro*/
     byte[] bytes = JasperRunManager.runReportToPdf(reportFile.getPath(), parameters, conexion.obtenerConexion());
     /*Indicamos que la respuesta va a ser en formato PDF*/
     response.setContentType("application/pdf");
-
+    
     response.setContentLength(bytes.length);
     ServletOutputStream ouputStream = response.getOutputStream();
     ouputStream.write(bytes, 0, bytes.length);

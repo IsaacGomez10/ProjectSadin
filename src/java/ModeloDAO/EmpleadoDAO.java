@@ -393,6 +393,27 @@ public class EmpleadoDAO extends Conexion implements Crud {
 
         return conteoEmpleados;
     }
+    public int contarEmpleadosInactivos() {
+
+        try {
+            //La sentencia sql permite bucar si el dato que se ingreso ya lo tiene un id
+            conexion = this.obtenerConexion();
+            sql = "select count(idempleado) from empleado where estado = 0";
+            puente = conexion.prepareStatement(sql);
+            mensajero = puente.executeQuery();
+
+            if (mensajero.next()) {
+                //Si ese dato fue encontrado y pertenece a un id, el dato no podra ser registrado
+                return conteoEmpleados = mensajero.getInt(1);
+            }
+            //Finalmente se retorna que el dato se encuentra en un id
+
+        } catch (Exception e) {
+            Logger.getLogger(EmpleadoDAO.class.getName()).log(Level.SEVERE, null, e);
+        }
+
+        return conteoEmpleados;
+    }
     
     public int contarFuncionarios() {
 
